@@ -276,7 +276,7 @@ export function DraggableCollage({
           <div
             key={i}
             {...{ [COLLAGE_PHOTO_ATTR]: "" }}
-            className="pointer-events-auto absolute left-0 top-0 cursor-grab touch-none select-none transition-opacity duration-[600ms] ease-out will-change-transform active:cursor-grabbing"
+            className="pointer-events-none md:pointer-events-auto absolute left-0 top-0 cursor-grab touch-none select-none transition-opacity duration-[600ms] ease-out will-change-transform active:cursor-grabbing"
             style={{
               width: p.width,
               height: p.height,

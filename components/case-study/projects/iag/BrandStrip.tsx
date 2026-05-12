@@ -49,7 +49,7 @@ const BRAND_TILES = [
 function Dock({ pinned = false }: { pinned?: boolean }) {
   return (
     <div
-      className={`flex w-fit items-end gap-2 rounded-[24px] bg-[#0f0f0f] px-4 py-3 sm:gap-3 md:px-5 ${
+      className={`flex w-fit items-end gap-3 rounded-[24px] bg-[#0f0f0f] px-4 py-3 md:px-5 ${
         pinned ? "shadow-[0_20px_48px_-12px_rgba(0,0,0,0.6)]" : "mx-auto"
       }`}
     >

@@ -255,7 +255,7 @@ export function IAG() {
               <SectionHeading>Solution</SectionHeading>
               <BodyParagraph className="mt-6 max-w-[662px]">
                 A tokenised foundation, a shared AEM component library, and a
-                hybrid governance model — validated end-to-end on the NRMA
+                hybrid governance model, validated end-to-end on the NRMA
                 Home Loans redesign so every following brand had a
                 derisked, production-proven path to adopt the system.
               </BodyParagraph>
@@ -417,7 +417,7 @@ export function IAG() {
         <Container>
           <FadeReveal y={20}>
             <SectionHeading>
-              Design System – Strategy &amp; Implementation
+              Design System: Strategy &amp; Implementation
             </SectionHeading>
             <BodyParagraph className="mt-5 max-w-[914px]">
               <p>
@@ -439,7 +439,7 @@ export function IAG() {
                     inconsistencies
                   </li>
                   <li>
-                    Defined a unified library of reusable components — forms
+                    Defined a unified library of reusable components including forms
                     and inputs, coverage and comparison cards, calls-to-action
                     and modules
                   </li>
@@ -747,7 +747,7 @@ export function IAG() {
                 <div className="mt-[80px] max-w-[764px]">
                   <h2 className="font-accent text-[20px] leading-tight md:text-[24px]">
                     <span className="bg-accent-neon px-[0.1em] py-[0.08em] text-white [box-decoration-break:clone] [-webkit-box-decoration-break:clone]">
-                      Breather – the team behind the system
+                      Breather: the team behind the system
                     </span>
                   </h2>
                   <div className="font-accent mt-5 space-y-4 text-[17px] leading-[1.7] md:text-[19px]">
@@ -756,7 +756,7 @@ export function IAG() {
                         The image on the right is a poster I created for our
                         Slalom × IAG crew. We were a 40+ blended squad of
                         internal teams, vendors and contractors, but day to
-                        day we operated as small, focused PODs — ours was
+                        day we operated as small, focused PODs; ours was
                         nicknamed Thunderbolts. I designed this as a playful
                         way to set the tone for how we worked together: open,
                         collaborative and a bit nerdy. It gave people

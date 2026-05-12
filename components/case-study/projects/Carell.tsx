@@ -225,7 +225,7 @@ export function Carell() {
                   <p>
                     Carell is a mobile-first operations platform for joinery
                     manufacturers and installation teams. I led the UX/UI design
-                    end-to-end — from on-site research through to a
+                    end-to-end, from on-site research through to a
                     high-fidelity prototype the team could test, validate, and
                     hand to engineering. The brief was to take a coordination
                     problem stitched together by spreadsheets, phone calls, and
@@ -257,7 +257,7 @@ export function Carell() {
                     <p>
                       A unified mobile platform that connects production,
                       shipping, and installation under one source of truth.
-                      Designed for the conditions the work actually happens in —
+                      Designed for the conditions the work actually happens in:
                       dusty workshops, noisy sites, gloves on, and sun on the
                       screen.
                     </p>
@@ -330,7 +330,7 @@ export function Carell() {
               </ul>
               <p className="mt-6">
                 These principles shaped a product that feels fast, grounded, and
-                built for real-world environments — dusty workshops, noisy
+                built for real-world environments: dusty workshops, noisy
                 sites, and teams always on the move.
               </p>
             </BodyParagraph>
@@ -481,7 +481,7 @@ export function Carell() {
             <BodyParagraph className="mt-5 max-w-[914px]">
               <p>
                 Carell moved from concept to a tested, high-fidelity prototype
-                in 21 weeks — validated with the joinery and installation teams
+                in 21 weeks, validated with the joinery and installation teams
                 it was built for. The early signal: faster quotes, clearer
                 ownership, and a measurable lift in the moments that drive
                 conversion.

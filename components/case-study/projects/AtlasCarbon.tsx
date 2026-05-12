@@ -273,14 +273,14 @@ export function AtlasCarbon() {
                   <BodyParagraph className="mt-5 max-w-[662px]">
                     <p className="mb-4">
                       Maia struggled with adoption despite strong
-                      product–market fit. New users found the depth of
+                      product-market fit. New users found the depth of
                       capability overwhelming; long-term customers had built
                       workarounds for inconsistent UI; and decisions in the
                       paddock took longer than they should.
                     </p>
                     <p>
                       The core question we needed to answer was whether
-                      simplifying the surface — without removing power — could
+                      simplifying the surface without removing power, could
                       materially shift activation and trust.
                     </p>
                   </BodyParagraph>
@@ -298,7 +298,7 @@ export function AtlasCarbon() {
                     </p>
                     <p>
                       Guidance for new users sits next to power tools for
-                      experienced ones — without requiring re-onboarding. The
+                      experienced ones, with no re-onboarding required. The
                       result is a product that earns trust quickly and grows
                       with the operator.
                     </p>
