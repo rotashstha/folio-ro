@@ -1,7 +1,7 @@
 import type { Metadata } from "next";
 import { Header } from "@/components/layout/Header";
 import { SmoothScroller } from "@/components/layout/SmoothScroller";
-import { CustomCursor } from "@/components/ui/CustomCursor";
+import { CollaborativeCursor } from "@/components/ui/collaborative-cursor";
 import {
   elza,
   gallient,
@@ -32,7 +32,7 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
   return (
     <html lang="en" className={fontVars}>
       <body suppressHydrationWarning className="bg-ink font-body text-paper antialiased">
-        <CustomCursor />
+        <CollaborativeCursor />
         <SmoothScroller>
           <Header />
           <main id="main">{children}</main>
