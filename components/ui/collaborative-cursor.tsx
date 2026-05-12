@@ -32,7 +32,7 @@ const Sn = [
 const SS = 4e-4;
 
 /** Lerp factor for scroll-targeted mode per rAF tick */
-const ap = 0.04;
+const ap = 0.1;
 
 /**
  * data-cursor-target values the scroll-targeted cursor can snap to.
@@ -226,17 +226,30 @@ export function RotashCursor({
       return;
     }
     refreshTargetCache();
+
+    // Snap to target immediately so mode-switch doesn't lerp from stale autonomous position
+    const initialEl = lp();
+    if (initialEl) {
+      const r = initialEl.getBoundingClientRect();
+      const snap = { x: r.right + 12, y: r.top + 4 };
+      posRef.current = snap;
+      setPos(snap);
+    }
+
     const tick = () => {
       const el = lp();
       if (el) {
         const rect = el.getBoundingClientRect();
         const cur = posRef.current;
-        const next = {
-          x: cur.x + (rect.right + 12 - cur.x) * ap,
-          y: cur.y + (rect.top + 4 - cur.y) * ap,
-        };
-        posRef.current = next;
-        setPos(next);
+        const tx = rect.right + 12;
+        const ty = rect.top + 4;
+        const dx = tx - cur.x;
+        const dy = ty - cur.y;
+        if (Math.abs(dx) > 0.3 || Math.abs(dy) > 0.3) {
+          const next = { x: cur.x + dx * ap, y: cur.y + dy * ap };
+          posRef.current = next;
+          setPos(next);
+        }
       }
       rafRef.current = requestAnimationFrame(tick);
     };
