@@ -325,7 +325,6 @@ export function YouCursor({
  */
 export function CollaborativeCursor() {
   const isMobile = useIsMobile();
-  const [heroEl, setHeroEl] = useState<HTMLElement | null>(null);
   const [mode, setMode] = useState<"autonomous" | "scroll-targeted">(
     "autonomous"
   );
@@ -348,29 +347,31 @@ export function CollaborativeCursor() {
     };
   }, [isMobile]);
 
-  // Find #hero for scroll-based mode switching (re-runs on route change)
+  // Find #hero and attach scroll listener in one effect — avoids the two-render-cycle
+  // race from chaining heroEl state into a second effect. Initial mode check is deferred
+  // one rAF to let SmoothScroller's Lenis scroll-reset land before we read scrollY.
   useEffect(() => {
     if (isMobile) return;
     const hero = document.getElementById("hero") as HTMLElement | null;
-    setHeroEl(hero);
-    if (!hero) setMode("scroll-targeted");
-  }, [isMobile, pathname]);
-
-
-
-  // Switch RotashCursor mode when hero scrolls out of view
-  useEffect(() => {
-    if (isMobile || !heroEl) return;
+    if (!hero) {
+      setMode("scroll-targeted");
+      return;
+    }
     const handleScroll = () => {
-      const rect = heroEl.getBoundingClientRect();
-      const threshold = window.innerHeight * MODE_SWITCH_THRESHOLD;
-      const next = rect.bottom > threshold ? "autonomous" : "scroll-targeted";
+      const rect = hero.getBoundingClientRect();
+      const next =
+        rect.bottom > window.innerHeight * MODE_SWITCH_THRESHOLD
+          ? "autonomous"
+          : "scroll-targeted";
       setMode((prev) => (prev === next ? prev : next));
     };
     window.addEventListener("scroll", handleScroll, { passive: true });
-    handleScroll();
-    return () => window.removeEventListener("scroll", handleScroll);
-  }, [isMobile, heroEl]);
+    const raf = requestAnimationFrame(handleScroll);
+    return () => {
+      cancelAnimationFrame(raf);
+      window.removeEventListener("scroll", handleScroll);
+    };
+  }, [isMobile, pathname]);
 
   // data-cursor-trigger hover labels for YouCursor
   useEffect(() => {
