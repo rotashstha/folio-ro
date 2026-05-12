@@ -1,0 +1,8 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 600" role="img" aria-label="Project thumbnail placeholder">
+  <rect width="800" height="600" fill="#1a1a1a"/>
+  <g fill="none" stroke="#2d2d2d" stroke-width="1">
+    <path d="M0 150h800M0 300h800M0 450h800M150 0v600M300 0v600M450 0v600M600 0v600"/>
+  </g>
+  <circle cx="400" cy="300" r="120" fill="#c80aa7" opacity="0.18"/>
+  <text x="400" y="310" text-anchor="middle" fill="#fafafa" font-family="system-ui, sans-serif" font-size="36" font-weight="600">placeholder</text>
+</svg>
