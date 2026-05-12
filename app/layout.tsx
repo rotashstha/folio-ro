@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
 import { Header } from "@/components/layout/Header";
+import { PageTransition } from "@/components/layout/PageTransition";
 import { SmoothScroller } from "@/components/layout/SmoothScroller";
 import { CollaborativeCursor } from "@/components/ui/collaborative-cursor";
 import { PageLoader } from "@/components/ui/PageLoader";
@@ -37,7 +38,9 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
         <CollaborativeCursor />
         <SmoothScroller>
           <Header />
-          <main id="main">{children}</main>
+          <main id="main">
+            <PageTransition>{children}</PageTransition>
+          </main>
         </SmoothScroller>
       </body>
     </html>

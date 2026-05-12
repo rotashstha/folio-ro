@@ -2,10 +2,11 @@
 
 import Link from "next/link";
 import { useCallback } from "react";
-import { usePathname } from "next/navigation";
+import { usePathname, useRouter } from "next/navigation";
 import { useHeaderTheme } from "@/hooks/useHeaderTheme";
 import { useReducedMotion } from "@/hooks/useReducedMotion";
 import { scrollToElement } from "@/lib/lenis-instance";
+import { gsap } from "@/lib/animation/gsap-bridge";
 
 export interface HeaderProps {
   resumeHref?: string;
@@ -18,9 +19,30 @@ export function Header({ resumeHref = RESUME_HREF }: HeaderProps) {
   const theme = useHeaderTheme();
   const reduced = useReducedMotion();
   const pathname = usePathname();
+  const router = useRouter();
 
   const isDark = theme === "dark";
   const transition = reduced ? "none" : "color 0.4s ease, filter 0.4s ease";
+
+  const handleLogoClick = useCallback(
+    (e: React.MouseEvent<HTMLAnchorElement>) => {
+      if (pathname === "/") return;
+      e.preventDefault();
+      const content = document.getElementById("page-content");
+      if (!reduced && content) {
+        gsap.to(content, {
+          opacity: 0,
+          y: -20,
+          duration: 0.35,
+          ease: "power2.in",
+          onComplete: () => router.push("/"),
+        });
+      } else {
+        router.push("/");
+      }
+    },
+    [pathname, reduced, router]
+  );
 
   const handlePortfolioClick = useCallback(
     (e: React.MouseEvent<HTMLAnchorElement>) => {
@@ -39,6 +61,7 @@ export function Header({ resumeHref = RESUME_HREF }: HeaderProps) {
       >
         <Link
           href="/"
+          onClick={handleLogoClick}
           aria-label="Rotash Shrestha — homepage"
           className="block"
         >
