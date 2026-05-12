@@ -15,7 +15,7 @@ export interface HeroProps {
 
 export function Hero({
   name = "Rotash Shrestha",
-  emphasis = "Lead product designer at Slalom.",
+  emphasis = "Lead product designer at DEPT® Agency.",
   intro = "12+ Years shipping B2C Websites, ERPs, DXR projects as Design Lead. I help teams find the sharpest problem, then ship the cleanest solution.",
 }: HeroProps) {
   const sectionRef = useRef<HTMLElement>(null);
