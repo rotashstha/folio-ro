@@ -13,17 +13,17 @@ const config: NextConfig = {
   async headers() {
     return [
       {
+        // Specific rule first — hashed static assets cached forever
+        source: "/_next/static/:path*",
+        headers: [
+          { key: "Cache-Control", value: "public, max-age=31536000, immutable" },
+        ],
+      },
+      {
         // HTML pages — always revalidate so deploys are picked up immediately
         source: "/:path*",
         headers: [
           { key: "Cache-Control", value: "no-cache" },
-        ],
-      },
-      {
-        // Hashed static assets — safe to cache forever
-        source: "/_next/static/:path*",
-        headers: [
-          { key: "Cache-Control", value: "public, max-age=31536000, immutable" },
         ],
       },
     ];

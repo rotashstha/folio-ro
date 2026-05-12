@@ -30,6 +30,7 @@ export function Header({ resumeHref = RESUME_HREF }: HeaderProps) {
       e.preventDefault();
       const content = document.getElementById("page-content");
       if (!reduced && content) {
+        gsap.killTweensOf(content);
         gsap.to(content, {
           opacity: 0,
           y: -20,

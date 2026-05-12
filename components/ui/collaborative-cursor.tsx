@@ -174,6 +174,7 @@ export function RotashCursor({
   const posRef = useRef({ x: 0, y: 0 });
   const indexRef = useRef(0);
   const rafRef = useRef(0);
+  const convergedRef = useRef(false);
 
   const prefersReducedMotion =
     typeof window !== "undefined" &&
@@ -226,6 +227,7 @@ export function RotashCursor({
       return;
     }
     refreshTargetCache();
+    convergedRef.current = false;
 
     // Snap to target immediately so mode-switch doesn't lerp from stale autonomous position
     const initialEl = lp();
@@ -249,12 +251,27 @@ export function RotashCursor({
           const next = { x: cur.x + dx * ap, y: cur.y + dy * ap };
           posRef.current = next;
           setPos(next);
+        } else {
+          // Cursor has reached target — pause the loop until next scroll
+          convergedRef.current = true;
+          return;
         }
       }
       rafRef.current = requestAnimationFrame(tick);
     };
     rafRef.current = requestAnimationFrame(tick);
-    return () => cancelAnimationFrame(rafRef.current);
+
+    const onScroll = () => {
+      if (convergedRef.current) {
+        convergedRef.current = false;
+        rafRef.current = requestAnimationFrame(tick);
+      }
+    };
+    window.addEventListener("scroll", onScroll, { passive: true });
+    return () => {
+      cancelAnimationFrame(rafRef.current);
+      window.removeEventListener("scroll", onScroll);
+    };
   }, [mode, prefersReducedMotion]);
 
   return (

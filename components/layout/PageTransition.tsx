@@ -13,26 +13,21 @@ export function PageTransition({ children }: { children: React.ReactNode }) {
   const reduced = useReducedMotion();
 
   useEffect(() => {
-    if (!ref.current) return;
-    // Skip on first load — PageLoader + Hero handle initial reveal
-    if (typeof window === "undefined" || !window.__portfolioLoaded) return;
+    const el = ref.current;
+    if (!el || !window.__portfolioLoaded) return;
 
-    if (pathname === HOME_PATH) {
-      // Reset opacity so Hero's own animations take over cleanly
-      gsap.set(ref.current, { opacity: 1, y: 0 });
+    // Reset opacity so Hero's own animations take over, or skip animation for reduced motion
+    if (pathname === HOME_PATH || reduced) {
+      gsap.set(el, { opacity: 1, y: 0 });
       return;
     }
 
-    if (reduced) {
-      gsap.set(ref.current, { opacity: 1, y: 0 });
-      return;
-    }
-
-    gsap.fromTo(
-      ref.current,
+    const tween = gsap.fromTo(
+      el,
       { opacity: 0, y: 20 },
       { opacity: 1, y: 0, duration: 0.55, ease: "power2.out", clearProps: "all" }
     );
+    return () => { tween.kill(); };
   }, [pathname, reduced]);
 
   return (
