@@ -47,6 +47,7 @@ const ES = [
 ];
 
 const MOBILE_BREAKPOINT = 768;
+const HOME_PATH = "/";
 
 /**
  * Fraction of the viewport height remaining above the hero's bottom edge
@@ -138,13 +139,20 @@ export function useMouseCursor(containerRef?: RefObject<HTMLElement | null>) {
 
 // ─── lp() — nearest data-cursor-target to viewport centre ────────────────────
 
+let cachedTargets: Element[] = [];
+
+function refreshTargetCache() {
+  cachedTargets = ES.flatMap((name) => {
+    const el = document.querySelector(`[data-cursor-target="${name}"]`);
+    return el ? [el] : [];
+  });
+}
+
 function lp(): Element | null {
   const centre = window.innerHeight / 2;
   let closest: Element | null = null;
   let minDist = Infinity;
-  for (const name of ES) {
-    const el = document.querySelector(`[data-cursor-target="${name}"]`);
-    if (!el) continue;
+  for (const el of cachedTargets) {
     const rect = el.getBoundingClientRect();
     const dist = Math.abs((rect.top + rect.bottom) / 2 - centre);
     if (dist < minDist) {
@@ -217,6 +225,7 @@ export function RotashCursor({
       }
       return;
     }
+    refreshTargetCache();
     const tick = () => {
       const el = lp();
       if (el) {
@@ -317,6 +326,8 @@ export function CollaborativeCursor() {
     if (!hero) setMode("scroll-targeted");
   }, [isMobile, pathname]);
 
+
+
   // Switch RotashCursor mode when hero scrolls out of view
   useEffect(() => {
     if (isMobile || !heroEl) return;
@@ -361,7 +372,7 @@ export function CollaborativeCursor() {
 
   return (
     <>
-      <RotashCursor mode={mode} />
+      {pathname === HOME_PATH && <RotashCursor mode={mode} />}
       <YouCursor showArrow={!triggerLabel} label={triggerLabel ?? "You"} />
     </>
   );

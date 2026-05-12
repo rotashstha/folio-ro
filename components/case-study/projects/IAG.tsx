@@ -623,7 +623,7 @@ export function IAG() {
                 style={{ aspectRatio: "1557 / 1530" }}
               >
                 <Image
-                  src="/images/work/iag/governance-2.png"
+                  src="/images/work/iag/governance-2.jpg"
                   alt="Governance artefacts — design system governance models, token change process, breakpoint annotations, design change map and token structure"
                   fill
                   sizes="(min-width: 1280px) 1556px, 100vw"

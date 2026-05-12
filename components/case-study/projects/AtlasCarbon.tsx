@@ -677,7 +677,7 @@ export function AtlasCarbon() {
                 style={{ aspectRatio: "4668 / 2658" }}
               >
                 <Image
-                  src="/images/work/atlas-carbon/leveraging-ai.png"
+                  src="/images/work/atlas-carbon/leveraging-ai-2.jpg"
                   alt="Leveraging AI — Cursor and Xcode 26 prototyping workflow alongside ChatGPT exploration"
                   fill
                   sizes="(min-width: 1280px) 1726px, 100vw"

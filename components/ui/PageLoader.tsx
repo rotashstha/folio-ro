@@ -25,6 +25,8 @@ export function PageLoader() {
     }
 
     let intervalId: ReturnType<typeof setInterval> | null = null;
+    let dispatchTimeout: ReturnType<typeof setTimeout> | null = null;
+    let count = 0;
     const tweens: ReturnType<typeof GsapType.to>[] = [];
 
     tweens.push(
@@ -35,9 +37,8 @@ export function PageLoader() {
         delay: 0.3,
         onComplete: () => {
           intervalId = setInterval(() => {
-            const next = parseInt(counterEl.textContent ?? "0") + 1;
-            counterEl.textContent = String(next);
-            if (next >= 100) {
+            counterEl.textContent = String(++count);
+            if (count >= 100) {
               if (intervalId) clearInterval(intervalId);
               setTimeout(() => {
                 tweens.push(
@@ -46,7 +47,7 @@ export function PageLoader() {
                     duration: 0.8,
                     ease: "power3.inOut",
                     onStart: () => {
-                      setTimeout(() => {
+                      dispatchTimeout = setTimeout(() => {
                         window.__portfolioLoaded = true;
                         window.dispatchEvent(new CustomEvent("portfolio-loaded"));
                       }, 300);
@@ -71,6 +72,7 @@ export function PageLoader() {
 
     return () => {
       if (intervalId) clearInterval(intervalId);
+      if (dispatchTimeout) clearTimeout(dispatchTimeout);
       tweens.forEach((t) => t.kill());
     };
   }, [reduced]);
@@ -86,7 +88,7 @@ export function PageLoader() {
       <div
         className="overflow-hidden"
         style={{
-          fontSize: "clamp(100px, 15vw, 240px)",
+          fontSize: "64px",
           lineHeight: 1,
           height: "1em",
         }}
@@ -96,6 +98,7 @@ export function PageLoader() {
           style={{
             fontSize: "inherit",
             fontFamily: "var(--font-body)",
+            fontWeight: 800,
             color: "var(--color-paper)",
             transform: "translateY(100%)",
             lineHeight: 1,
