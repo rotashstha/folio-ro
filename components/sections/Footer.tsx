@@ -1,4 +1,9 @@
+"use client";
+
 import Link from "next/link";
+import { useCallback } from "react";
+import { useReducedMotion } from "@/hooks/useReducedMotion";
+import { scrollToElement } from "@/lib/lenis-instance";
 import {
   DraggableCollage,
   type CollageImage,
@@ -18,10 +23,14 @@ export interface FooterProps {
 const defaultLinks: FooterLink[] = [
   {
     label: "Linkedin",
-    href: "https://www.linkedin.com/in/rotashshrestha",
+    href: "https://www.linkedin.com/in/rotash/",
     external: true,
   },
-  { label: "Resume", href: "/resume.pdf", external: true },
+  {
+    label: "Resume",
+    href: "https://docs.google.com/document/d/1f4EVMSNDu_NrEU4Axu0dXh3ia4vTFwXYB5Vm6wIa4no/edit?usp=sharing",
+    external: true,
+  },
 ];
 
 const collageImages: CollageImage[] = [
@@ -83,6 +92,18 @@ export function Footer({
   wordmark = "ROTASH SHRESTHA",
   links = defaultLinks,
 }: FooterProps) {
+  const reduced = useReducedMotion();
+
+  const handleBackToTop = useCallback((e: React.MouseEvent<HTMLAnchorElement>) => {
+    e.preventDefault();
+    const hero = document.getElementById("hero");
+    if (hero) {
+      scrollToElement(hero, reduced);
+    } else {
+      window.scrollTo({ top: 0, behavior: reduced ? "instant" : "smooth" });
+    }
+  }, [reduced]);
+
   return (
     <footer
       id="footer"
@@ -123,7 +144,7 @@ export function Footer({
 
       {/* Links */}
       <div className="relative z-10 mx-auto w-full max-w-[1640px] px-6 md:px-14">
-        <ul className="space-y-4 md:space-y-5">
+        <ul data-cursor-target="footer-links" className="space-y-4 md:space-y-5">
           {links.map((link) => (
             <li key={link.label}>
               {link.external ? (
@@ -156,6 +177,7 @@ export function Footer({
           </p>
           <a
             href="#hero"
+            onClick={handleBackToTop}
             className="font-body inline-flex items-center gap-3 text-[16px] text-black/60 transition-colors hover:text-black md:text-[18px]"
           >
             <ArrowUp />

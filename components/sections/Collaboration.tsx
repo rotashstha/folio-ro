@@ -107,6 +107,7 @@ export function Collaboration({
       <div className="relative mx-auto w-full max-w-[1640px] px-6 md:px-14">
         <h2
           aria-label={heading}
+          data-cursor-target="collaboration-heading"
           className="font-display select-none text-[13vw] leading-[0.85] text-white md:text-[18vw] xl:text-[300px]"
         >
           {heading}

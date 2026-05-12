@@ -24,26 +24,53 @@ export function Hero({
   const reduced = useReducedMotion();
 
   useEffect(() => {
-    if (reduced) return;
-
     const els = [typeRef.current, bodyRef.current].filter(Boolean) as HTMLElement[];
-    // Set initial state
+
+    if (reduced) {
+      els.forEach((el) => {
+        el.style.opacity = "1";
+        el.style.transform = "translateY(0)";
+      });
+      return;
+    }
+
+    const alreadyLoaded = window.__portfolioLoaded === true;
+
     els.forEach((el) => {
       el.style.opacity = "0";
       el.style.transform = "translateY(28px)";
       el.style.transition = "none";
     });
 
-    // Stagger reveal
-    const timers = els.map((el, i) =>
-      setTimeout(() => {
-        el.style.transition = `opacity 0.9s cubic-bezier(0.16,1,0.3,1) ${i * 0.15}s, transform 0.9s cubic-bezier(0.16,1,0.3,1) ${i * 0.15}s`;
-        el.style.opacity = "1";
-        el.style.transform = "translateY(0)";
-      }, 100 + i * 150)
-    );
+    const timers: ReturnType<typeof setTimeout>[] = [];
+    let rafId = 0;
 
-    return () => timers.forEach(clearTimeout);
+    const reveal = () => {
+      els.forEach((el, i) => {
+        timers.push(
+          setTimeout(() => {
+            el.style.transition = `opacity 0.9s cubic-bezier(0.16,1,0.3,1) ${i * 0.15}s, transform 0.9s cubic-bezier(0.16,1,0.3,1) ${i * 0.15}s`;
+            el.style.opacity = "1";
+            el.style.transform = "translateY(0)";
+          }, i * 150)
+        );
+      });
+    };
+
+    if (alreadyLoaded) {
+      rafId = requestAnimationFrame(reveal);
+      return () => {
+        cancelAnimationFrame(rafId);
+        timers.forEach(clearTimeout);
+      };
+    }
+
+    window.addEventListener("portfolio-loaded", reveal, { once: true });
+
+    return () => {
+      window.removeEventListener("portfolio-loaded", reveal);
+      timers.forEach(clearTimeout);
+    };
   }, [reduced]);
 
   return (

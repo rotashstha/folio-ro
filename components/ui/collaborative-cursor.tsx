@@ -1,19 +1,24 @@
 "use client";
 
 /**
- * Reverse-engineered from davidmartinsuarez.com — two-cursor system:
- *   1. RotashCursor (CS)  — purple, autonomous waypoint loop or scroll-targeted lerp
- *   2. YouCursor          — dark, follows the real mouse (globally or inside a container)
- *
- * Both are hidden below 768 px and when prefers-reduced-motion is set.
+ * Two-cursor collaborative system:
+ *   1. RotashCursor  — purple, drifts autonomously while #hero is in view,
+ *                      then lerps to the nearest data-cursor-target heading.
+ *   2. YouCursor     — dark, follows the real mouse globally.
  */
 
-import { useEffect, useRef, useState, useCallback, RefObject } from "react";
+import {
+  useEffect,
+  useRef,
+  useState,
+  useCallback,
+  RefObject,
+} from "react";
 import { usePathname } from "next/navigation";
 
 // ─── Tunable constants ────────────────────────────────────────────────────────
 
-/** Normalised {x,y} waypoints Rotash's cursor loops through (range 0–1 of viewport) */
+/** Normalised {x,y} waypoints Rotash's cursor loops through (0–1 of viewport) */
 const Sn = [
   { x: 0.7, y: 0.3 },
   { x: 0.5, y: 0.5 },
@@ -29,18 +34,26 @@ const SS = 4e-4;
 /** Lerp factor for scroll-targeted mode per rAF tick */
 const ap = 0.04;
 
-/** data-cursor-target values Rotash's cursor can snap to in scroll-targeted mode */
+/**
+ * data-cursor-target values the scroll-targeted cursor can snap to.
+ * These match the data-cursor-target attributes placed on key section headings.
+ */
 const ES = [
-  "about-row",
-  "interests-card",
-  "projects-row",
-  "contact-input",
-  "talks-row",
-  "footer-linkedin",
+  "work-heading",
+  "leadership-heading",
+  "strategy-heading",
+  "collaboration-heading",
+  "footer-links",
 ];
 
-/** Mobile breakpoint — both cursors are hidden below this width */
 const MOBILE_BREAKPOINT = 768;
+
+/**
+ * Fraction of the viewport height remaining above the hero's bottom edge
+ * at which the cursor switches from autonomous → scroll-targeted.
+ * 0.3 means "switch when hero has 30% of a viewport height left visible".
+ */
+const MODE_SWITCH_THRESHOLD = 0.3;
 
 // ─── Shared primitives ────────────────────────────────────────────────────────
 
@@ -88,7 +101,6 @@ function useIsMobile() {
   return !!isMobile;
 }
 
-/** qv hook — tracks mouse globally when no containerRef is passed */
 export function useMouseCursor(containerRef?: RefObject<HTMLElement | null>) {
   const [state, setState] = useState({ x: 0, y: 0, visible: false });
   const rafRef = useRef(0);
@@ -143,9 +155,13 @@ function lp(): Element | null {
   return closest;
 }
 
-// ─── RotashCursor (CS) — autonomous / scroll-targeted ────────────────────────
+// ─── RotashCursor (CS) ────────────────────────────────────────────────────────
 
-export function RotashCursor({ mode = "autonomous" }: { mode?: "autonomous" | "scroll-targeted" }) {
+export function RotashCursor({
+  mode = "autonomous",
+}: {
+  mode?: "autonomous" | "scroll-targeted";
+}) {
   const [pos, setPos] = useState({ x: 0, y: 0 });
   const posRef = useRef({ x: 0, y: 0 });
   const indexRef = useRef(0);
@@ -158,7 +174,10 @@ export function RotashCursor({ mode = "autonomous" }: { mode?: "autonomous" | "s
   useEffect(() => {
     if (mode !== "autonomous") return;
     if (prefersReducedMotion) {
-      const p = { x: Sn[0].x * window.innerWidth, y: Sn[0].y * window.innerHeight };
+      const p = {
+        x: Sn[0].x * window.innerWidth,
+        y: Sn[0].y * window.innerHeight,
+      };
       setPos(p);
       posRef.current = p;
       return;
@@ -173,7 +192,7 @@ export function RotashCursor({ mode = "autonomous" }: { mode?: "autonomous" | "s
       const t = indexRef.current - f;
       const a = Sn[f];
       const b = Sn[(f + 1) % Sn.length];
-      const smooth = t * t * (3 - 2 * t); // smoothstep
+      const smooth = t * t * (3 - 2 * t);
       const next = {
         x: (a.x + (b.x - a.x) * smooth) * window.innerWidth,
         y: (a.y + (b.y - a.y) * smooth) * window.innerHeight,
@@ -227,7 +246,7 @@ export function RotashCursor({ mode = "autonomous" }: { mode?: "autonomous" | "s
   );
 }
 
-// ─── YouCursor — follows the real mouse ──────────────────────────────────────
+// ─── YouCursor — follows the real mouse globally ─────────────────────────────
 
 export function YouCursor({
   containerRef,
@@ -254,47 +273,31 @@ export function YouCursor({
   );
 }
 
-// ─── CollaborativeCursor — global drop-in, replaces CustomCursor ──────────────
+// ─── CollaborativeCursor — layout drop-in ─────────────────────────────────────
 
 /**
- * Mount once in the root layout. Hides the OS cursor globally on desktop,
- * renders Rotash's autonomous cursor and the visitor's "You" cursor.
- * Detects [data-cursor-trigger] elements and swaps the "You" label for the
- * trigger value, hiding the arrow — matching the old CustomCursor pill behaviour.
+ * Mount once in the root layout.
+ *
+ * Behaviour:
+ *  - cursor:none is applied globally (native cursor hidden everywhere).
+ *  - YouCursor tracks the real mouse across the whole page.
+ *  - RotashCursor drifts autonomously while #hero is visible, then switches to
+ *    scroll-targeted mode (lerping to [data-cursor-target] section headings).
  */
 export function CollaborativeCursor() {
   const isMobile = useIsMobile();
+  const [heroEl, setHeroEl] = useState<HTMLElement | null>(null);
+  const [mode, setMode] = useState<"autonomous" | "scroll-targeted">(
+    "autonomous"
+  );
   const [triggerLabel, setTriggerLabel] = useState<string | null>(null);
   const pathname = usePathname();
 
-  // Reset trigger label on route change (same fix as old CustomCursor)
   useEffect(() => {
     setTriggerLabel(null);
   }, [pathname]);
 
-  useEffect(() => {
-    if (isMobile) return;
-
-    const onOver = (e: MouseEvent) => {
-      const el = (e.target as Element | null)?.closest?.("[data-cursor-trigger]") as HTMLElement | null;
-      if (el) setTriggerLabel(el.dataset.cursorTrigger ?? null);
-    };
-    const onOut = (e: MouseEvent) => {
-      const el = (e.target as Element | null)?.closest?.("[data-cursor-trigger]") as HTMLElement | null;
-      if (!el) return;
-      const related = e.relatedTarget as Node | null;
-      if (related && el.contains(related)) return;
-      setTriggerLabel(null);
-    };
-
-    document.addEventListener("mouseover", onOver);
-    document.addEventListener("mouseout", onOut);
-    return () => {
-      document.removeEventListener("mouseover", onOver);
-      document.removeEventListener("mouseout", onOut);
-    };
-  }, [isMobile]);
-
+  // Global cursor:none — native cursor hidden on desktop
   useEffect(() => {
     if (isMobile) {
       document.documentElement.style.cursor = "";
@@ -306,15 +309,60 @@ export function CollaborativeCursor() {
     };
   }, [isMobile]);
 
+  // Find #hero for scroll-based mode switching (re-runs on route change)
+  useEffect(() => {
+    if (isMobile) return;
+    const hero = document.getElementById("hero") as HTMLElement | null;
+    setHeroEl(hero);
+    if (!hero) setMode("scroll-targeted");
+  }, [isMobile, pathname]);
+
+  // Switch RotashCursor mode when hero scrolls out of view
+  useEffect(() => {
+    if (isMobile || !heroEl) return;
+    const handleScroll = () => {
+      const rect = heroEl.getBoundingClientRect();
+      const threshold = window.innerHeight * MODE_SWITCH_THRESHOLD;
+      const next = rect.bottom > threshold ? "autonomous" : "scroll-targeted";
+      setMode((prev) => (prev === next ? prev : next));
+    };
+    window.addEventListener("scroll", handleScroll, { passive: true });
+    handleScroll();
+    return () => window.removeEventListener("scroll", handleScroll);
+  }, [isMobile, heroEl]);
+
+  // data-cursor-trigger hover labels for YouCursor
+  useEffect(() => {
+    if (isMobile) return;
+    const onOver = (e: MouseEvent) => {
+      const el = (e.target as Element | null)?.closest?.(
+        "[data-cursor-trigger]"
+      ) as HTMLElement | null;
+      if (el) setTriggerLabel(el.dataset.cursorTrigger ?? null);
+    };
+    const onOut = (e: MouseEvent) => {
+      const el = (e.target as Element | null)?.closest?.(
+        "[data-cursor-trigger]"
+      ) as HTMLElement | null;
+      if (!el) return;
+      const related = e.relatedTarget as Node | null;
+      if (related && el.contains(related)) return;
+      setTriggerLabel(null);
+    };
+    document.addEventListener("mouseover", onOver);
+    document.addEventListener("mouseout", onOut);
+    return () => {
+      document.removeEventListener("mouseover", onOver);
+      document.removeEventListener("mouseout", onOut);
+    };
+  }, [isMobile]);
+
   if (isMobile) return null;
 
   return (
     <>
-      <RotashCursor mode="autonomous" />
-      <YouCursor
-        showArrow={!triggerLabel}
-        label={triggerLabel ?? "You"}
-      />
+      <RotashCursor mode={mode} />
+      <YouCursor showArrow={!triggerLabel} label={triggerLabel ?? "You"} />
     </>
   );
 }

@@ -49,7 +49,7 @@ export function LabelledSectionBlockComponent({
           <div className="md:col-span-4">
             <LineReveal>
               {block.eyebrow && (
-                <p className="cs-eyebrow mb-2 opacity-60">{block.eyebrow}</p>
+                <p className="cs-eyebrow mb-2 opacity-70">{block.eyebrow}</p>
               )}
               <h2 className="font-display text-[clamp(1.75rem,3.2vw,2.75rem)] leading-tight">
                 {block.label}

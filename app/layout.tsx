@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import { Header } from "@/components/layout/Header";
 import { SmoothScroller } from "@/components/layout/SmoothScroller";
 import { CollaborativeCursor } from "@/components/ui/collaborative-cursor";
+import { PageLoader } from "@/components/ui/PageLoader";
 import {
   elza,
   gallient,
@@ -32,6 +33,7 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
   return (
     <html lang="en" className={fontVars}>
       <body suppressHydrationWarning className="bg-ink font-body text-paper antialiased">
+        <PageLoader />
         <CollaborativeCursor />
         <SmoothScroller>
           <Header />

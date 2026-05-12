@@ -96,6 +96,7 @@ export function Strategy({
       <div className="relative mx-auto w-full max-w-[1640px] px-6 md:px-14">
         <h2
           aria-label={heading}
+          data-cursor-target="strategy-heading"
           className="font-display pointer-events-none select-none text-[20vw] leading-[0.85] text-white md:text-[24vw] xl:text-[300px]"
         >
           {heading}

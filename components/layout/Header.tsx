@@ -1,19 +1,35 @@
 "use client";
 
 import Link from "next/link";
+import { useCallback } from "react";
+import { usePathname } from "next/navigation";
 import { useHeaderTheme } from "@/hooks/useHeaderTheme";
 import { useReducedMotion } from "@/hooks/useReducedMotion";
+import { scrollToElement } from "@/lib/lenis-instance";
 
 export interface HeaderProps {
   resumeHref?: string;
 }
 
-export function Header({ resumeHref = "/resume.pdf" }: HeaderProps) {
+const RESUME_HREF =
+  "https://docs.google.com/document/d/1f4EVMSNDu_NrEU4Axu0dXh3ia4vTFwXYB5Vm6wIa4no/edit?usp=sharing";
+
+export function Header({ resumeHref = RESUME_HREF }: HeaderProps) {
   const theme = useHeaderTheme();
   const reduced = useReducedMotion();
+  const pathname = usePathname();
 
   const isDark = theme === "dark";
   const transition = reduced ? "none" : "color 0.4s ease, filter 0.4s ease";
+
+  const handlePortfolioClick = useCallback(
+    (e: React.MouseEvent<HTMLAnchorElement>) => {
+      if (pathname !== "/") return;
+      e.preventDefault();
+      scrollToElement(document.getElementById("work"), reduced);
+    },
+    [pathname, reduced]
+  );
 
   return (
     <header className="fixed top-0 right-0 left-0 z-50">
@@ -46,6 +62,7 @@ export function Header({ resumeHref = "/resume.pdf" }: HeaderProps) {
           <li>
             <Link
               href="/#work"
+              onClick={handlePortfolioClick}
               className="font-medium transition-colors hover:text-accent-magenta"
             >
               Portfolio
@@ -54,7 +71,8 @@ export function Header({ resumeHref = "/resume.pdf" }: HeaderProps) {
           <li>
             <a
               href={resumeHref}
-              rel="noopener"
+              target="_blank"
+              rel="noopener noreferrer"
               className="font-medium transition-colors hover:text-accent-magenta"
             >
               Resume

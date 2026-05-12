@@ -23,6 +23,7 @@ export function Work({ projects, heading = "Work" }: WorkProps) {
       <div className="relative mx-auto w-full max-w-[1640px] px-6 md:px-14">
         <h2
           aria-label={heading}
+          data-cursor-target="work-heading"
           className="font-display pointer-events-none relative z-10 select-none text-left text-[30vw] leading-[0.85] text-white md:text-[300px]"
         >
           {heading}

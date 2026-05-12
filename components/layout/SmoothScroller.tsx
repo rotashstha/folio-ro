@@ -4,6 +4,7 @@ import Lenis from "lenis";
 import { usePathname } from "next/navigation";
 import { useEffect, useRef } from "react";
 import { useReducedMotion } from "@/hooks/useReducedMotion";
+import { lenisInstance } from "@/lib/lenis-instance";
 
 export function SmoothScroller({ children }: { children: React.ReactNode }) {
   const lenisRef = useRef<Lenis | null>(null);
@@ -20,6 +21,7 @@ export function SmoothScroller({ children }: { children: React.ReactNode }) {
     });
 
     lenisRef.current = lenis;
+    lenisInstance.current = lenis;
 
     let raf: number;
     function loop(time: number) {
@@ -32,6 +34,7 @@ export function SmoothScroller({ children }: { children: React.ReactNode }) {
       cancelAnimationFrame(raf);
       lenis.destroy();
       lenisRef.current = null;
+      lenisInstance.current = null;
     };
   }, [reduced]);
 

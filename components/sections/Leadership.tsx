@@ -43,6 +43,7 @@ export function Leadership({
       <div className="relative mx-auto w-full max-w-[1640px] px-6 md:px-14">
         <h2
           aria-label={heading}
+          data-cursor-target="leadership-heading"
           className="font-display select-none text-left text-[16vw] leading-[0.85] text-black md:text-[22vw] xl:text-[300px]"
         >
           {heading}
