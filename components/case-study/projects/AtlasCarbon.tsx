@@ -4,8 +4,10 @@ import remediesImg from "@/content/work/atlas-carbon/webp/Remedies.webp";
 import { MaskReveal } from "@/components/ui/MaskReveal";
 import { WordReveal } from "@/components/ui/WordReveal";
 import { FadeReveal } from "@/components/ui/FadeReveal";
+import { TagPills } from "@/components/ui/TagPills";
 import { NextProjectReveal } from "@/components/case-study/NextProjectReveal";
 import { HeroGrid } from "@/components/case-study/HeroGrid";
+import { placeholderProjects } from "@/lib/projects";
 
 /**
  * Atlas Carbon — pixel-faithful rebuild of the Figma reference
@@ -123,6 +125,9 @@ function ImageCaption({ children }: { children: React.ReactNode }) {
   );
 }
 
+const atlasCarbon = placeholderProjects.find((p) => p.slug === "atlas-carbon");
+const atlasTags = atlasCarbon?.tags ?? [];
+
 export function AtlasCarbon() {
   return (
     <article
@@ -158,6 +163,7 @@ export function AtlasCarbon() {
                 Empowering Farmers with Smarter, Simpler Tools
               </h1>
             </FadeReveal>
+            <TagPills tags={atlasTags} className="mt-4" />
           </div>
         </Container>
 

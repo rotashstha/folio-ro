@@ -9,6 +9,8 @@ import solutionImg from "@/content/work/carell/solution.png";
 import { MaskReveal } from "@/components/ui/MaskReveal";
 import { WordReveal } from "@/components/ui/WordReveal";
 import { FadeReveal } from "@/components/ui/FadeReveal";
+import { TagPills } from "@/components/ui/TagPills";
+import { placeholderProjects } from "@/lib/projects";
 import { CarellStatsGrid } from "@/components/case-study/projects/carell/StatsGrid";
 
 /**
@@ -90,6 +92,9 @@ function MetaValue({
   );
 }
 
+const carellProject = placeholderProjects.find((p) => p.slug === "carell");
+const carellTags = carellProject?.tags ?? [];
+
 export function Carell() {
   return (
     <article
@@ -127,6 +132,7 @@ export function Carell() {
                 Designing Movement with Meaning
               </h1>
             </FadeReveal>
+            <TagPills tags={carellTags} className="mt-4" />
           </div>
         </Container>
 

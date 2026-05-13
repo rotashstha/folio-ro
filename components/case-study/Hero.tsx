@@ -3,6 +3,7 @@ import { MaskReveal } from "@/components/ui/MaskReveal";
 import { WordReveal } from "@/components/ui/WordReveal";
 import { FadeReveal } from "@/components/ui/FadeReveal";
 import { HeroGrid } from "@/components/case-study/HeroGrid";
+import { TagPills } from "@/components/ui/TagPills";
 import type { CaseStudy } from "@/types/case-study";
 
 interface CaseStudyHeroProps {
@@ -49,6 +50,7 @@ export function CaseStudyHero({ study }: CaseStudyHeroProps) {
                 {subtitle}
               </WordReveal>
             </h1>
+            <TagPills tags={frontmatter.tags} className="mt-4" />
           </div>
 
           <div

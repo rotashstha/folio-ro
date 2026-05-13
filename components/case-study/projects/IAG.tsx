@@ -2,9 +2,11 @@ import Image from "next/image";
 import { MaskReveal } from "@/components/ui/MaskReveal";
 import { WordReveal } from "@/components/ui/WordReveal";
 import { FadeReveal } from "@/components/ui/FadeReveal";
+import { TagPills } from "@/components/ui/TagPills";
 import { BrandStrip } from "@/components/case-study/projects/iag/BrandStrip";
 import { NextProjectReveal } from "@/components/case-study/NextProjectReveal";
 import { HeroGrid } from "@/components/case-study/HeroGrid";
+import { placeholderProjects } from "@/lib/projects";
 
 /**
  * IAG — pixel-faithful rebuild of the Figma reference
@@ -99,6 +101,9 @@ function PullQuote({ children }: { children: React.ReactNode }) {
   );
 }
 
+const iagProject = placeholderProjects.find((p) => p.slug === "iag-design-system");
+const iagTags = iagProject?.tags ?? [];
+
 export function IAG() {
   return (
     <article
@@ -133,6 +138,7 @@ export function IAG() {
                 Scaling Design Systems for multi-brand web experiences
               </h1>
             </FadeReveal>
+            <TagPills tags={iagTags} className="mt-4" />
           </div>
         </Container>
 

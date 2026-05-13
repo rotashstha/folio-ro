@@ -2,8 +2,10 @@ import Image from "next/image";
 import { MaskReveal } from "@/components/ui/MaskReveal";
 import { WordReveal } from "@/components/ui/WordReveal";
 import { FadeReveal } from "@/components/ui/FadeReveal";
+import { TagPills } from "@/components/ui/TagPills";
 import { NextProjectReveal } from "@/components/case-study/NextProjectReveal";
 import { HeroGrid } from "@/components/case-study/HeroGrid";
+import { placeholderProjects } from "@/lib/projects";
 
 /**
  * AWS — pixel-faithful rebuild of the Figma reference
@@ -96,6 +98,9 @@ function PullQuote({ children }: { children: React.ReactNode }) {
   );
 }
 
+const awsProject = placeholderProjects.find((p) => p.slug === "aws-chatbot");
+const awsTags = awsProject?.tags ?? [];
+
 export function AWS() {
   return (
     <article
@@ -131,6 +136,7 @@ export function AWS() {
                 support
               </h1>
             </FadeReveal>
+            <TagPills tags={awsTags} className="mt-4" />
           </div>
         </Container>
 

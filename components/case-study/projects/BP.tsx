@@ -14,6 +14,8 @@ import solution3Img from "@/content/work/bp/solution-3.png";
 import { MaskReveal } from "@/components/ui/MaskReveal";
 import { WordReveal } from "@/components/ui/WordReveal";
 import { FadeReveal } from "@/components/ui/FadeReveal";
+import { TagPills } from "@/components/ui/TagPills";
+import { placeholderProjects } from "@/lib/projects";
 
 /**
  * bp — Fuel Supply Planning Platform.
@@ -95,6 +97,9 @@ function MetaValue({
   );
 }
 
+const bpProject = placeholderProjects.find((p) => p.slug === "bp");
+const bpTags = bpProject?.tags ?? [];
+
 export function BP() {
   return (
     <article
@@ -133,6 +138,7 @@ export function BP() {
                   Fuel Supply Planning Platform
                 </h1>
               </FadeReveal>
+              <TagPills tags={bpTags} className="mt-4" />
             </div>
 
             {/* Giant editorial "bp" — Gallient, right-aligned, drops over the hero card. */}
