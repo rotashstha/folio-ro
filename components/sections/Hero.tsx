@@ -80,7 +80,7 @@ export function Hero({
       id="hero"
       data-theme="dark"
       aria-label="Introduction"
-      className="bg-ink relative flex h-screen min-h-[760px] flex-col overflow-hidden pt-[120px] pb-[100px] md:pt-[140px] md:pb-[110px]"
+      className="bg-ink relative flex h-screen min-h-[760px] flex-col overflow-hidden pt-[160px] pb-6 md:pt-[220px] md:pb-8"
     >
       <p className="sr-only">
         The hero words Strategy, Design, and Interaction are draggable. Tab to focus a word, then use arrow keys to nudge (Shift+arrow for larger steps), Escape to reset its position. With a pointer, click and drag to move; the word stays where you drop it.
@@ -129,9 +129,9 @@ export function Hero({
           })}
         </div>
 
-        <div ref={bodyRef} className="mt-auto grid grid-cols-1 gap-8 pt-10 md:grid-cols-12">
+        <div ref={bodyRef} className="mt-auto grid grid-cols-1 items-end gap-8 md:grid-cols-12">
           <div className="md:col-span-6">
-            <p className="font-body max-w-[525px] text-paper/95 text-xl leading-snug md:text-[24px] md:leading-[1.3]">
+            <p className="font-body max-w-[420px] text-paper/95 text-xl leading-snug md:text-[20px] md:leading-[1.3]">
               <WordReveal>
                 <span className="font-bold">{emphasis} </span>
                 <span className="font-light">{intro}</span>
@@ -141,11 +141,10 @@ export function Hero({
               {name}
             </p>
           </div>
+          <div className="flex justify-end md:col-span-6">
+            <ShowReelButton />
+          </div>
         </div>
-      </div>
-
-      <div className="pointer-events-none absolute right-6 bottom-10 z-10 md:right-14 md:bottom-14">
-        <ShowReelButton />
       </div>
     </section>
   );

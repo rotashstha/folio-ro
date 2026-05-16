@@ -1,6 +1,7 @@
 "use client";
 
 import { useCallback, useEffect, useRef, useState } from "react";
+import { createPortal } from "react-dom";
 
 interface ShowReelButtonProps {
   /** Public path to the showreel video (e.g. "/videos/showreel.mp4"). */
@@ -77,34 +78,37 @@ export function ShowReelButton({
         </span>
       </button>
 
-      {open ? (
-        <div
-          role="dialog"
-          aria-modal="true"
-          aria-label={label}
-          className="fixed inset-0 z-[100] flex items-center justify-center bg-black/95 backdrop-blur-sm"
-          onClick={close}
-        >
-          <button
-            type="button"
-            onClick={close}
-            aria-label="Close showreel"
-            className="absolute top-6 right-6 z-10 flex h-12 w-12 items-center justify-center rounded-full bg-white/10 text-white transition-colors hover:bg-white/20 focus-visible:ring-2 focus-visible:ring-white focus-visible:outline-none md:top-10 md:right-10"
-          >
-            <CloseIcon className="h-5 w-5" />
-          </button>
-          <video
-            ref={videoRef}
-            src={src}
-            poster={poster}
-            controls
-            playsInline
-            preload="metadata"
-            className="max-h-[90vh] max-w-[92vw] rounded-lg shadow-2xl"
-            onClick={(e) => e.stopPropagation()}
-          />
-        </div>
-      ) : null}
+      {open
+        ? createPortal(
+            <div
+              role="dialog"
+              aria-modal="true"
+              aria-label={label}
+              className="fixed inset-0 z-[200] flex items-center justify-center bg-black/95 backdrop-blur-sm"
+              onClick={close}
+            >
+              <button
+                type="button"
+                onClick={(e) => { e.stopPropagation(); close(); }}
+                aria-label="Close showreel"
+                className="absolute top-6 right-6 flex h-12 w-12 items-center justify-center rounded-full bg-white/10 text-white transition-colors hover:bg-white/20 focus-visible:ring-2 focus-visible:ring-white focus-visible:outline-none md:top-10 md:right-10"
+              >
+                <CloseIcon className="h-5 w-5" />
+              </button>
+              <video
+                ref={videoRef}
+                src={src}
+                poster={poster}
+                controls
+                playsInline
+                preload="metadata"
+                className="max-h-[90vh] max-w-[92vw] rounded-lg shadow-2xl"
+                onClick={(e) => e.stopPropagation()}
+              />
+            </div>,
+            document.body
+          )
+        : null}
     </>
   );
 }
