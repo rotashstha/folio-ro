@@ -22,11 +22,15 @@ export function CaseStudyChrome({ children }: { children: React.ReactNode }) {
     if (!fill) return;
 
     let raf = 0;
+    // Use transform: scaleX instead of width — scaleX is GPU-composited and
+    // doesn't trigger layout/paint on every scroll frame.
+    fill.style.width = "100%";
+    fill.style.transformOrigin = "left center";
     const update = () => {
       const doc = document.documentElement;
       const max = doc.scrollHeight - doc.clientHeight;
-      const progress = max > 0 ? doc.scrollTop / max : 0;
-      fill.style.width = `${Math.min(100, progress * 100)}%`;
+      const progress = max > 0 ? Math.min(1, doc.scrollTop / max) : 0;
+      fill.style.transform = `scaleX(${progress})`;
       raf = 0;
     };
 

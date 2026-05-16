@@ -46,7 +46,7 @@ function Container({
 
 function SectionHeading({ children }: { children: React.ReactNode }) {
   return (
-    <h2 className="font-body text-[20px] leading-tight font-normal text-white md:text-[24px]">
+    <h2 className="font-body text-[20px] leading-tight font-normal text-paper md:text-[24px]">
       {children}
     </h2>
   );
@@ -61,7 +61,7 @@ function BodyParagraph({
 }) {
   return (
     <div
-      className={`font-body text-[15px] leading-[1.6] font-normal text-[#8e8e93] md:text-[16px] ${className}`}
+      className={`font-body text-[15px] leading-[1.6] font-normal text-paper/60 md:text-[16px] ${className}`}
     >
       {children}
     </div>
@@ -70,7 +70,7 @@ function BodyParagraph({
 
 function MetaLabel({ children }: { children: React.ReactNode }) {
   return (
-    <h3 className="font-body text-[20px] leading-tight font-normal text-[#8e8e93] md:text-[24px]">
+    <h3 className="font-body text-[20px] leading-tight font-normal text-paper/60 md:text-[24px]">
       {children}
     </h3>
   );
@@ -85,7 +85,7 @@ function MetaValue({
 }) {
   return (
     <p
-      className={`font-body text-[20px] leading-tight font-bold text-white md:text-[24px] ${className}`}
+      className={`font-body text-[20px] leading-tight font-bold text-paper md:text-[24px] ${className}`}
     >
       {children}
     </p>
@@ -100,7 +100,7 @@ export function Carell() {
     <article
       data-cs-root
       data-theme="dark"
-      className="font-body relative isolate overflow-x-clip bg-black text-white antialiased"
+      className="font-body relative isolate overflow-x-clip bg-black text-paper antialiased"
     >
       {/* ================================================================ */}
       {/* HERO                                                              */}
@@ -119,7 +119,7 @@ export function Carell() {
             <FadeReveal y={12}>
               <p
                 id="cs-hero-tag"
-                className="font-body text-[24px] leading-tight font-bold text-white md:text-[32px]"
+                className="font-body text-[24px] leading-tight font-bold text-paper md:text-[32px]"
               >
                 Carell
               </p>
@@ -127,7 +127,7 @@ export function Carell() {
             <FadeReveal y={16} delay={0.05}>
               <h1
                 id="cs-hero-title"
-                className="font-body mt-3 max-w-[524px] text-[18px] leading-snug font-normal text-[#8e8e93] md:text-[24px]"
+                className="font-body mt-3 max-w-[524px] text-[18px] leading-snug font-normal text-paper/60 md:text-[24px]"
               >
                 Designing Movement with Meaning
               </h1>
@@ -164,7 +164,7 @@ export function Carell() {
 
           <p
             aria-hidden
-            className="font-display pointer-events-none absolute inset-x-0 top-0 z-10 -translate-y-[55%] pr-6 text-right text-[clamp(4rem,14vw,14rem)] leading-[0.95] tracking-[-0.02em] whitespace-nowrap text-white md:-translate-y-[58%] md:pr-14 lg:pr-[85px]"
+            className="font-display pointer-events-none absolute inset-x-0 top-0 z-10 -translate-y-[55%] pr-6 text-right text-[clamp(4rem,14vw,14rem)] leading-[0.95] tracking-[-0.02em] whitespace-nowrap text-paper md:-translate-y-[58%] md:pr-14 lg:pr-[85px]"
           >
             <WordReveal staggerMs={80} durationMs={950}>
               Carell
@@ -313,21 +313,21 @@ export function Carell() {
               </p>
               <ul className="ml-6 list-disc space-y-3">
                 <li>
-                  <span className="font-bold text-white">
+                  <span className="font-bold text-paper">
                     See the whole picture instantly.
                   </span>{" "}
                   A project overview that surfaces stages, tasks, risks, and
                   delays at a glance.
                 </li>
                 <li>
-                  <span className="font-bold text-white">
+                  <span className="font-bold text-paper">
                     Tap into the details only when you need them.
                   </span>{" "}
                   Drill-down views for items, materials, checklists, and
                   installation notes.
                 </li>
                 <li>
-                  <span className="font-bold text-white">
+                  <span className="font-bold text-paper">
                     Design for one-hand, on-site usability.
                   </span>{" "}
                   Large touch targets, simplified actions, dark-mode support,
@@ -426,7 +426,7 @@ export function Carell() {
           <FadeReveal y={20}>
             <SectionHeading>Solution</SectionHeading>
             <BodyParagraph className="mt-5 max-w-[683px]">
-              <p className="mb-4 font-bold text-white">
+              <p className="mb-4 font-bold text-paper">
                 A simple interface for incredibly complex work.
               </p>
               <p className="mb-4">

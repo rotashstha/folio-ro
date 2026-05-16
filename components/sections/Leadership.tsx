@@ -37,6 +37,7 @@ export function Leadership({
     <section
       id="leadership"
       data-theme="light"
+      data-theme-fixed
       aria-label="Leadership and community"
       className="bg-paper text-ink relative overflow-hidden pb-24 md:pb-32"
     >
@@ -44,27 +45,27 @@ export function Leadership({
         <h2
           aria-label={heading}
           data-cursor-target="leadership-heading"
-          className="font-display select-none text-left text-[16vw] leading-[0.85] text-black md:text-[22vw] xl:text-[300px]"
+          className="font-display select-none text-left text-[16vw] leading-[0.85] text-ink md:text-[22vw] xl:text-[300px]"
         >
           {heading}
         </h2>
 
         <div className="mt-10 grid grid-cols-1 gap-14 md:mt-20 md:grid-cols-12 md:gap-[60px]">
           <div className="md:col-span-5">
-            <p className="font-body max-w-[500px] text-[22px] font-bold leading-tight text-black md:text-[30px] md:leading-[1.18]">
+            <p className="font-body max-w-[500px] text-[22px] font-bold leading-tight text-ink md:text-[30px] md:leading-[1.18]">
               {intro}
             </p>
           </div>
 
           <div className="md:col-span-3">
             <FadeReveal>
-            <p className="font-body text-[70px] font-extrabold leading-none text-black md:text-[90px]">
+            <p className="font-body text-[70px] font-extrabold leading-none text-ink md:text-[90px]">
               <StatCounter value={15} suffix="+" />
             </p>
-            <p className="font-body-condensed mt-6 text-[20px] font-bold text-black md:text-[24px]">
+            <p className="font-body-condensed mt-6 text-[20px] font-bold text-ink md:text-[24px]">
               {mentorshipLead}
             </p>
-            <p className="font-body-condensed mt-1 text-[18px] text-black md:text-[24px] md:leading-[1.35]">
+            <p className="font-body-condensed mt-1 text-[18px] text-ink md:text-[24px] md:leading-[1.35]">
               {mentorshipCopy}
             </p>
             </FadeReveal>
@@ -72,25 +73,25 @@ export function Leadership({
 
           <div className="md:col-span-4">
             <FadeReveal delay={0.1}>
-            <p className="font-body text-[70px] font-extrabold leading-none text-black md:text-[90px]">
+            <p className="font-body text-[70px] font-extrabold leading-none text-ink md:text-[90px]">
               <StatCounter value={250} />
             </p>
-            <p className="font-body-condensed mt-6 text-[20px] font-bold text-black md:text-[24px]">
+            <p className="font-body-condensed mt-6 text-[20px] font-bold text-ink md:text-[24px]">
               {deiLead}
             </p>
-            <p className="font-body-condensed mt-1 text-[18px] text-black md:text-[24px] md:leading-[1.35]">
+            <p className="font-body-condensed mt-1 text-[18px] text-ink md:text-[24px] md:leading-[1.35]">
               {deiCopy}
             </p>
             </FadeReveal>
           </div>
 
           <div className="md:col-span-7 md:col-start-6">
-            <p className="font-body text-[20px] font-extrabold text-black md:text-[24px]">
+            <p className="font-body text-[20px] font-extrabold text-ink md:text-[24px]">
               Highlights
             </p>
             <ul className="mt-4">
               {highlights.map((item, i) => (
-                <li key={item.label} className="font-body-condensed py-[10px] text-[16px] text-black md:text-[18px] md:leading-[1.5]">
+                <li key={item.label} className="font-body-condensed py-[10px] text-[16px] text-ink md:text-[18px] md:leading-[1.5]">
                   <LineReveal delay={i * 0.08}>
                     {item.label}
                   </LineReveal>

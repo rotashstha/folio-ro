@@ -15,7 +15,7 @@ export function TagPills({ tags, className = "" }: TagPillsProps) {
         {visible.map((tag) => (
           <span
             key={tag}
-            className="font-body rounded-full border border-white/20 px-3 py-[5px] text-[11px] tracking-widest uppercase text-white/60"
+            className="font-body rounded-full border border-paper/20 px-3 py-[5px] text-[11px] tracking-widest uppercase text-paper/60"
           >
             {tag}
           </span>

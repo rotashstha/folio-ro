@@ -21,8 +21,8 @@ import { placeholderProjects } from "@/lib/projects";
  * container with a clamped gutter so the page reflows below 1728px.
  *
  * Body color tokens used:
- *   - text-white            (#ffffff)  — display, headings, meta values, link text
- *   - text-[#8e8e93]        (#8e8e93)  — meta labels, body paragraphs
+ *   - text-paper            (#ffffff)  — display, headings, meta values, link text
+ *   - text-paper/60        (#8e8e93)  — meta labels, body paragraphs
  *   - bg-black              (#000000)  — page surface
  *   - bg-card-teal          (#d6f3f7)  — hero / map / utility cards
  *   - bg-[#0f0f0f]                     — placeholder dark cards (Discovery, Challenge grid…)
@@ -65,7 +65,7 @@ function Container({
  */
 function SectionHeading({ children }: { children: React.ReactNode }) {
   return (
-    <h2 className="font-body text-[20px] leading-tight font-normal text-white md:text-[24px]">
+    <h2 className="font-body text-[20px] leading-tight font-normal text-paper md:text-[24px]">
       {children}
     </h2>
   );
@@ -84,7 +84,7 @@ function BodyParagraph({
 }) {
   return (
     <div
-      className={`font-body text-[15px] leading-[1.6] font-normal text-[#8e8e93] md:text-[16px] ${className}`}
+      className={`font-body text-[15px] leading-[1.6] font-normal text-paper/60 md:text-[16px] ${className}`}
     >
       {children}
     </div>
@@ -94,7 +94,7 @@ function BodyParagraph({
 /** Meta column label — gray. */
 function MetaLabel({ children }: { children: React.ReactNode }) {
   return (
-    <h3 className="font-body text-[20px] leading-tight font-normal text-[#8e8e93] md:text-[24px]">
+    <h3 className="font-body text-[20px] leading-tight font-normal text-paper/60 md:text-[24px]">
       {children}
     </h3>
   );
@@ -110,7 +110,7 @@ function MetaValue({
 }) {
   return (
     <p
-      className={`font-body text-[20px] leading-tight font-bold text-white md:text-[24px] ${className}`}
+      className={`font-body text-[20px] leading-tight font-bold text-paper md:text-[24px] ${className}`}
     >
       {children}
     </p>
@@ -119,7 +119,7 @@ function MetaValue({
 
 function ImageCaption({ children }: { children: React.ReactNode }) {
   return (
-    <p className="font-body mt-5 text-center text-[14px] font-bold text-[#8e8e93] md:text-[16px]">
+    <p className="font-body mt-5 text-center text-[14px] font-bold text-paper/60 md:text-[16px]">
       {children}
     </p>
   );
@@ -133,7 +133,7 @@ export function AtlasCarbon() {
     <article
       data-cs-root
       data-theme="dark"
-      className="relative isolate overflow-x-clip bg-black font-body text-white antialiased"
+      className="relative isolate overflow-x-clip bg-black font-body text-paper antialiased"
     >
       {/* ================================================================ */}
       {/* HERO                                                              */}
@@ -150,7 +150,7 @@ export function AtlasCarbon() {
             <FadeReveal y={12}>
               <p
                 id="cs-hero-tag"
-                className="font-body text-[24px] leading-tight font-bold text-white md:text-[32px]"
+                className="font-body text-[24px] leading-tight font-bold text-paper md:text-[32px]"
               >
                 Atlas Carbon
               </p>
@@ -158,7 +158,7 @@ export function AtlasCarbon() {
             <FadeReveal y={16} delay={0.05}>
               <h1
                 id="cs-hero-title"
-                className="font-body mt-3 max-w-[524px] text-[18px] leading-snug font-normal text-[#8e8e93] md:text-[24px]"
+                className="font-body mt-3 max-w-[524px] text-[18px] leading-snug font-normal text-paper/60 md:text-[24px]"
               >
                 Empowering Farmers with Smarter, Simpler Tools
               </h1>
@@ -193,7 +193,7 @@ export function AtlasCarbon() {
 
           <p
             aria-hidden
-            className="font-display pointer-events-none absolute inset-x-0 top-0 z-10 -translate-y-[55%] pr-0 text-right text-[clamp(4rem,14vw,14rem)] leading-[0.95] tracking-[-0.02em] whitespace-nowrap text-white md:-translate-y-[58%]"
+            className="font-display pointer-events-none absolute inset-x-0 top-0 z-10 -translate-y-[55%] pr-0 text-right text-[clamp(4rem,14vw,14rem)] leading-[0.95] tracking-[-0.02em] whitespace-nowrap text-paper md:-translate-y-[58%]"
           >
             <WordReveal staggerMs={80} durationMs={950}>
               Atlas Carbon
@@ -353,7 +353,7 @@ export function AtlasCarbon() {
               </p>
               <ul className="ml-6 list-disc space-y-3">
                 <li>
-                  <span className="font-bold text-white">
+                  <span className="font-bold text-paper">
                     Challenged assumptions:
                   </span>{" "}
                   We initially believed feature depth was the main value
@@ -363,7 +363,7 @@ export function AtlasCarbon() {
                   adoption blockers.
                 </li>
                 <li>
-                  <span className="font-bold text-white">
+                  <span className="font-bold text-paper">
                     Mapped user maturity:
                   </span>{" "}
                   Instead of designing for &ldquo;average&rdquo; users, I
@@ -372,7 +372,7 @@ export function AtlasCarbon() {
                   when to automate, and when to step back.
                 </li>
                 <li>
-                  <span className="font-bold text-white">
+                  <span className="font-bold text-paper">
                     Iterated on workflows:
                   </span>{" "}
                   Core grazing plans, mob movements, and task tracking were
@@ -433,7 +433,7 @@ export function AtlasCarbon() {
               </ul>
             </BodyParagraph>
 
-            <p className="font-body mt-12 max-w-[699px] text-[15px] leading-snug font-normal text-[#8e8e93] italic md:text-[16px]">
+            <p className="font-body mt-12 max-w-[699px] text-[15px] leading-snug font-normal text-paper/60 italic md:text-[16px]">
               The goal wasn&apos;t just to modernise the interface, it was to
               test whether unifying decision-making could improve activation
               and trust for new users, while still supporting expert farmers.
@@ -645,7 +645,7 @@ export function AtlasCarbon() {
               </p>
               <ul className="ml-6 list-disc space-y-3">
                 <li>
-                  <span className="font-bold text-white">
+                  <span className="font-bold text-paper">
                     Rapid experimentation:
                   </span>{" "}
                   Used ChatGPT as a thinking partner to map edge cases,
@@ -653,13 +653,13 @@ export function AtlasCarbon() {
                   committing to UI.
                 </li>
                 <li>
-                  <span className="font-bold text-white">Fast validation:</span>{" "}
+                  <span className="font-bold text-paper">Fast validation:</span>{" "}
                   v0.dev prototypes enabled quick testing of structure and
                   hierarchy with stakeholders and farmers, allowing us to
                   discard weaker models early.
                 </li>
                 <li>
-                  <span className="font-bold text-white">System-first bets:</span>{" "}
+                  <span className="font-bold text-paper">System-first bets:</span>{" "}
                   Instead of designing screens in isolation, I shaped a
                   tokenised UI kit in Figma early, testing whether a system-led
                   approach could support speed and flexibility under a
@@ -727,7 +727,7 @@ export function AtlasCarbon() {
                 </li>
               </ul>
               <p className="mt-4">
-                <span className="font-bold text-white">Early signals:</span>{" "}
+                <span className="font-bold text-paper">Early signals:</span>{" "}
                 The MVP was pilot-ready with strong engagement from rotational
                 grazing farmers, validating the core hypothesis around
                 simplification and confidence.

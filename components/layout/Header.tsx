@@ -7,6 +7,8 @@ import { useHeaderTheme } from "@/hooks/useHeaderTheme";
 import { useReducedMotion } from "@/hooks/useReducedMotion";
 import { scrollToElement } from "@/lib/lenis-instance";
 import { gsap } from "@/lib/animation/gsap-bridge";
+import { LogoMark } from "@/components/ui/LogoMark";
+import { ThemeToggle } from "@/components/ui/ThemeToggle";
 
 export interface HeaderProps {
   resumeHref?: string;
@@ -66,43 +68,39 @@ export function Header({ resumeHref = RESUME_HREF }: HeaderProps) {
           aria-label="Rotash Shrestha — homepage"
           className="block"
         >
-          {/* eslint-disable-next-line @next/next/no-img-element */}
-          <img
-            src="/images/figma/logo-r.svg"
-            alt=""
-            width={50}
-            height={50}
+          <LogoMark
+            key={pathname}
             className="h-10 w-10 md:h-[50px] md:w-[50px]"
-            style={{
-              filter: isDark ? "none" : "invert(1)",
-              transition,
-            }}
+            color={isDark ? "white" : "black"}
           />
         </Link>
-        <ul
-          className="font-sans flex items-center gap-10 text-base md:gap-[80px] md:text-[18px]"
-          style={{ color: isDark ? "#ffffff" : "#000000", transition }}
-        >
-          <li>
-            <Link
-              href="/#work"
-              onClick={handlePortfolioClick}
-              className="font-medium transition-colors hover:text-accent-magenta"
-            >
-              Portfolio
-            </Link>
-          </li>
-          <li>
-            <a
-              href={resumeHref}
-              target="_blank"
-              rel="noopener noreferrer"
-              className="font-medium transition-colors hover:text-accent-magenta"
-            >
-              Resume
-            </a>
-          </li>
-        </ul>
+        <div className="flex items-center gap-8 md:gap-12">
+          <ul
+            className="font-body text-paper flex items-center gap-6 text-sm tracking-[0.08em] uppercase md:gap-10 md:text-[14px]"
+            style={{ transition }}
+          >
+            <li>
+              <Link
+                href="/#work"
+                onClick={handlePortfolioClick}
+                className="font-medium transition-colors hover:text-accent-magenta"
+              >
+                Portfolio
+              </Link>
+            </li>
+            <li>
+              <a
+                href={resumeHref}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="font-medium transition-colors hover:text-accent-magenta"
+              >
+                Resume
+              </a>
+            </li>
+          </ul>
+          <ThemeToggle isDark={isDark} />
+        </div>
       </nav>
     </header>
   );

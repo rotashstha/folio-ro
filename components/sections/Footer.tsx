@@ -42,7 +42,7 @@ const collageImages: CollageImage[] = [
 ];
 
 const LINK_CLASSES =
-  "font-body group inline-flex items-center gap-3 text-[18px] font-semibold text-black md:text-[20px]";
+  "font-body group inline-flex items-center gap-3 text-[18px] font-semibold text-ink md:text-[20px]";
 
 function ArrowRight() {
   return (
@@ -108,6 +108,7 @@ export function Footer({
     <footer
       id="footer"
       data-theme="light"
+      data-theme-fixed
       aria-labelledby="footer-heading"
       className="bg-paper text-ink fixed bottom-0 left-0 right-0 z-0 flex h-svh w-full flex-col justify-between overflow-hidden pb-10 md:pb-12"
     >
@@ -131,7 +132,7 @@ export function Footer({
           {[0, 1].map((n) => (
             <p
               key={n}
-              className="font-body whitespace-nowrap text-[18vw] font-extrabold leading-none text-black select-none md:text-[150px]"
+              className="font-body whitespace-nowrap text-[18vw] font-extrabold leading-none text-ink select-none md:text-[150px]"
             >
               {wordmark}
               <span className="px-6">–</span>
@@ -172,13 +173,13 @@ export function Footer({
       <div className="relative z-10 mx-auto w-full max-w-[1640px] px-6 md:px-14">
         <div className="border-t border-black/20" />
         <div className="mt-6 flex flex-wrap items-center justify-between gap-4">
-          <p className="font-body text-[16px] text-black/60 md:text-[18px]">
+          <p className="font-body text-[16px] text-ink/60 md:text-[18px]">
             © {new Date().getFullYear()} Rotash Shrestha
           </p>
           <a
             href="#hero"
             onClick={handleBackToTop}
-            className="font-body inline-flex items-center gap-3 text-[16px] text-black/60 transition-colors hover:text-black md:text-[18px]"
+            className="font-body inline-flex items-center gap-3 text-[16px] text-ink/60 transition-colors hover:text-ink md:text-[18px]"
           >
             <ArrowUp />
             Back to top

@@ -22,12 +22,12 @@ export function TestimonialBlock({ testimonial }: TestimonialBlockProps) {
 
   return (
     <figure>
-      <figcaption className="font-body-condensed text-[20px] font-bold leading-[1.4] text-white md:text-[24px]">
+      <figcaption className="font-body-condensed text-[20px] font-bold leading-[1.4] text-paper md:text-[24px]">
         {author}
         <br />
         <span className="font-bold">{role}</span>
       </figcaption>
-      <div className="font-body mt-4 space-y-3 text-[14px] leading-[1.5] text-white md:text-[16px]">
+      <div className="font-body mt-4 space-y-3 text-[14px] leading-[1.5] text-paper md:text-[16px]">
         {paragraphs.map((para, i) => (
           <p key={i}>
             {para.segments.map((seg, j) =>

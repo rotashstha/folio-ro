@@ -15,9 +15,13 @@ export function SmoothScroller({ children }: { children: React.ReactNode }) {
     if (reduced) return;
 
     const lenis = new Lenis({
-      duration: 1.2,
-      easing: (t) => Math.min(1, 1.001 - Math.pow(2, -10 * t)),
+      // `lerp` gives a snappier, framerate-friendly feel than `duration` —
+      // each frame eases toward the target by 10% (lower = smoother but
+      // laggier; higher = snappier). 0.1 is a good balance.
+      lerp: 0.1,
       smoothWheel: true,
+      wheelMultiplier: 1,
+      touchMultiplier: 1.5,
     });
 
     lenisRef.current = lenis;

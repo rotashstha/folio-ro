@@ -39,7 +39,7 @@ function Container({
 
 function SectionHeading({ children }: { children: React.ReactNode }) {
   return (
-    <h2 className="font-body text-[20px] leading-tight font-normal text-white md:text-[24px]">
+    <h2 className="font-body text-[20px] leading-tight font-normal text-paper md:text-[24px]">
       {children}
     </h2>
   );
@@ -54,7 +54,7 @@ function BodyParagraph({
 }) {
   return (
     <div
-      className={`font-body text-[15px] leading-[1.6] font-normal text-[#8e8e93] md:text-[16px] ${className}`}
+      className={`font-body text-[15px] leading-[1.6] font-normal text-paper/60 md:text-[16px] ${className}`}
     >
       {children}
     </div>
@@ -63,7 +63,7 @@ function BodyParagraph({
 
 function MetaLabel({ children }: { children: React.ReactNode }) {
   return (
-    <h3 className="font-body text-[20px] leading-tight font-normal text-[#8e8e93] md:text-[24px]">
+    <h3 className="font-body text-[20px] leading-tight font-normal text-paper/60 md:text-[24px]">
       {children}
     </h3>
   );
@@ -78,7 +78,7 @@ function MetaValue({
 }) {
   return (
     <p
-      className={`font-body text-[20px] leading-tight font-bold text-white md:text-[24px] ${className}`}
+      className={`font-body text-[20px] leading-tight font-bold text-paper md:text-[24px] ${className}`}
     >
       {children}
     </p>
@@ -87,7 +87,7 @@ function MetaValue({
 
 function SubHead({ children }: { children: React.ReactNode }) {
   return (
-    <p className="font-body text-[15px] leading-snug font-bold text-white md:text-[16px]">
+    <p className="font-body text-[15px] leading-snug font-bold text-paper md:text-[16px]">
       {children}
     </p>
   );
@@ -95,7 +95,7 @@ function SubHead({ children }: { children: React.ReactNode }) {
 
 function PullQuote({ children }: { children: React.ReactNode }) {
   return (
-    <p className="font-body mt-10 max-w-[760px] text-[15px] leading-snug font-normal text-[#8e8e93] italic md:text-[16px]">
+    <p className="font-body mt-10 max-w-[760px] text-[15px] leading-snug font-normal text-paper/60 italic md:text-[16px]">
       {children}
     </p>
   );
@@ -109,7 +109,7 @@ export function IAG() {
     <article
       data-cs-root
       data-theme="dark"
-      className="font-body relative isolate overflow-x-clip bg-black text-white antialiased"
+      className="font-body relative isolate overflow-x-clip bg-black text-paper antialiased"
     >
       {/* ================================================================ */}
       {/* HERO                                                              */}
@@ -125,7 +125,7 @@ export function IAG() {
             <FadeReveal y={12}>
               <p
                 id="cs-hero-tag"
-                className="font-body text-[24px] leading-tight font-bold text-white md:text-[32px]"
+                className="font-body text-[24px] leading-tight font-bold text-paper md:text-[32px]"
               >
                 Insurance Australia Group (IAG)
               </p>
@@ -133,7 +133,7 @@ export function IAG() {
             <FadeReveal y={16} delay={0.05}>
               <h1
                 id="cs-hero-title"
-                className="font-body mt-3 max-w-[540px] text-[18px] leading-snug font-normal text-[#8e8e93] md:text-[24px]"
+                className="font-body mt-3 max-w-[540px] text-[18px] leading-snug font-normal text-paper/60 md:text-[24px]"
               >
                 Scaling Design Systems for multi-brand web experiences
               </h1>
@@ -168,7 +168,7 @@ export function IAG() {
 
           <p
             aria-hidden
-            className="font-display pointer-events-none absolute inset-x-0 top-0 z-10 -translate-y-[55%] pr-0 text-right text-[clamp(4rem,14vw,14rem)] leading-[0.95] tracking-[-0.02em] whitespace-nowrap text-white md:-translate-y-[58%]"
+            className="font-display pointer-events-none absolute inset-x-0 top-0 z-10 -translate-y-[55%] pr-0 text-right text-[clamp(4rem,14vw,14rem)] leading-[0.95] tracking-[-0.02em] whitespace-nowrap text-paper md:-translate-y-[58%]"
           >
             <WordReveal staggerMs={80} durationMs={950}>
               Insurance Aus
@@ -815,7 +815,7 @@ export function IAG() {
             <SectionHeading>Impact / Results</SectionHeading>
             <BodyParagraph className="mt-5 max-w-[914px]">
               <p>
-                <span className="font-bold text-white">
+                <span className="font-bold text-paper">
                   Design Systems as a Business Accelerator.
                 </span>{" "}
                 The investment in a scalable system paid off in measurable

@@ -6,6 +6,7 @@ import { HeroCursorTrail } from "@/components/ui/HeroCursorTrail";
 import { WordReveal } from "@/components/ui/WordReveal";
 import { DraggableFigmaObject } from "@/components/ui/DraggableFigmaObject";
 import { HERO_GLYPHS } from "@/components/ui/heroSvgPaths";
+import { ShowReelButton } from "@/components/ui/ShowReelButton";
 
 export interface HeroProps {
   name?: string;
@@ -15,8 +16,8 @@ export interface HeroProps {
 
 export function Hero({
   name = "Rotash Shrestha",
-  emphasis = "Lead product designer at DEPT® Agency.",
-  intro = "12+ Years shipping B2C Websites, ERPs, DXR projects as Design Lead. I help teams find the sharpest problem, then ship the cleanest solution.",
+  emphasis = "Lead, Design & Strategy at DEPT® Agency.",
+  intro = "12+\u00A0Years shipping B2C Websites, ERPs, DXR projects as Design Lead. I help teams find the sharpest problem, then ship the cleanest solution.",
 }: HeroProps) {
   const sectionRef = useRef<HTMLElement>(null);
   const typeRef = useRef<HTMLDivElement>(null);
@@ -79,7 +80,7 @@ export function Hero({
       id="hero"
       data-theme="dark"
       aria-label="Introduction"
-      className="bg-ink relative overflow-hidden pt-[160px] pb-20 md:pt-[220px] md:pb-32"
+      className="bg-ink relative flex h-screen min-h-[760px] flex-col overflow-hidden pt-[120px] pb-[100px] md:pt-[140px] md:pb-[110px]"
     >
       <p className="sr-only">
         The hero words Strategy, Design, and Interaction are draggable. Tab to focus a word, then use arrow keys to nudge (Shift+arrow for larger steps), Escape to reset its position. With a pointer, click and drag to move; the word stays where you drop it.
@@ -92,14 +93,14 @@ export function Hero({
 
       {/* Edge vignette to focus type */}
       <div
-        className="pointer-events-none absolute inset-0 bg-[radial-gradient(ellipse_at_center,transparent_40%,rgba(0,0,0,0.6)_100%)]"
+        className="hero-vignette pointer-events-none absolute inset-0 bg-[radial-gradient(ellipse_at_center,transparent_40%,rgba(0,0,0,0.6)_100%)]"
         aria-hidden="true"
       />
 
-      <div className="mx-auto flex w-full max-w-[1640px] flex-col px-6 md:px-14">
+      <div className="mx-auto flex w-full max-w-[1640px] flex-1 flex-col px-6 md:px-14">
         <div
           ref={typeRef}
-          className="relative mx-auto mt-4 flex w-full max-w-[880px] flex-col gap-1 text-white"
+          className="relative mx-auto mt-4 flex w-full max-w-[880px] flex-col gap-1 text-paper"
         >
           {HERO_GLYPHS.map((glyph, i) => {
             // Proportional widths: bbox width / original 879 viewBox width
@@ -128,19 +129,23 @@ export function Hero({
           })}
         </div>
 
-        <div ref={bodyRef} className="mt-20 grid grid-cols-1 gap-8 md:mt-28 md:grid-cols-12">
+        <div ref={bodyRef} className="mt-auto grid grid-cols-1 gap-8 pt-10 md:grid-cols-12">
           <div className="md:col-span-6">
-            <p className="font-body max-w-[525px] text-white/95 text-xl leading-snug md:text-[24px] md:leading-[1.3]">
+            <p className="font-body max-w-[525px] text-paper/95 text-xl leading-snug md:text-[24px] md:leading-[1.3]">
               <WordReveal>
                 <span className="font-bold">{emphasis} </span>
                 <span className="font-light">{intro}</span>
               </WordReveal>
             </p>
-            <p className="font-body mt-8 text-lg font-semibold text-white md:mt-12 md:text-[24px]">
+            <p className="font-body mt-8 text-lg font-semibold text-paper md:mt-12 md:text-[24px]">
               {name}
             </p>
           </div>
         </div>
+      </div>
+
+      <div className="pointer-events-none absolute right-6 bottom-10 z-10 md:right-14 md:bottom-14">
+        <ShowReelButton />
       </div>
     </section>
   );

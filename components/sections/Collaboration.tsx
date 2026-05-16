@@ -101,6 +101,7 @@ export function Collaboration({
     <section
       id="collaboration"
       data-theme="dark"
+      data-theme-fixed
       aria-label="Collaboration and testimonials"
       className="bg-ink text-paper relative overflow-hidden py-24 md:py-[140px]"
     >
@@ -108,14 +109,14 @@ export function Collaboration({
         <h2
           aria-label={heading}
           data-cursor-target="collaboration-heading"
-          className="font-display select-none text-[13vw] leading-[0.85] text-white md:text-[18vw] xl:text-[300px]"
+          className="font-display select-none text-[13vw] leading-[0.85] text-paper md:text-[18vw] xl:text-[300px]"
         >
           {heading}
         </h2>
 
         <div className="mt-12 grid grid-cols-1 gap-16 md:mt-20 md:grid-cols-12 md:gap-[60px]">
           <div className="md:col-span-5">
-            <p className="font-body max-w-[580px] text-[22px] font-bold leading-tight text-white md:text-[32px] md:leading-[1.2]">
+            <p className="font-body max-w-[580px] text-[22px] font-bold leading-tight text-paper md:text-[32px] md:leading-[1.2]">
               {intro}
             </p>
           </div>

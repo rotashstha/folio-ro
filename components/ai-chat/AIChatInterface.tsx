@@ -52,6 +52,7 @@ export function AIChatInterface({
     <section
       id="ai"
       data-theme="light"
+      data-theme-fixed
       aria-label="Pick my brain — AI chat"
       className="bg-paper text-ink pt-16 pb-24 md:pt-20 md:pb-[140px]"
     >

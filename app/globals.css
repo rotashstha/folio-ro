@@ -41,6 +41,58 @@
   --font-accent: var(--font-gochi), ui-sans-serif, cursive;
 }
 
+/* ------------------------------------------------------------------ */
+/* Root theme overrides — flip ink/paper when user chooses light mode  */
+/* ------------------------------------------------------------------ */
+
+html[data-theme="dark"],
+html:not([data-theme]) {
+  --color-ink: #000000;
+  --color-paper: #ffffff;
+  --color-grid-line: rgba(255, 255, 255, 0.06);
+}
+
+html[data-theme="light"] {
+  --color-ink: #ffffff;
+  --color-paper: #000000;
+  --color-grid-line: rgba(0, 0, 0, 0.04);
+}
+
+/* Smooth cross-theme transition */
+html {
+  transition: background-color 350ms ease, color 350ms ease;
+}
+
+/* ------------------------------------------------------------------ */
+/* Light mode — scoped changes                                          */
+/* Only the Hero + Work sections participate in the token flip.         */
+/* Everything else is pinned to its dark-mode appearance.              */
+/* ------------------------------------------------------------------ */
+
+/* Sections that don't participate in the light-mode flip */
+html[data-theme="light"] [data-theme-fixed] {
+  --color-ink: #000000;
+  --color-paper: #ffffff;
+}
+
+/* Hero vignette is invisible on a white background */
+html[data-theme="light"] .hero-vignette {
+  display: none;
+}
+
+/* Project card captions: muted grey reads poorly on white */
+html[data-theme="light"] .work-card figcaption {
+  color: #121212;
+}
+
+/* Applied by the no-flash script to suppress transitions on first paint */
+html.no-transition,
+html.no-transition * {
+  transition: none !important;
+}
+
+/* Case studies inherit root ink/paper tokens — toggle works across all pages */
+
 @layer base {
   html {
     text-rendering: optimizeLegibility;
@@ -49,8 +101,8 @@
 
   body {
     font-family: var(--font-body);
-    color: var(--color-ink);
-    background: var(--color-paper);
+    color: var(--color-paper);
+    background: var(--color-ink);
   }
 
   :focus-visible {
@@ -79,8 +131,8 @@
 
 @utility hero-grid {
   background-image:
-    linear-gradient(to right, rgba(255, 255, 255, 0.06) 1px, transparent 1px),
-    linear-gradient(to bottom, rgba(255, 255, 255, 0.06) 1px, transparent 1px);
+    linear-gradient(to right, var(--color-grid-line) 1px, transparent 1px),
+    linear-gradient(to bottom, var(--color-grid-line) 1px, transparent 1px);
   background-size: 96px 96px;
 }
 
@@ -269,7 +321,6 @@ body:has([data-cs-root][data-theme="light"]) {
   width: 0%;
   background: var(--color-accent-magenta);
   transform-origin: left center;
-  will-change: width;
 }
 
 /* Before/after slider handle */

@@ -38,9 +38,11 @@ function tokenize(
 
     if (typeof child === "string" || typeof child === "number") {
       const text = String(child);
-      const parts = text.split(/(\s+)/);
+      // Split on regular whitespace only — preserve \u00A0 (non-breaking space)
+      // inside tokens so e.g. "12+\u00A0Years" stays a single non-breaking word.
+      const parts = text.split(/([ \t\r\n]+)/);
       parts.forEach((part, partIdx) => {
-        if (!part || /^\s+$/.test(part)) return;
+        if (!part || /^[ \t\r\n]+$/.test(part)) return;
         out.push({ key: `${keyBase}-${partIdx}`, word: part, bold, light, extraClass });
       });
       return;
@@ -70,12 +72,14 @@ export function WordReveal({
   const containerRef = useRef<HTMLSpanElement>(null);
   const reduced = useReducedMotion();
   const [visible, setVisible] = useState(false);
+  const [settled, setSettled] = useState(false);
 
   const tokens = useMemo(() => tokenize(children), [children]);
 
   useEffect(() => {
     if (reduced) {
       setVisible(true);
+      setSettled(true);
       return;
     }
     const node = containerRef.current;
@@ -96,6 +100,16 @@ export function WordReveal({
     return () => obs.disconnect();
   }, [reduced, threshold]);
 
+  // Once the staggered reveal finishes, drop will-change so the browser can
+  // discard the per-word GPU layers — otherwise hundreds of compositor layers
+  // remain pinned across the page and tank scroll performance.
+  useEffect(() => {
+    if (!visible || reduced) return;
+    const totalMs = durationMs + tokens.length * staggerMs + 50;
+    const t = setTimeout(() => setSettled(true), totalMs);
+    return () => clearTimeout(t);
+  }, [visible, reduced, durationMs, staggerMs, tokens.length]);
+
   return (
     <span ref={containerRef} className={className}>
       {tokens.map((tok, i) => {
@@ -112,7 +126,7 @@ export function WordReveal({
                 transition: reduced
                   ? "none"
                   : `opacity ${durationMs}ms cubic-bezier(0.16,1,0.3,1) ${i * staggerMs}ms, transform ${durationMs}ms cubic-bezier(0.16,1,0.3,1) ${i * staggerMs}ms`,
-                willChange: "opacity, transform",
+                willChange: settled ? "auto" : "opacity, transform",
               }}
             >
               {tok.word}

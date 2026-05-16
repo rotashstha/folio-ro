@@ -2,7 +2,7 @@ import type { Metadata } from "next";
 import { Header } from "@/components/layout/Header";
 import { PageTransition } from "@/components/layout/PageTransition";
 import { SmoothScroller } from "@/components/layout/SmoothScroller";
-import { CollaborativeCursor } from "@/components/ui/collaborative-cursor";
+// import { CollaborativeCursor } from "@/components/ui/collaborative-cursor"; // disabled — re-enable to restore custom cursor
 import { PageLoader } from "@/components/ui/PageLoader";
 import {
   elza,
@@ -32,10 +32,18 @@ const fontVars = [
 
 export default function RootLayout({ children }: { children: React.ReactNode }) {
   return (
-    <html lang="en" className={fontVars}>
+    <html lang="en" data-theme="dark" suppressHydrationWarning className={fontVars}>
+      <head>
+        {/* No-flash theme restore — runs before paint */}
+        <script
+          dangerouslySetInnerHTML={{
+            __html: `(function(){var t=localStorage.getItem('portfolio-theme');if(t==='light'||t==='dark')document.documentElement.setAttribute('data-theme',t);document.documentElement.classList.add('no-transition');requestAnimationFrame(function(){requestAnimationFrame(function(){document.documentElement.classList.remove('no-transition')})})})()`,
+          }}
+        />
+      </head>
       <body suppressHydrationWarning className="bg-ink font-body text-paper antialiased">
         <PageLoader />
-        <CollaborativeCursor />
+        {/* <CollaborativeCursor /> */}
         <SmoothScroller>
           <Header />
           <main id="main">

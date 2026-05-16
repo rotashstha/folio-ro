@@ -51,7 +51,7 @@ function Container({
 
 function SectionHeading({ children }: { children: React.ReactNode }) {
   return (
-    <h2 className="font-body text-[20px] leading-tight font-normal text-white md:text-[24px]">
+    <h2 className="font-body text-[20px] leading-tight font-normal text-paper md:text-[24px]">
       {children}
     </h2>
   );
@@ -66,7 +66,7 @@ function BodyParagraph({
 }) {
   return (
     <div
-      className={`font-body text-[15px] leading-[1.6] font-normal text-[#8e8e93] md:text-[16px] ${className}`}
+      className={`font-body text-[15px] leading-[1.6] font-normal text-paper/60 md:text-[16px] ${className}`}
     >
       {children}
     </div>
@@ -75,7 +75,7 @@ function BodyParagraph({
 
 function MetaLabel({ children }: { children: React.ReactNode }) {
   return (
-    <h3 className="font-body text-[20px] leading-tight font-normal text-[#8e8e93] md:text-[24px]">
+    <h3 className="font-body text-[20px] leading-tight font-normal text-paper/60 md:text-[24px]">
       {children}
     </h3>
   );
@@ -90,7 +90,7 @@ function MetaValue({
 }) {
   return (
     <p
-      className={`font-body text-[20px] leading-tight font-bold text-white md:text-[24px] ${className}`}
+      className={`font-body text-[20px] leading-tight font-bold text-paper md:text-[24px] ${className}`}
     >
       {children}
     </p>
@@ -105,7 +105,7 @@ export function BP() {
     <article
       data-cs-root
       data-theme="dark"
-      className="font-body relative isolate overflow-x-clip bg-black text-white antialiased"
+      className="font-body relative isolate overflow-x-clip bg-black text-paper antialiased"
     >
       {/* ================================================================ */}
       {/* HERO                                                              */}
@@ -125,7 +125,7 @@ export function BP() {
               <FadeReveal y={12}>
                 <p
                   id="cs-hero-tag"
-                  className="font-body text-[24px] leading-tight font-bold text-white md:text-[32px]"
+                  className="font-body text-[24px] leading-tight font-bold text-paper md:text-[32px]"
                 >
                   BP p.l.c.
                 </p>
@@ -133,7 +133,7 @@ export function BP() {
               <FadeReveal y={16} delay={0.05}>
                 <h1
                   id="cs-hero-title"
-                  className="font-body mt-3 max-w-[524px] text-[18px] leading-snug font-normal text-[#8e8e93] md:text-[24px]"
+                  className="font-body mt-3 max-w-[524px] text-[18px] leading-snug font-normal text-paper/60 md:text-[24px]"
                 >
                   Fuel Supply Planning Platform
                 </h1>
@@ -144,7 +144,7 @@ export function BP() {
             {/* Giant editorial "bp" — Gallient, right-aligned, drops over the hero card. */}
             <p
               aria-hidden
-              className="font-display pointer-events-none select-none text-right text-[clamp(6rem,16vw,18rem)] leading-[0.85] tracking-[-0.02em] text-white"
+              className="font-display pointer-events-none select-none text-right text-[clamp(6rem,16vw,18rem)] leading-[0.85] tracking-[-0.02em] text-paper"
             >
               <WordReveal staggerMs={80} durationMs={950}>
                 bp
@@ -154,7 +154,7 @@ export function BP() {
         </Container>
 
         {/* Hero card — pulled up so the "bp" wordmark above overlaps its top-right corner. */}
-        <Container className="relative z-0 -mt-[40px] md:-mt-[90px]">
+        <Container className="relative z-0 mt-6 md:-mt-[90px]">
           <FadeReveal y={32} delay={0.1}>
             <MaskReveal duration={1.1} delay={0.1}>
               <div className="relative w-full overflow-hidden rounded-[24px] bg-black">
@@ -363,16 +363,16 @@ export function BP() {
                 I led discovery to understand fuel supply planning as
                 it&apos;s actually practised, not as it&apos;s documented.
                 Across{" "}
-                <span className="font-bold text-white">12 user interviews</span>{" "}
+                <span className="font-bold text-paper">12 user interviews</span>{" "}
                 and{" "}
-                <span className="font-bold text-white">
+                <span className="font-bold text-paper">
                   2 rounds of co-design sessions
                 </span>{" "}
                 with planners, operations stakeholders, business analysts, and
                 technical teams, we mapped the real workflows and the
                 workarounds that had quietly become load-bearing.
               </p>
-              <p className="mt-6 mb-3 font-bold text-white">What we learned</p>
+              <p className="mt-6 mb-3 font-bold text-paper">What we learned</p>
               <ul className="ml-6 list-disc space-y-3">
                 <li>
                   Critical information lived across disconnected platforms.
@@ -441,7 +441,7 @@ export function BP() {
               </p>
               <ul className="ml-6 list-disc space-y-3">
                 <li>
-                  <span className="font-bold text-white">
+                  <span className="font-bold text-paper">
                     Fragmented ecosystem.
                   </span>{" "}
                   A single planning task could span several systems,
@@ -449,14 +449,14 @@ export function BP() {
                   logic.
                 </li>
                 <li>
-                  <span className="font-bold text-white">
+                  <span className="font-bold text-paper">
                     High cognitive load.
                   </span>{" "}
                   Critical decisions were made quickly inside dense interfaces
                   where the most important signal was often buried.
                 </li>
                 <li>
-                  <span className="font-bold text-white">
+                  <span className="font-bold text-paper">
                     Lack of consistency.
                   </span>{" "}
                   Different tools used different patterns, terminology, and
@@ -464,7 +464,7 @@ export function BP() {
                   confidence over time.
                 </li>
                 <li>
-                  <span className="font-bold text-white">
+                  <span className="font-bold text-paper">
                     Operational pressure.
                   </span>{" "}
                   Time-sensitive decisions carry real downstream cost, so the
@@ -472,7 +472,7 @@ export function BP() {
                   contain information.
                 </li>
                 <li>
-                  <span className="font-bold text-white">Scalability.</span>{" "}
+                  <span className="font-bold text-paper">Scalability.</span>{" "}
                   New teams and workflows kept arriving. Any new design needed
                   to make the system simpler as it grew, not more complex.
                 </li>
@@ -523,38 +523,38 @@ export function BP() {
                 operational products while staying flexible enough for
                 domain-specific needs.
               </p>
-              <p className="mt-6 mb-3 font-bold text-white">Core principles</p>
+              <p className="mt-6 mb-3 font-bold text-paper">Core principles</p>
               <ul className="ml-6 list-disc space-y-3">
                 <li>
-                  <span className="font-bold text-white">
+                  <span className="font-bold text-paper">
                     Consistency at scale.
                   </span>{" "}
                   Reusable patterns and layouts cut friction across workflows
                   and made the product feel familiar even on first use.
                 </li>
                 <li>
-                  <span className="font-bold text-white">
+                  <span className="font-bold text-paper">
                     Data-first design.
                   </span>{" "}
                   Information hierarchy, readability, and operational clarity
                   came ahead of decoration.
                 </li>
                 <li>
-                  <span className="font-bold text-white">
+                  <span className="font-bold text-paper">
                     Reduced cognitive load.
                   </span>{" "}
                   Standardised behaviours kept attention on the decision, not
                   the system.
                 </li>
                 <li>
-                  <span className="font-bold text-white">
+                  <span className="font-bold text-paper">
                     Modular architecture.
                   </span>{" "}
                   Components and patterns built to evolve alongside future
                   capabilities.
                 </li>
                 <li>
-                  <span className="font-bold text-white">
+                  <span className="font-bold text-paper">
                     Cross-functional alignment.
                   </span>{" "}
                   Built alongside product, engineering, and business
@@ -624,44 +624,44 @@ export function BP() {
                 interaction patterns supported faster, more confident
                 decisions.
               </p>
-              <p className="mt-6 mb-3 font-bold text-white">What changed</p>
+              <p className="mt-6 mb-3 font-bold text-paper">What changed</p>
               <ul className="ml-6 list-disc space-y-3">
                 <li>
-                  <span className="font-bold text-white">
+                  <span className="font-bold text-paper">
                     A unified operational experience.
                   </span>{" "}
                   Fragmented systems and external workarounds gave way to a
                   connected planning environment.
                 </li>
                 <li>
-                  <span className="font-bold text-white">
+                  <span className="font-bold text-paper">
                     Sharper information hierarchy.
                   </span>{" "}
                   The operational signal planners actually act on came to the
                   surface.
                 </li>
                 <li>
-                  <span className="font-bold text-white">
+                  <span className="font-bold text-paper">
                     Simplified workflows.
                   </span>{" "}
                   Fewer steps, less duplication, more flow.
                 </li>
                 <li>
-                  <span className="font-bold text-white">
+                  <span className="font-bold text-paper">
                     Scalable foundations.
                   </span>{" "}
                   Reusable experience patterns ready for the next set of
                   products in the ecosystem.
                 </li>
                 <li>
-                  <span className="font-bold text-white">
+                  <span className="font-bold text-paper">
                     Collaborative delivery.
                   </span>{" "}
                   Built end-to-end with product, engineering, business, and
                   operational teams.
                 </li>
               </ul>
-              <p className="mt-6 mb-3 font-bold text-white">The outcome</p>
+              <p className="mt-6 mb-3 font-bold text-paper">The outcome</p>
               <ul className="ml-6 list-disc space-y-2">
                 <li>Less friction across the operational day.</li>
                 <li>

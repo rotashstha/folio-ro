@@ -24,7 +24,7 @@ export function Work({ projects, heading = "Work" }: WorkProps) {
         <h2
           aria-label={heading}
           data-cursor-target="work-heading"
-          className="font-display pointer-events-none relative z-10 select-none text-left text-[30vw] leading-[0.85] text-white md:text-[300px]"
+          className="font-display pointer-events-none relative z-10 select-none text-left text-[30vw] leading-[0.85] text-paper md:text-[300px]"
         >
           {heading}
         </h2>
@@ -39,7 +39,7 @@ export function Work({ projects, heading = "Work" }: WorkProps) {
           ))}
           {/* Sits in the empty grid cell next to the last card on md+; stacks below on mobile. */}
           <li className="flex items-center md:pl-16 lg:pl-24">
-            <p className="font-body max-w-[520px] text-[24px] font-medium leading-[1.3] text-white md:text-[36px] md:leading-[1.2]">
+            <p className="font-body max-w-[520px] text-[24px] font-medium leading-[1.3] text-paper md:text-[36px] md:leading-[1.2]">
               <WordReveal>
                 I blend product thinking, design craft, vibe coding speed, and
                 AI workflows to{" "}

@@ -68,7 +68,7 @@ const defaultCases: StrategyCase[] = [
 
 function HighlightedBlock({ lines }: { lines: string[] }) {
   return (
-    <div className="font-accent space-y-4 text-[17px] leading-[1.7] text-white md:text-[19px]">
+    <div className="font-accent space-y-4 text-[17px] leading-[1.7] text-paper md:text-[19px]">
       {lines.map((paragraph) => (
         <p key={paragraph} className="max-w-[440px]">
           <span className="bg-accent-neon px-[0.1em] py-[0.08em] text-white [box-decoration-break:clone] [-webkit-box-decoration-break:clone]">
@@ -90,6 +90,7 @@ export function Strategy({
     <section
       id="strategy"
       data-theme="dark"
+      data-theme-fixed
       aria-label="Strategy methodology"
       className="bg-ink text-paper relative overflow-hidden py-24 md:py-[140px]"
     >
@@ -97,16 +98,16 @@ export function Strategy({
         <h2
           aria-label={heading}
           data-cursor-target="strategy-heading"
-          className="font-display pointer-events-none select-none text-[20vw] leading-[0.85] text-white md:text-[24vw] xl:text-[300px]"
+          className="font-display pointer-events-none select-none text-[20vw] leading-[0.85] text-paper md:text-[24vw] xl:text-[300px]"
         >
           {heading}
         </h2>
 
         <div className="mt-12 max-w-[1200px] md:mt-20">
-          <p className="font-body text-[22px] font-bold leading-tight text-white md:text-[32px] md:leading-[1.2]">
+          <p className="font-body text-[22px] font-bold leading-tight text-paper md:text-[32px] md:leading-[1.2]">
             {lead}
           </p>
-          <p className="font-body-condensed mt-8 max-w-[900px] text-[18px] text-white md:text-[24px] md:leading-[1.5]">
+          <p className="font-body-condensed mt-8 max-w-[900px] text-[18px] text-paper md:text-[24px] md:leading-[1.5]">
             {subLead}
           </p>
         </div>
@@ -114,16 +115,16 @@ export function Strategy({
         <div className="mt-20 flex flex-col gap-20 md:gap-[60px]">
           {cases.map((c, i) => (
             <FadeReveal key={c.title} delay={0.05}>
-            <article className="border-t border-white/20 pt-12">
+            <article className="border-t border-paper/20 pt-12">
               <div className="grid grid-cols-1 gap-10 md:grid-cols-12 md:gap-[60px]">
                 <div className="md:col-span-5">
-                  <h3 className="font-body text-[26px] font-bold leading-tight text-white md:text-[32px]">
+                  <h3 className="font-body text-[26px] font-bold leading-tight text-paper md:text-[32px]">
                     {c.title}
                   </h3>
-                  <p className="font-body-condensed mt-4 max-w-[440px] text-[15px] leading-[1.5] text-white md:text-[16px]">
+                  <p className="font-body-condensed mt-4 max-w-[440px] text-[15px] leading-[1.5] text-paper md:text-[16px]">
                     {c.intro}
                   </p>
-                  <div className="font-accent mt-10 text-[16px] leading-[1.5] text-white md:text-[18px]">
+                  <div className="font-accent mt-10 text-[16px] leading-[1.5] text-paper md:text-[18px]">
                     <p>{c.client}</p>
                     <p>{c.year}</p>
                   </div>
