@@ -100,7 +100,7 @@ export function Hero({
       <div className="mx-auto flex w-full max-w-[1640px] flex-1 flex-col px-6 md:px-14">
         <div
           ref={typeRef}
-          className="relative mx-auto mt-4 flex w-full max-w-[880px] flex-col gap-1 text-paper"
+          className="relative mx-auto my-auto flex w-full max-w-[880px] flex-col gap-1 text-paper md:my-0 md:mt-4"
         >
           {HERO_GLYPHS.map((glyph, i) => {
             // Proportional widths: bbox width / original 879 viewBox width
@@ -137,7 +137,7 @@ export function Hero({
                 <span className="font-light">{intro}</span>
               </WordReveal>
             </p>
-            <p className="font-body mt-8 text-lg font-semibold text-paper md:mt-12 md:text-[24px]">
+            <p className="font-body mt-6 text-[20px] font-semibold text-paper md:mt-8">
               {name}
             </p>
           </div>
