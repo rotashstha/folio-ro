@@ -2,6 +2,7 @@
 
 import { Children, useEffect, useMemo, useRef, useState } from "react";
 import { useReducedMotion } from "@/hooks/useReducedMotion";
+import { EASING_SPRING } from "@/lib/animation/constants";
 
 interface WordRevealProps {
   children: React.ReactNode;
@@ -125,7 +126,7 @@ export function WordReveal({
                 transform: visible || reduced ? "none" : "translateY(0.5em)",
                 transition: reduced
                   ? "none"
-                  : `opacity ${durationMs}ms cubic-bezier(0.16,1,0.3,1) ${i * staggerMs}ms, transform ${durationMs}ms cubic-bezier(0.16,1,0.3,1) ${i * staggerMs}ms`,
+                  : `opacity ${durationMs}ms ${EASING_SPRING} ${i * staggerMs}ms, transform ${durationMs}ms ${EASING_SPRING} ${i * staggerMs}ms`,
                 willChange: settled ? "auto" : "opacity, transform",
               }}
             >

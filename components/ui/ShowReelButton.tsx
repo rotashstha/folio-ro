@@ -36,8 +36,6 @@ export function ShowReelButton({
 
   useEffect(() => {
     if (!open) {
-      // Only restore focus when transitioning from open → closed,
-      // not on initial mount (where we don't want to steal focus).
       if (wasOpenRef.current) buttonRef.current?.focus({ preventScroll: true });
       wasOpenRef.current = false;
       return;
@@ -78,8 +76,7 @@ export function ShowReelButton({
         </span>
       </button>
 
-      {open
-        ? createPortal(
+      {open && createPortal(
             <div
               role="dialog"
               aria-modal="true"
@@ -107,8 +104,7 @@ export function ShowReelButton({
               />
             </div>,
             document.body
-          )
-        : null}
+          )}
     </>
   );
 }

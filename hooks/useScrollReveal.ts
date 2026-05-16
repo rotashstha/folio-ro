@@ -2,6 +2,7 @@
 
 import { useEffect, useRef } from "react";
 import { useReducedMotion } from "./useReducedMotion";
+import { EASING_SPRING } from "@/lib/animation/constants";
 
 interface RevealOptions {
   y?: number;
@@ -30,7 +31,7 @@ export function useScrollReveal<T extends HTMLElement = HTMLElement>(
         if (!entry.isIntersecting) return;
         observer.disconnect();
         requestAnimationFrame(() => {
-          el.style.transition = `opacity ${duration}s cubic-bezier(0.16,1,0.3,1) ${delay}s, transform ${duration}s cubic-bezier(0.16,1,0.3,1) ${delay}s`;
+          el.style.transition = `opacity ${duration}s ${EASING_SPRING} ${delay}s, transform ${duration}s ${EASING_SPRING} ${delay}s`;
           el.style.opacity = "1";
           el.style.transform = "translateY(0)";
         });

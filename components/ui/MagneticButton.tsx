@@ -2,6 +2,7 @@
 
 import { useRef } from "react";
 import { useReducedMotion } from "@/hooks/useReducedMotion";
+import { EASING_SPRING } from "@/lib/animation/constants";
 
 interface MagneticButtonProps {
   children: React.ReactNode;
@@ -27,7 +28,7 @@ export function MagneticButton({ children, className, strength = 0.4 }: Magnetic
   const handleLeave = () => {
     if (!ref.current) return;
     ref.current.style.transform = "translate(0, 0)";
-    ref.current.style.transition = "transform 0.5s cubic-bezier(0.16,1,0.3,1)";
+    ref.current.style.transition = `transform 0.5s ${EASING_SPRING}`;
   };
 
   return (

@@ -7,6 +7,7 @@ import { WordReveal } from "@/components/ui/WordReveal";
 import { DraggableFigmaObject } from "@/components/ui/DraggableFigmaObject";
 import { HERO_GLYPHS } from "@/components/ui/heroSvgPaths";
 import { ShowReelButton } from "@/components/ui/ShowReelButton";
+import { EASING_SPRING, PORTFOLIO_LOADED_EVENT } from "@/lib/animation/constants";
 
 export interface HeroProps {
   name?: string;
@@ -44,13 +45,12 @@ export function Hero({
     });
 
     const timers: ReturnType<typeof setTimeout>[] = [];
-    let rafId = 0;
 
     const reveal = () => {
       els.forEach((el, i) => {
         timers.push(
           setTimeout(() => {
-            el.style.transition = `opacity 0.9s cubic-bezier(0.16,1,0.3,1) ${i * 0.15}s, transform 0.9s cubic-bezier(0.16,1,0.3,1) ${i * 0.15}s`;
+            el.style.transition = `opacity 0.9s ${EASING_SPRING} ${i * 0.15}s, transform 0.9s ${EASING_SPRING} ${i * 0.15}s`;
             el.style.opacity = "1";
             el.style.transform = "translateY(0)";
           }, i * 150)
@@ -59,17 +59,17 @@ export function Hero({
     };
 
     if (alreadyLoaded) {
-      rafId = requestAnimationFrame(reveal);
+      const rafId = requestAnimationFrame(reveal);
       return () => {
         cancelAnimationFrame(rafId);
         timers.forEach(clearTimeout);
       };
     }
 
-    window.addEventListener("portfolio-loaded", reveal, { once: true });
+    window.addEventListener(PORTFOLIO_LOADED_EVENT, reveal, { once: true });
 
     return () => {
-      window.removeEventListener("portfolio-loaded", reveal);
+      window.removeEventListener(PORTFOLIO_LOADED_EVENT, reveal);
       timers.forEach(clearTimeout);
     };
   }, [reduced]);

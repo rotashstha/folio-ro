@@ -2,6 +2,7 @@
 
 import { useEffect, useRef } from "react";
 import { useReducedMotion } from "@/hooks/useReducedMotion";
+import { EASING_SPRING } from "@/lib/animation/constants";
 
 interface LineRevealProps {
   children: React.ReactNode;
@@ -25,7 +26,7 @@ export function LineReveal({ children, className, delay = 0 }: LineRevealProps) 
         if (!entry.isIntersecting) return;
         observer.disconnect();
         setTimeout(() => {
-          line.style.transition = `transform 0.6s cubic-bezier(0.16,1,0.3,1)`;
+          line.style.transition = `transform 0.6s ${EASING_SPRING}`;
           line.style.transform = "scaleX(1)";
         }, delay * 1000);
       },
