@@ -93,6 +93,15 @@ html[data-theme="light"] .marquee-strip .marquee-text {
   color: #0a0a0a;
 }
 
+@keyframes marquee-scroll {
+  from { transform: translateX(0); }
+  to   { transform: translateX(-50%); }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .marquee-text { animation: none !important; }
+}
+
 /* Applied by the no-flash script to suppress transitions on first paint */
 html.no-transition,
 html.no-transition * {

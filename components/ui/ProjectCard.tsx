@@ -12,11 +12,15 @@ const paletteClasses: Record<ProjectPalette, string> = {
   navy: "bg-[#161a2a]",
 };
 
+const PILL_BASE = "font-body rounded-full px-3 py-[5px] text-[10px] font-medium tracking-[0.12em] uppercase backdrop-blur-xl backdrop-saturate-150 md:text-[11px]";
+const PILL_LIGHT = "bg-gradient-to-b from-white/55 to-white/25 text-[#0a0a0a] shadow-[inset_0_1px_0_rgba(255,255,255,0.75),0_1px_2px_rgba(0,0,0,0.06)]";
+const PILL_DARK = "border border-white/30 bg-white/15 text-white";
+
 export function ProjectCard({ project, priority = false }: ProjectCardProps) {
   const { slug, title, client, label, cover, devices, palette, footerLogo, tags, coverTone, tagTones } = project;
 
   const hasDevices = devices && devices.length > 0;
-  const defaultTone: "light" | "dark" = coverTone === "light" ? "light" : "dark";
+  const defaultTone = coverTone ?? "dark";
   const visibleTags = (tags ?? []).slice(0, 4).map((label) => ({
     label,
     tone: tagTones?.[label] ?? defaultTone,
@@ -86,11 +90,7 @@ export function ProjectCard({ project, priority = false }: ProjectCardProps) {
             {visibleTags.map(({ label: tagLabel, tone }) => (
               <span
                 key={tagLabel}
-                className={`font-body rounded-full px-3 py-[5px] text-[10px] font-medium tracking-[0.12em] uppercase backdrop-blur-xl backdrop-saturate-150 md:text-[11px] ${
-                  tone === "light"
-                    ? "bg-gradient-to-b from-white/55 to-white/25 text-[#0a0a0a] shadow-[inset_0_1px_0_rgba(255,255,255,0.75),0_1px_2px_rgba(0,0,0,0.06)]"
-                    : "border border-white/30 bg-white/15 text-white"
-                }`}
+                className={`${PILL_BASE} ${tone === "light" ? PILL_LIGHT : PILL_DARK}`}
               >
                 {tagLabel}
               </span>
