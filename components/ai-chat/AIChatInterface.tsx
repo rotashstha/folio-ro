@@ -93,7 +93,7 @@ export function AIChatInterface({
               onChange={(e) => setDraft(e.target.value)}
               placeholder={placeholder}
               disabled={loading}
-              className="w-full bg-transparent font-sans text-sm tracking-[-0.01em] text-ink outline-none placeholder:text-[#8e8e93] disabled:opacity-60 md:text-[14px]"
+              className="w-full bg-transparent font-sans text-[16px] tracking-[-0.01em] text-ink outline-none placeholder:text-[#8e8e93] disabled:opacity-60 md:text-[14px]"
             />
             <button
               type="submit"
