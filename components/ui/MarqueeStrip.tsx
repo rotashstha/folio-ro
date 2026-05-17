@@ -8,7 +8,7 @@ interface MarqueeStripProps {
 export function MarqueeStrip({
   text,
   separator = "✦",
-  duration = 80,
+  duration = 160,
   className = "",
 }: MarqueeStripProps) {
   const copies = Array.from({ length: 5 }, (_, i) => (
