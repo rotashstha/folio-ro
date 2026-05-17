@@ -78,11 +78,11 @@ export function ProjectCard({ project, priority = false }: ProjectCardProps) {
           />
         )}
         {visibleTags.length > 0 && (
-          <div className="pointer-events-none absolute top-4 left-4 flex flex-wrap gap-1.5 md:top-6 md:left-6 md:gap-2">
+          <div className="pointer-events-none absolute right-4 bottom-4 left-4 flex flex-wrap gap-1.5 md:right-6 md:bottom-6 md:left-6 md:gap-2">
             {visibleTags.map((tag) => (
               <span
                 key={tag}
-                className="font-body rounded-full border border-white/15 bg-black/35 px-3 py-[5px] text-[11px] font-medium tracking-wide text-white shadow-[0_2px_12px_rgba(0,0,0,0.2)] backdrop-blur-md md:text-[12px]"
+                className="font-body rounded-full border border-white/60 bg-white/55 px-3 py-[5px] text-[11px] font-medium tracking-wide text-ink shadow-[0_2px_12px_rgba(0,0,0,0.1)] backdrop-blur-md md:text-[12px]"
               >
                 {tag}
               </span>
