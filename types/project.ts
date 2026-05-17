@@ -18,6 +18,7 @@ export interface ProjectFrontmatter {
   thumbnail: string;
   accent: Accent;
   palette: ProjectPalette;
+  coverTone?: "light" | "dark";
   devices?: DeviceMockup[];
   tags: string[];
   status: "published" | "draft";

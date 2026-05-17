@@ -13,10 +13,11 @@ const paletteClasses: Record<ProjectPalette, string> = {
 };
 
 export function ProjectCard({ project, priority = false }: ProjectCardProps) {
-  const { slug, title, client, label, cover, devices, palette, footerLogo, tags } = project;
+  const { slug, title, client, label, cover, devices, palette, footerLogo, tags, coverTone } = project;
 
   const hasDevices = devices && devices.length > 0;
   const visibleTags = tags?.slice(0, 4) ?? [];
+  const isLightCover = coverTone === "light";
 
   const captionRow = (
     <div className="work-card__caption-row">
@@ -82,7 +83,11 @@ export function ProjectCard({ project, priority = false }: ProjectCardProps) {
             {visibleTags.map((tag) => (
               <span
                 key={tag}
-                className="font-body rounded-full border border-white/40 bg-white/30 px-3 py-[5px] text-[10px] font-medium tracking-[0.12em] text-paper uppercase backdrop-blur-md md:text-[11px]"
+                className={`font-body rounded-full border px-3 py-[5px] text-[10px] font-medium tracking-[0.12em] uppercase backdrop-blur-md md:text-[11px] ${
+                  isLightCover
+                    ? "border-black/15 bg-white/40 text-[#0a0a0a]"
+                    : "border-white/30 bg-white/15 text-white"
+                }`}
               >
                 {tag}
               </span>
