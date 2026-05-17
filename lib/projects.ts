@@ -69,7 +69,7 @@ export const placeholderProjects: ProjectFrontmatter[] = [
     palette: "navy",
     coverTone: "light",
     tags: ["Energy", "ERP Dashboard"],
-    tagTones: { Energy: "dark" },
+    tagTones: { Energy: "dark", "ERP Dashboard": "dark" },
     status: "published",
     order: 4,
   },
