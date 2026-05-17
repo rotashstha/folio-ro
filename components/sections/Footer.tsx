@@ -27,6 +27,11 @@ const defaultLinks: FooterLink[] = [
     external: true,
   },
   {
+    label: "Github",
+    href: "https://github.com/rotashstha",
+    external: true,
+  },
+  {
     label: "Resume",
     href: "https://docs.google.com/document/d/1f4EVMSNDu_NrEU4Axu0dXh3ia4vTFwXYB5Vm6wIa4no/edit?usp=sharing",
     external: true,
