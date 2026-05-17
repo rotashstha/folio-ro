@@ -15,10 +15,10 @@ export function SmoothScroller({ children }: { children: React.ReactNode }) {
     if (reduced) return;
 
     const lenis = new Lenis({
-      // `lerp` gives a snappier, framerate-friendly feel than `duration` —
-      // each frame eases toward the target by 10% (lower = smoother but
-      // laggier; higher = snappier). 0.1 is a good balance.
-      lerp: 0.1,
+      // Per-frame easing factor toward the wheel target. 0.1 reads as
+      // sluggish (~370ms to 90% of the input); 0.14 settles in ~230ms
+      // while keeping motion smooth and framerate-stable.
+      lerp: 0.14,
       smoothWheel: true,
       wheelMultiplier: 1,
       touchMultiplier: 1.5,
