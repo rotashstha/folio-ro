@@ -18,7 +18,7 @@ export function ShowReelButton({
   src = "/videos/showreel.mp4",
   poster,
   label = "SHOW REEL 2026",
-  tagline = "What I'm up to?",
+  tagline = "What I'm up to",
 }: ShowReelButtonProps) {
   const [open, setOpen] = useState(false);
   const videoRef = useRef<HTMLVideoElement>(null);

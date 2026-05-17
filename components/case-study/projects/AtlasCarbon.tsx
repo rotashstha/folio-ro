@@ -593,10 +593,11 @@ export function AtlasCarbon() {
           <FadeReveal y={20}>
             <SectionHeading>Remedies</SectionHeading>
             <BodyParagraph className="mt-5 max-w-[914px]">
-              Once the main flow was designed and improved based on feedback
-              from the team and customers, I built the map with different
-              remedies such as payment issues, power problems, plug issues,
-              unexpected disconnections, and others.
+              With the core task flow validated with farmers and the team, I
+              mapped the full range of edge cases — incomplete rotations,
+              missed grazing windows, invalid inputs, modal confirmations, and
+              notification states — every scenario accounted for before
+              handoff.
             </BodyParagraph>
           </FadeReveal>
         </Container>
