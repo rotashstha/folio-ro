@@ -67,6 +67,7 @@ export const placeholderProjects: ProjectFrontmatter[] = [
     thumbnail: "/images/figma/Work/bp.png",
     accent: "neon",
     palette: "navy",
+    coverTone: "light",
     tags: ["Energy", "ERP Dashboard"],
     status: "published",
     order: 4,

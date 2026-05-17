@@ -83,10 +83,10 @@ export function ProjectCard({ project, priority = false }: ProjectCardProps) {
             {visibleTags.map((tag) => (
               <span
                 key={tag}
-                className={`font-body rounded-full border px-3 py-[5px] text-[10px] font-medium tracking-[0.12em] uppercase backdrop-blur-md md:text-[11px] ${
+                className={`font-body rounded-full px-3 py-[5px] text-[10px] font-medium tracking-[0.12em] uppercase backdrop-blur-md md:text-[11px] ${
                   isLightCover
-                    ? "border-black/15 bg-white/40 text-[#0a0a0a]"
-                    : "border-white/30 bg-white/15 text-white"
+                    ? "bg-white/40 text-[#0a0a0a]"
+                    : "border border-white/30 bg-white/15 text-white"
                 }`}
               >
                 {tag}
