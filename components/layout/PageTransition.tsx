@@ -16,9 +16,12 @@ export function PageTransition({ children }: { children: React.ReactNode }) {
     const el = ref.current;
     if (!el || !window.__portfolioLoaded) return;
 
-    // Reset opacity so Hero's own animations take over, or skip animation for reduced motion
+    // Hand control back to the page's own reveal (and clear any residual inline
+    // transform from a prior route's tween). Leaving a `translate(0,0)` here
+    // creates a CSS containing block that breaks `position: fixed` on the
+    // footer — see Footer's peel-into-view reveal in app/page.tsx.
     if (pathname === HOME_PATH || reduced) {
-      gsap.set(el, { opacity: 1, y: 0 });
+      gsap.set(el, { clearProps: "all" });
       return;
     }
 
