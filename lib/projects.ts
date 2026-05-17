@@ -63,8 +63,8 @@ export const placeholderProjects: ProjectFrontmatter[] = [
     year: 2023,
     summary:
       "Unified a fragmented planning ecosystem into a calm, data-confident operational surface for fuel supply planners.",
-    cover: "/images/figma/Work/bp.png",
-    thumbnail: "/images/figma/Work/bp.png",
+    cover: "/images/figma/Work/bp-updated.png",
+    thumbnail: "/images/figma/Work/bp-updated.png",
     accent: "neon",
     palette: "navy",
     coverTone: "light",
