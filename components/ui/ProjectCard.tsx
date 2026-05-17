@@ -13,9 +13,10 @@ const paletteClasses: Record<ProjectPalette, string> = {
 };
 
 export function ProjectCard({ project, priority = false }: ProjectCardProps) {
-  const { slug, title, client, label, cover, devices, palette, footerLogo } = project;
+  const { slug, title, client, label, cover, devices, palette, footerLogo, tags } = project;
 
   const hasDevices = devices && devices.length > 0;
+  const visibleTags = tags?.slice(0, 4) ?? [];
 
   const captionRow = (
     <div className="work-card__caption-row">
@@ -75,6 +76,18 @@ export function ProjectCard({ project, priority = false }: ProjectCardProps) {
             className="work-card__image object-cover transition-transform duration-700 group-hover:scale-[1.03]"
             priority={priority}
           />
+        )}
+        {visibleTags.length > 0 && (
+          <div className="pointer-events-none absolute top-4 left-4 flex flex-wrap gap-1.5 md:top-6 md:left-6 md:gap-2">
+            {visibleTags.map((tag) => (
+              <span
+                key={tag}
+                className="font-body rounded-full border border-white/15 bg-black/35 px-3 py-[5px] text-[11px] font-medium tracking-wide text-white shadow-[0_2px_12px_rgba(0,0,0,0.2)] backdrop-blur-md md:text-[12px]"
+              >
+                {tag}
+              </span>
+            ))}
+          </div>
         )}
       </figure>
       <figcaption className="work-card__caption font-body mt-6 text-[20px] font-bold text-[#c6c6c6] md:text-[24px]">
