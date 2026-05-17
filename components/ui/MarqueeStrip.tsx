@@ -22,11 +22,11 @@ export function MarqueeStrip({
 
   return (
     <div
-      className={`relative overflow-hidden bg-paper py-6 md:py-10 ${className}`}
+      className={`marquee-strip relative overflow-hidden bg-paper py-6 md:py-10 ${className}`}
       aria-label={text}
     >
       <div
-        className="flex w-max items-center gap-[0.5em] font-body text-[150px] font-extrabold uppercase leading-none tracking-tight text-ink"
+        className="marquee-text flex w-max items-center gap-[0.5em] font-body text-[150px] font-extrabold uppercase leading-none tracking-tight text-ink"
         style={{
           animation: `marquee-scroll ${duration}s linear infinite`,
           willChange: "transform",

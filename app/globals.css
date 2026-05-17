@@ -85,6 +85,14 @@ html[data-theme="light"] .work-card figcaption {
   color: #121212;
 }
 
+/* Marquee strip: no bg in light mode, dark text */
+html[data-theme="light"] .marquee-strip {
+  background: transparent;
+}
+html[data-theme="light"] .marquee-strip .marquee-text {
+  color: #0a0a0a;
+}
+
 /* Applied by the no-flash script to suppress transitions on first paint */
 html.no-transition,
 html.no-transition * {
