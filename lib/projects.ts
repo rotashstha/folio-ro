@@ -2,8 +2,8 @@ import type { ProjectFrontmatter } from "@/types/project";
 
 export const placeholderProjects: ProjectFrontmatter[] = [
   {
-    title: "Simpler workflows for rotational graziers",
-    label: "Atlas Carbon | Simpler workflows for rotational graziers",
+    title: "From messy paddocks to a working MVP",
+    label: "Atlas Carbon | From messy paddocks to a working MVP",
     slug: "atlas-carbon",
     client: "Atlas Carbon",
     role: "Lead Product Designer",
@@ -20,8 +20,8 @@ export const placeholderProjects: ProjectFrontmatter[] = [
     order: 1,
   },
   {
-    title: "Design systems and multi-brand website redesign",
-    label: "IAG | Design systems and multi-brand website redesign",
+    title: "50%+ design efficiency across IAG's brands",
+    label: "IAG | 50%+ design efficiency across IAG's brands",
     slug: "iag-design-system",
     client: "IAG",
     role: "Lead UX/UI Designer / Design Systems SME",
@@ -38,8 +38,8 @@ export const placeholderProjects: ProjectFrontmatter[] = [
     order: 2,
   },
   {
-    title: "Conversational AI users actually trust",
-    label: "AWS | Conversational AI users actually trust",
+    title: "An AI assistant users actually trust",
+    label: "AWS | An AI assistant users actually trust",
     slug: "aws-chatbot",
     client: "AWS",
     role: "Design Lead",
@@ -55,8 +55,8 @@ export const placeholderProjects: ProjectFrontmatter[] = [
     order: 3,
   },
   {
-    title: "One calm planning surface for fuel ops",
-    label: "bp | One calm planning surface for fuel ops",
+    title: "Fragmented fuel ops, unified",
+    label: "bp | Fragmented fuel ops, unified",
     slug: "bp",
     client: "bp",
     role: "Experience Designer",
@@ -69,12 +69,13 @@ export const placeholderProjects: ProjectFrontmatter[] = [
     palette: "navy",
     coverTone: "light",
     tags: ["Energy", "ERP Dashboard"],
+    tagTones: { Energy: "dark" },
     status: "published",
     order: 4,
   },
   {
-    title: "21.9% conversion lift in joinery ops",
-    label: "Carell | 21.9% conversion lift in joinery ops",
+    title: "+21.9% conversion in joinery ops",
+    label: "Carell | +21.9% conversion in joinery ops",
     slug: "carell",
     client: "Carell",
     role: "Lead UX/UI Designer",

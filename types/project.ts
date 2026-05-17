@@ -21,6 +21,7 @@ export interface ProjectFrontmatter {
   coverTone?: "light" | "dark";
   devices?: DeviceMockup[];
   tags: string[];
+  tagTones?: Record<string, "light" | "dark">;
   status: "published" | "draft";
   order: number;
   footerLogo?: string;

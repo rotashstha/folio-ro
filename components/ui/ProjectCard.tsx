@@ -13,11 +13,14 @@ const paletteClasses: Record<ProjectPalette, string> = {
 };
 
 export function ProjectCard({ project, priority = false }: ProjectCardProps) {
-  const { slug, title, client, label, cover, devices, palette, footerLogo, tags, coverTone } = project;
+  const { slug, title, client, label, cover, devices, palette, footerLogo, tags, coverTone, tagTones } = project;
 
   const hasDevices = devices && devices.length > 0;
-  const visibleTags = tags?.slice(0, 4) ?? [];
-  const isLightCover = coverTone === "light";
+  const defaultTone: "light" | "dark" = coverTone === "light" ? "light" : "dark";
+  const visibleTags = (tags ?? []).slice(0, 4).map((label) => ({
+    label,
+    tone: tagTones?.[label] ?? defaultTone,
+  }));
 
   const captionRow = (
     <div className="work-card__caption-row">
@@ -80,16 +83,16 @@ export function ProjectCard({ project, priority = false }: ProjectCardProps) {
         )}
         {visibleTags.length > 0 && (
           <div className="pointer-events-none absolute right-4 bottom-4 left-4 flex flex-wrap gap-1.5 md:right-6 md:bottom-6 md:left-6 md:gap-2">
-            {visibleTags.map((tag) => (
+            {visibleTags.map(({ label: tagLabel, tone }) => (
               <span
-                key={tag}
-                className={`font-body rounded-full px-3 py-[5px] text-[10px] font-medium tracking-[0.12em] uppercase backdrop-blur-md md:text-[11px] ${
-                  isLightCover
-                    ? "bg-white/40 text-[#0a0a0a]"
+                key={tagLabel}
+                className={`font-body rounded-full px-3 py-[5px] text-[10px] font-medium tracking-[0.12em] uppercase backdrop-blur-xl backdrop-saturate-150 md:text-[11px] ${
+                  tone === "light"
+                    ? "bg-gradient-to-b from-white/55 to-white/25 text-[#0a0a0a] shadow-[inset_0_1px_0_rgba(255,255,255,0.75),0_1px_2px_rgba(0,0,0,0.06)]"
                     : "border border-white/30 bg-white/15 text-white"
                 }`}
               >
-                {tag}
+                {tagLabel}
               </span>
             ))}
           </div>
