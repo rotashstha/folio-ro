@@ -8,7 +8,7 @@ export interface WorkProps {
   heading?: string;
 }
 
-export function Work({ projects, heading = "Work" }: WorkProps) {
+export function Work({ projects, heading = "Folio" }: WorkProps) {
   const visible = projects
     .filter((p) => p.status === "published")
     .sort((a, b) => a.order - b.order);

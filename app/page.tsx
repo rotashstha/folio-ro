@@ -17,7 +17,7 @@ export default function HomePage() {
       <div className="relative z-10 bg-ink">
         <Hero />
         <Work projects={placeholderProjects} />
-        <MarqueeStrip text="CONNECTING PEOPLE THROUGH DESIGN." />
+        <MarqueeStrip text="DESIGN, STRATEGY, SHIPPED." />
         <AIChatInterface />
         <Leadership />
         <Strategy />

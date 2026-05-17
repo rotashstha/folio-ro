@@ -26,7 +26,7 @@ export function MarqueeStrip({
       aria-label={text}
     >
       <div
-        className="marquee-text flex w-max items-center gap-[0.5em] font-body text-[150px] font-extrabold uppercase leading-none tracking-tight text-ink"
+        className="marquee-text flex w-max items-center gap-[0.5em] font-body text-[72px] sm:text-[150px] font-extrabold uppercase leading-none tracking-tight text-ink"
         style={{
           animation: `marquee-scroll ${duration}s linear infinite`,
           willChange: "transform",
