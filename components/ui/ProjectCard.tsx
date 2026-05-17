@@ -82,7 +82,7 @@ export function ProjectCard({ project, priority = false }: ProjectCardProps) {
             {visibleTags.map((tag) => (
               <span
                 key={tag}
-                className="font-body rounded-full border border-white/60 bg-white/55 px-3 py-[5px] text-[11px] font-medium tracking-wide text-ink shadow-[0_2px_12px_rgba(0,0,0,0.1)] backdrop-blur-md md:text-[12px]"
+                className="font-body rounded-full border border-white/40 bg-white/30 px-3 py-[5px] text-[10px] font-medium tracking-[0.12em] text-paper uppercase backdrop-blur-md md:text-[11px]"
               >
                 {tag}
               </span>
