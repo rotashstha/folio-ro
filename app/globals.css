@@ -418,17 +418,6 @@ body:has([data-cs-root][data-theme="light"]) {
   min-width: 0;
 }
 
-/* md+ goes back to a single inline row with the dash divider; meta still wraps within its column if the card is narrow. */
-@media (min-width: 768px) {
-  .work-card__caption-row {
-    flex-direction: row;
-    align-items: baseline;
-    gap: 0.85rem;
-  }
-  .work-card__caption-divider {
-    display: inline-block;
-  }
-}
 
 .work-card:hover .work-card__caption-row,
 .work-card:focus-visible .work-card__caption-row {

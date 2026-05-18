@@ -572,14 +572,16 @@ export function AtlasCarbon() {
         {/* Brand color ramp — 11 swatches, edge-to-edge */}
         <Container className="mt-12">
           <FadeReveal y={16} delay={0.1}>
-            <div className="grid grid-cols-11 gap-3 md:gap-5">
-              {ATLAS_BRAND_RAMP.map((value, i) => (
-                <div
-                  key={i}
-                  className="aspect-square w-full rounded-[12px]"
-                  style={{ backgroundColor: value }}
-                />
-              ))}
+            <div className="overflow-x-auto pb-1 md:overflow-visible md:pb-0">
+              <div className="flex gap-3 md:grid md:grid-cols-11 md:gap-5">
+                {ATLAS_BRAND_RAMP.map((value, i) => (
+                  <div
+                    key={i}
+                    className="h-[60px] w-[60px] flex-none rounded-[12px] md:aspect-square md:h-auto md:w-full"
+                    style={{ backgroundColor: value }}
+                  />
+                ))}
+              </div>
             </div>
           </FadeReveal>
         </Container>

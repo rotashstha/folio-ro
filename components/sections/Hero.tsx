@@ -80,7 +80,7 @@ export function Hero({
       id="hero"
       data-theme="dark"
       aria-label="Introduction"
-      className="bg-ink relative flex h-screen min-h-[760px] flex-col overflow-hidden pt-[160px] pb-6 md:pt-[220px] md:pb-8"
+      className="bg-ink relative flex h-screen min-h-[760px] flex-col overflow-hidden pt-[160px] pb-6 md:pt-[116px] md:pb-10 xl:pt-[220px] xl:pb-8"
     >
       <p className="sr-only">
         The hero words Strategy, Design, and Interaction are draggable. Tab to focus a word, then use arrow keys to nudge (Shift+arrow for larger steps), Escape to reset its position. With a pointer, click and drag to move; the word stays where you drop it.
@@ -129,7 +129,8 @@ export function Hero({
           })}
         </div>
 
-        <div ref={bodyRef} className="mt-auto grid grid-cols-1 items-end gap-8 md:grid-cols-12">
+        <div className="flex-1" aria-hidden="true" />
+        <div ref={bodyRef} className="grid grid-cols-1 items-end gap-8 md:grid-cols-12">
           <div className="md:col-span-6">
             <p className="font-body max-w-[420px] text-paper/95 text-xl leading-snug md:text-[20px] md:leading-[1.3]">
               <WordReveal>
