@@ -80,7 +80,7 @@ export function Hero({
       id="hero"
       data-theme="dark"
       aria-label="Introduction"
-      className="bg-ink relative flex h-screen min-h-[760px] flex-col overflow-hidden pt-[160px] pb-6 md:pt-[116px] md:pb-10 xl:pt-[220px] xl:pb-8"
+      className="bg-ink relative flex h-screen min-h-[760px] flex-col overflow-hidden pt-[160px] pb-6 md:pt-[116px] md:pb-10 xl:pt-[132px] xl:pb-10 2xl:pt-[220px] 2xl:pb-8"
     >
       <p className="sr-only">
         The hero words Strategy, Design, and Interaction are draggable. Tab to focus a word, then use arrow keys to nudge (Shift+arrow for larger steps), Escape to reset its position. With a pointer, click and drag to move; the word stays where you drop it.
@@ -100,7 +100,7 @@ export function Hero({
       <div className="mx-auto flex w-full max-w-[1640px] flex-1 flex-col px-6 md:px-14">
         <div
           ref={typeRef}
-          className="relative mx-auto my-auto flex w-full max-w-[880px] flex-col gap-1 text-paper md:my-0 md:mt-4"
+          className="relative mx-auto my-auto flex w-full max-w-[880px] flex-col gap-1 text-paper md:my-0 md:mt-4 xl:max-w-[800px] 2xl:max-w-[880px]"
         >
           {HERO_GLYPHS.map((glyph, i) => {
             // Proportional widths: bbox width / original 879 viewBox width

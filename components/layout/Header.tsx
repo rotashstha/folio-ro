@@ -60,7 +60,7 @@ export function Header({ resumeHref = RESUME_HREF }: HeaderProps) {
     <header className="fixed top-0 right-0 left-0 z-50">
       <nav
         aria-label="Primary"
-        className="mx-auto flex w-full max-w-[1640px] items-center justify-between px-6 py-8 md:px-14 md:py-[28px] xl:py-[54px]"
+        className="mx-auto flex w-full max-w-[1640px] items-center justify-between px-6 py-8 md:px-14 md:py-[28px] xl:py-[36px] 2xl:py-[54px]"
       >
         <Link
           href="/"
