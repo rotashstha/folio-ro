@@ -41,7 +41,7 @@ export function Leadership({
       aria-label="Leadership and community"
       className="bg-paper text-ink relative overflow-hidden pb-24 md:pb-32"
     >
-      <div className="relative mx-auto w-full max-w-[1640px] px-6 md:px-14">
+      <div className="relative w-full px-6">
         <h2
           aria-label={heading}
           data-cursor-target="leadership-heading"

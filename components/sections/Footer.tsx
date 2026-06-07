@@ -149,7 +149,7 @@ export function Footer({
       </div>
 
       {/* Links */}
-      <div className="relative z-10 mx-auto w-full max-w-[1640px] px-6 md:px-14">
+      <div className="relative z-10 w-full px-6">
         <ul data-cursor-target="footer-links" className="space-y-4 md:space-y-5">
           {links.map((link) => (
             <li key={link.label}>
@@ -175,7 +175,7 @@ export function Footer({
       </div>
 
       {/* Copyright bar */}
-      <div className="relative z-10 mx-auto w-full max-w-[1640px] px-6 md:px-14">
+      <div className="relative z-10 w-full px-6">
         <div className="border-t border-black/20" />
         <div className="mt-6 flex flex-wrap items-center justify-between gap-4">
           <p className="font-body text-[16px] text-ink/60 md:text-[18px]">

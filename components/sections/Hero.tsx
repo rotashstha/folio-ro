@@ -97,10 +97,11 @@ export function Hero({
         aria-hidden="true"
       />
 
-      <div className="mx-auto flex w-full max-w-[1640px] flex-1 flex-col px-6 md:px-14">
+      <div className="flex w-full flex-1 flex-col px-6">
+        <div className="flex-1" aria-hidden="true" />
         <div
           ref={typeRef}
-          className="relative mx-auto my-auto flex w-full max-w-[880px] flex-col gap-1 text-paper md:my-0 md:mt-4 xl:max-w-[800px] 2xl:max-w-[880px]"
+          className="relative mx-auto flex w-full max-w-[880px] flex-col gap-1 text-paper md:max-w-[500px] lg:max-w-[620px] xl:max-w-[600px] wide:max-w-[700px]"
         >
           {HERO_GLYPHS.map((glyph, i) => {
             // Proportional widths: bbox width / original 879 viewBox width

@@ -94,7 +94,7 @@ export function Strategy({
       aria-label="Strategy methodology"
       className="bg-ink text-paper relative overflow-hidden py-24 md:py-[140px]"
     >
-      <div className="relative mx-auto w-full max-w-[1640px] px-6 md:px-14">
+      <div className="relative w-full px-6">
         <h2
           aria-label={heading}
           data-cursor-target="strategy-heading"

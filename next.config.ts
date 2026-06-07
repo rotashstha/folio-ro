@@ -9,6 +9,7 @@ const config: NextConfig = {
     minimumCacheTTL: 31536000,
     deviceSizes: [640, 828, 1080, 1280, 1920],
     imageSizes: [32, 64, 128, 256, 384],
+    qualities: [75, 90],
   },
   async headers() {
     // Next.js merges matching header rules in array order; later rules override

@@ -33,6 +33,8 @@
   --color-atlas-text-tertiary: #62636b;
   --color-atlas-bg: #f6f6f7;
 
+  --breakpoint-wide: 90rem; /* 1440px — large desktop only */
+
   --font-display: var(--font-gallient), ui-serif, Georgia, serif;
   --font-sans: var(--font-elza), ui-sans-serif, system-ui, sans-serif;
   --font-body: var(--font-sofia), ui-sans-serif, system-ui, sans-serif;
