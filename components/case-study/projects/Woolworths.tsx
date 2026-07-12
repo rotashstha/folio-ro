@@ -143,6 +143,26 @@ export function Woolworths() {
           <div className="mt-[56px]"><DocMarquee /></div>
         </FadeReveal>
       </section>
+
+      {/* INCLUSIVE & ACCESSIBLE */}
+      <section className="pt-[120px] md:pt-[160px]">
+        <Container>
+          <FadeReveal y={20}><Heading>Inclusive and accessible</Heading></FadeReveal>
+          <FadeReveal y={20} delay={0.05}>
+            <div className="mt-[40px] flex flex-wrap gap-3">
+              {["Colour contrast · WCAG AA","Keyboard controls","Focus state","Screen reader","Annotation kit"].map((chip) => (
+                <span key={chip} className="rounded-full border border-black/12 bg-black/[0.03] px-5 py-2.5 font-body text-[14px] font-medium text-black/70 transition-colors hover:border-black/25 hover:text-black">{chip}</span>
+              ))}
+            </div>
+          </FadeReveal>
+          <FadeReveal y={20} delay={0.1}>
+            <Body className="mt-[48px] max-w-[820px]">
+              <p className="mb-4">Orchard has to meet a high accessibility bar so every Woolworths customer can use the products built on it. We work alongside a dedicated accessibility partner through the whole creation process, not just at review.</p>
+              <p>Accessibility spans contrast ratios, keyboard control, screen-reader support, focus states, and annotated documentation. Orchard bakes these criteria into each component's Figma docs, raising awareness and making the accessible choice the default one.</p>
+            </Body>
+          </FadeReveal>
+        </Container>
+      </section>
     </article>
   );
 }
