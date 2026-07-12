@@ -235,6 +235,40 @@ export function Woolworths() {
           </FadeReveal>
         </Container>
       </section>
+
+      {/* KEY PROJECTS */}
+      <section className="pt-[120px] md:pt-[160px]">
+        <Container>
+          <FadeReveal y={20}><Heading>Key projects</Heading></FadeReveal>
+          <div className="mt-[56px] space-y-[80px]">
+            <FadeReveal y={20}>
+              <Eyebrow>(1)</Eyebrow>
+              <h3 className="font-body mt-4 max-w-[720px] text-[24px] font-bold text-black md:text-[32px]">Design tokens for effortless theming</h3>
+              <Body className="mt-5 max-w-[820px]">
+                <p>With Figma variables, tokens finally live natively in design. Orchard was the ideal place to adopt them — Woolworths spans several brands and themes, so a robust token structure lets us switch themes effortlessly and speeds component work across the board.</p>
+              </Body>
+            </FadeReveal>
+            <FadeReveal y={20} delay={0.05}>
+              <Eyebrow>(2)</Eyebrow>
+              <h3 className="font-body mt-4 max-w-[720px] text-[24px] font-bold text-black md:text-[32px]">A new library for the web revamp</h3>
+              <Body className="mt-5 max-w-[820px]">
+                <p>As we began revamping the retail web platform, I led a fresh library to hold the new standards on the latest framework — building foundation, components, and tokens from the ground up, and restructuring the Figma files so designers can move cleanly between the core and new libraries.</p>
+              </Body>
+            </FadeReveal>
+          </div>
+        </Container>
+        <Container className="mt-[64px]">
+          <div className="grid grid-cols-2 gap-4 md:grid-cols-3 md:gap-6">
+            {["project-1","project-2","project-3","project-4","project-5","project-6"].map((n, i) => (
+              <FadeReveal key={n} y={28} delay={0.04 * i}>
+                <MaskReveal duration={0.9} delay={0.03}>
+                  <Image src={`${IMG}/${n}.svg`} alt={`Orchard project image ${i + 1}`} width={800} height={600} className="w-full rounded-[16px]" />
+                </MaskReveal>
+              </FadeReveal>
+            ))}
+          </div>
+        </Container>
+      </section>
     </article>
   );
 }
