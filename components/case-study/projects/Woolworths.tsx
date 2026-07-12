@@ -207,6 +207,34 @@ export function Woolworths() {
           </div>
         </FadeReveal>
       </section>
+      {/* SYSTEM MAP */}
+      <section className="pt-[120px] md:pt-[160px]">
+        <Container>
+          <FadeReveal y={20}>
+            <div className="grid grid-cols-1 gap-8 md:grid-cols-3">
+              {[
+                ["Orchard Design System","The single source of foundations, tokens, and components."],
+                ["Shared tools & services","Reused across product teams — auth, payments, content."],
+                ["Client-facing platforms","Where customers meet the work, powered by the system."],
+              ].map(([t, d], i) => (
+                <FadeReveal key={t} y={20} delay={0.05 * i}>
+                  <div className="rounded-[20px] border border-black/10 p-7">
+                    <p className="font-body text-[20px] font-bold text-black md:text-[24px]">{t}</p>
+                    <p className="font-body mt-3 text-[15px] leading-[1.5] text-black/55">{d}</p>
+                  </div>
+                </FadeReveal>
+              ))}
+            </div>
+          </FadeReveal>
+          <FadeReveal y={20} delay={0.12}>
+            <div className="mt-[40px] flex flex-wrap gap-3">
+              {["Rewards app","Online store","Store ops","Checkout","Help centre","Everyday Market","Profile & settings"].map((s) => (
+                <span key={s} className="rounded-full bg-black/[0.04] px-5 py-2.5 font-body text-[14px] text-black/70">{s}</span>
+              ))}
+            </div>
+          </FadeReveal>
+        </Container>
+      </section>
     </article>
   );
 }
