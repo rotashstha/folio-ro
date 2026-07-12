@@ -90,4 +90,22 @@ export const placeholderProjects: ProjectFrontmatter[] = [
     status: "published",
     order: 5,
   },
+  {
+    title: "A shared foundation for Woolworths teams",
+    label: "Woolworths | A shared foundation for Woolworths teams",
+    slug: "woolworths",
+    client: "Woolworths",
+    role: "Senior Product Designer",
+    year: 2024,
+    summary:
+      "Built Orchard — a light, accessible design system unifying web and mobile across Woolworths retail products.",
+    cover: "/images/work/woolworths/cover.svg",
+    thumbnail: "/images/work/woolworths/cover.svg",
+    accent: "neon",
+    palette: "teal",
+    coverTone: "light",
+    tags: ["Retail", "Design System", "Accessibility", "Figma"],
+    status: "published",
+    order: 6,
+  },
 ];
