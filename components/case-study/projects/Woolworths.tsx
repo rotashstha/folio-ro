@@ -94,6 +94,23 @@ export function Woolworths() {
           </div>
         </Container>
       </section>
+
+      {/* BEHIND THE SCENES — PILLARS */}
+      <section className="pt-[120px] md:pt-[160px]">
+        <Container>
+          <FadeReveal y={20}><Heading>Behind the scenes…</Heading></FadeReveal>
+          <div className="mt-[48px] border-t border-black/10">
+            {["Component library","Guidelines & documentation","Accessibility","Contribution model","Team collaboration"].map((label, i) => (
+              <FadeReveal key={label} y={16} delay={0.04 * i}>
+                <div className="flex items-baseline gap-6 border-b border-black/10 py-6">
+                  <span className="font-body text-[14px] font-bold text-black/30">——</span>
+                  <span className="font-body text-[22px] font-normal text-black md:text-[28px]">{label}</span>
+                </div>
+              </FadeReveal>
+            ))}
+          </div>
+        </Container>
+      </section>
     </article>
   );
 }
