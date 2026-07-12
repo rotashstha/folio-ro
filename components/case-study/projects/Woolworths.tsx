@@ -4,6 +4,7 @@ import { FadeReveal } from "@/components/ui/FadeReveal";
 import { MaskReveal } from "@/components/ui/MaskReveal";
 import { TagPills } from "@/components/ui/TagPills";
 import { placeholderProjects } from "@/lib/projects";
+import { WoolworthsStatsRow } from "./woolworths/StatsRow";
 
 const IMG = "/images/work/woolworths";
 const project = placeholderProjects.find((p) => p.slug === "woolworths");
@@ -109,6 +110,21 @@ export function Woolworths() {
               </FadeReveal>
             ))}
           </div>
+        </Container>
+      </section>
+
+      {/* FIGMA LIBRARIES + STATS */}
+      <section className="pt-[120px] md:pt-[160px]">
+        <Container>
+          <FadeReveal y={20}><Heading>Two libraries, one system — web &amp; mobile</Heading></FadeReveal>
+          <FadeReveal y={20} delay={0.06}>
+            <Body className="mt-6 max-w-[820px]">
+              <p>We ship separate libraries for web (React) and mobile (iOS &amp; Android) so each stays lean and focused on how its designers actually work. Parity between design and code is the goal: Orchard supports the languages Woolworths builds in, keeping one system honest across every surface.</p>
+            </Body>
+          </FadeReveal>
+          <FadeReveal y={24} delay={0.1}>
+            <div className="mt-[56px]"><WoolworthsStatsRow /></div>
+          </FadeReveal>
         </Container>
       </section>
     </article>
