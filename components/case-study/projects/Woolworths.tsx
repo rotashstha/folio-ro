@@ -5,6 +5,7 @@ import { MaskReveal } from "@/components/ui/MaskReveal";
 import { TagPills } from "@/components/ui/TagPills";
 import { placeholderProjects } from "@/lib/projects";
 import { WoolworthsStatsRow } from "./woolworths/StatsRow";
+import { DocMarquee } from "./woolworths/DocMarquee";
 
 const IMG = "/images/work/woolworths";
 const project = placeholderProjects.find((p) => p.slug === "woolworths");
@@ -126,6 +127,21 @@ export function Woolworths() {
             <div className="mt-[56px]"><WoolworthsStatsRow /></div>
           </FadeReveal>
         </Container>
+      </section>
+
+      {/* GUIDELINES — DOC MARQUEE */}
+      <section className="pt-[120px] md:pt-[160px]">
+        <Container>
+          <FadeReveal y={20}><Heading>Documentation that scales the system</Heading></FadeReveal>
+          <FadeReveal y={20} delay={0.06}>
+            <Body className="mt-6 max-w-[820px]">
+              <p>Thousands of people touch Orchard every week — journey designers, engineers, and PMs. Clear how-to guidance is what turns a component library into a system: accessibility notes, patterns, behaviours, usage, and voice, all in one place.</p>
+            </Body>
+          </FadeReveal>
+        </Container>
+        <FadeReveal y={24} delay={0.1}>
+          <div className="mt-[56px]"><DocMarquee /></div>
+        </FadeReveal>
       </section>
     </article>
   );
