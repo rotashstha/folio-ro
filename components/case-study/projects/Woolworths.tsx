@@ -6,6 +6,7 @@ import { TagPills } from "@/components/ui/TagPills";
 import { placeholderProjects } from "@/lib/projects";
 import { WoolworthsStatsRow } from "./woolworths/StatsRow";
 import { DocMarquee } from "./woolworths/DocMarquee";
+import { RitualMarquee } from "./woolworths/RitualMarquee";
 
 const IMG = "/images/work/woolworths";
 const project = placeholderProjects.find((p) => p.slug === "woolworths");
@@ -189,6 +190,22 @@ export function Woolworths() {
             </FadeReveal>
           </div>
         </Container>
+      </section>
+      {/* COMMUNITY & COLLABORATION */}
+      <section className="pt-[120px] md:pt-[160px]">
+        <Container>
+          <FadeReveal y={20}><Heading>It&apos;s all about community and collaboration</Heading></FadeReveal>
+          <FadeReveal y={20} delay={0.06}>
+            <Body className="mt-6 max-w-[820px]">
+              <p>Internally we sync weekly so everyone knows what&apos;s in flight and can jam on solutions together. With product teams we run a dedicated Slack channel for quick cross-functional support, plus open office hours designers can book into — the fastest ways to reach us and coordinate work across the bank.</p>
+            </Body>
+          </FadeReveal>
+        </Container>
+        <FadeReveal y={20} delay={0.1}>
+          <div className="mt-[48px]">
+            <RitualMarquee />
+          </div>
+        </FadeReveal>
       </section>
     </article>
   );
