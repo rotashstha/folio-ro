@@ -49,6 +49,51 @@ export function Woolworths() {
           </FadeReveal>
         </Container>
       </section>
+
+      {/* BRIEF + META */}
+      <section className="pt-[120px] md:pt-[160px]">
+        <Container>
+          <FadeReveal y={20}>
+            <Eyebrow>(brief)</Eyebrow>
+            <Body className="mt-6 max-w-[820px] text-[22px] md:text-[30px] !leading-[1.4] !text-black/80">
+              <p>Orchard is the shared foundation Woolworths teams build on — a library of accessible, consistent, production-ready components that lets designers and engineers ship trusted retail experiences faster, together.</p>
+            </Body>
+          </FadeReveal>
+          <FadeReveal y={20} delay={0.06}>
+            <div className="mt-[64px] grid grid-cols-2 gap-y-10 md:grid-cols-4">
+              {[["Company","Woolworths"],["Tools","Figma"],["Role","Designer"],["Year","2024"]].map(([k,v]) => (
+                <div key={k}>
+                  <p className="font-body text-[13px] font-bold uppercase tracking-[0.14em] text-black/40">{k}</p>
+                  <p className="font-body mt-3 text-[18px] font-bold text-black md:text-[20px]">{v}</p>
+                </div>
+              ))}
+            </div>
+          </FadeReveal>
+        </Container>
+      </section>
+
+      {/* MY ROLE */}
+      <section className="pt-[120px] md:pt-[160px]">
+        <Container>
+          <FadeReveal y={20}>
+            <Eyebrow>(my role)</Eyebrow>
+            <Body className="mt-6 max-w-[820px]">
+              <p>As senior product designer, I shaped and maintained Orchard across web and mobile. My work spanned design foundations and tokens, component build and governance, and the written guidelines that keep teams consistent. I partnered closely with our accessibility group to document inclusive patterns so every product ships an equivalent experience for all customers.</p>
+            </Body>
+          </FadeReveal>
+        </Container>
+        <Container className="mt-[56px] md:mt-[80px]">
+          <div className="grid grid-cols-1 gap-6 md:grid-cols-2">
+            {["role-1","role-2"].map((n, i) => (
+              <FadeReveal key={n} y={32} delay={0.05 * (i + 1)}>
+                <MaskReveal duration={1} delay={0.05}>
+                  <Image src={`${IMG}/${n}.svg`} alt={`Orchard role image ${i + 1}`} width={800} height={600} className="w-full rounded-[24px]" />
+                </MaskReveal>
+              </FadeReveal>
+            ))}
+          </div>
+        </Container>
+      </section>
     </article>
   );
 }
