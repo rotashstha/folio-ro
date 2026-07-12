@@ -163,6 +163,33 @@ export function Woolworths() {
           </FadeReveal>
         </Container>
       </section>
+
+      {/* CONTRIBUTION & INNER-SOURCE */}
+      <section className="pt-[120px] md:pt-[160px]">
+        <Container>
+          <FadeReveal y={20}><Heading>Scaling through contribution</Heading></FadeReveal>
+          <FadeReveal y={20} delay={0.06}>
+            <Body className="mt-6 max-w-[820px]">
+              <p className="mb-4">A small system team can't outpace a whole bank of product work. So Orchard grows through contribution: we promote inner-source across design and engineering, closing the gap between what exists and the patterns teams still need.</p>
+              <p>Contribution is a core measure of our success. Rather than a walled-off team, we act as an extension of every product team — governing quality and system thinking while a clear flow and checklist make contributing easy.</p>
+            </Body>
+          </FadeReveal>
+        </Container>
+        <Container className="mt-[56px] md:mt-[80px]">
+          <div className="grid grid-cols-1 gap-6 md:grid-cols-3">
+            <FadeReveal y={32} className="md:col-span-2">
+              <MaskReveal duration={1}>
+                <Image src={`${IMG}/collab-flow.svg`} alt="Orchard collaboration flow" width={1600} height={900} className="w-full rounded-[24px]" />
+              </MaskReveal>
+            </FadeReveal>
+            <FadeReveal y={32} delay={0.08}>
+              <MaskReveal duration={1} delay={0.05}>
+                <Image src={`${IMG}/checklist.svg`} alt="Orchard component checklist" width={800} height={1000} className="w-full rounded-[24px]" />
+              </MaskReveal>
+            </FadeReveal>
+          </div>
+        </Container>
+      </section>
     </article>
   );
 }
