@@ -102,6 +102,7 @@ html[data-theme="light"] .marquee-strip .marquee-text {
 
 @media (prefers-reduced-motion: reduce) {
   .marquee-text { animation: none !important; }
+  .marquee-scroll-anim { animation: none !important; }
 }
 
 /* Applied by the no-flash script to suppress transitions on first paint */

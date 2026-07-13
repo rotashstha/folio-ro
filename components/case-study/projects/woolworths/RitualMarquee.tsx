@@ -20,7 +20,7 @@ export function RitualMarquee({ duration = 40 }: { duration?: number }) {
   return (
     <div className="relative overflow-hidden" aria-label="Community rituals">
       <div
-        className="flex w-max items-center gap-6"
+        className="marquee-scroll-anim flex w-max items-center gap-6"
         style={{ animation: `marquee-scroll ${duration}s linear infinite`, willChange: "transform" }}
       >
         {row}{row}

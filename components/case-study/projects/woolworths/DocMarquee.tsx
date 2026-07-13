@@ -14,7 +14,7 @@ export function DocMarquee({ duration = 60 }: { duration?: number }) {
   ));
   return (
     <div className="relative overflow-hidden" aria-label="Documentation gallery">
-      <div className="flex w-max items-center gap-6" style={{ animation: `marquee-scroll ${duration}s linear infinite`, willChange: "transform" }}>
+      <div className="marquee-scroll-anim flex w-max items-center gap-6" style={{ animation: `marquee-scroll ${duration}s linear infinite`, willChange: "transform" }}>
         {row}{row}
       </div>
     </div>

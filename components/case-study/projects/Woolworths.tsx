@@ -30,7 +30,7 @@ function Body({ children, className = "" }: { children: React.ReactNode; classNa
 
 export function Woolworths() {
   return (
-    <article data-cs-root data-theme="light" className="font-body relative isolate overflow-x-clip antialiased">
+    <article data-cs-root data-theme="light" data-theme-fixed className="font-body relative isolate overflow-x-clip antialiased">
       <div className="cs-container pt-32 md:pt-40">
         <Link href="/#work" data-cursor-trigger="Back" className="font-sans inline-flex items-center text-sm uppercase tracking-widest opacity-60 transition-colors hover:opacity-100">
           ← Back to work
@@ -42,7 +42,7 @@ export function Woolworths() {
           <FadeReveal y={16}>
             <h1 className="font-body text-[48px] font-bold leading-[1.02] tracking-[-0.02em] text-black md:text-[88px]">Orchard Design System</h1>
           </FadeReveal>
-          <TagPills tags={tags} className="mt-6" />
+          <TagPills tags={tags} tone="light" className="mt-6" />
         </Container>
         <Container className="mt-[48px] md:mt-[72px]">
           <FadeReveal y={32} delay={0.1}>
