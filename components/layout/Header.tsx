@@ -16,7 +16,7 @@ export interface HeaderProps {
 }
 
 const RESUME_HREF =
-  "https://docs.google.com/document/d/1f4EVMSNDu_NrEU4Axu0dXh3ia4vTFwXYB5Vm6wIa4no/edit?usp=sharing";
+  "https://docs.google.com/document/d/1idWPbtDreI78o__aHuB_zzw1qFtZ_T2Ibk5upXFQ7bU/edit?usp=sharing";
 
 export function Header({ resumeHref = RESUME_HREF }: HeaderProps) {
   const theme = useHeaderTheme();
