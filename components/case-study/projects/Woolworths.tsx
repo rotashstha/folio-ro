@@ -269,6 +269,20 @@ export function Woolworths() {
           </div>
         </Container>
       </section>
+
+      {/* LET'S CONNECT */}
+      <section className="pt-[120px] pb-[160px] md:pt-[160px]">
+        <Container>
+          <FadeReveal y={20}>
+            <Heading>Let&apos;s connect</Heading>
+            <Body className="mt-6 max-w-[620px]">
+              <p>Have a new project or just want to say hi?{" "}
+                <Link href="/#contact" className="font-medium text-black underline underline-offset-4 transition-opacity hover:opacity-70">Feel free to reach out.</Link>
+              </p>
+            </Body>
+          </FadeReveal>
+        </Container>
+      </section>
     </article>
   );
 }
