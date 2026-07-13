@@ -9,6 +9,7 @@ import { scrollToElement } from "@/lib/lenis-instance";
 import { gsap } from "@/lib/animation/gsap-bridge";
 import { LogoMark } from "@/components/ui/LogoMark";
 import { ThemeToggle } from "@/components/ui/ThemeToggle";
+import { BackButton } from "@/components/case-study/BackButton";
 
 export interface HeaderProps {
   resumeHref?: string;
@@ -25,6 +26,7 @@ export function Header({ resumeHref = RESUME_HREF }: HeaderProps) {
 
   const isDark = theme === "dark";
   const transition = reduced ? "none" : "color 0.4s ease, filter 0.4s ease";
+  const isCaseStudy = pathname.startsWith("/work/");
 
   const handleLogoClick = useCallback(
     (e: React.MouseEvent<HTMLAnchorElement>) => {
@@ -55,6 +57,20 @@ export function Header({ resumeHref = RESUME_HREF }: HeaderProps) {
     },
     [pathname, reduced]
   );
+
+  if (isCaseStudy) {
+    return (
+      <header className="fixed top-0 right-0 left-0 z-50">
+        <nav
+          aria-label="Primary"
+          className="flex w-full items-center justify-between px-6 py-8 md:py-[28px] xl:py-[36px] 2xl:py-[54px]"
+        >
+          <BackButton />
+          <ThemeToggle isDark={isDark} />
+        </nav>
+      </header>
+    );
+  }
 
   return (
     <header className="fixed top-0 right-0 left-0 z-50">

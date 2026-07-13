@@ -100,6 +100,17 @@ html[data-theme="light"] .marquee-strip .marquee-text {
   to   { transform: translateX(-50%); }
 }
 
+@keyframes cs-connector-label {
+  from { opacity: 0; transform: translateY(6px); }
+  to   { opacity: 1; transform: translateY(0); }
+}
+.cs-connector-label {
+  animation: cs-connector-label 0.4s var(--cs-ease-out) both;
+}
+@media (prefers-reduced-motion: reduce) {
+  .cs-connector-label { animation: none !important; }
+}
+
 @media (prefers-reduced-motion: reduce) {
   .marquee-text { animation: none !important; }
   .marquee-scroll-anim { animation: none !important; }
@@ -242,6 +253,37 @@ html.no-transition * {
 
 @media (prefers-reduced-motion: reduce) {
   .animate-swatch-float {
+    animation: none;
+  }
+}
+
+/* Woolworths accessibility cards — pulsing focus ring + heartbeat. */
+@keyframes access-focus-pulse {
+  0%, 100% { box-shadow: 0 0 0 3px rgba(0, 132, 70, 0.5); }
+  50%      { box-shadow: 0 0 0 6px rgba(0, 132, 70, 0.18); }
+}
+
+.animate-access-focus {
+  animation: access-focus-pulse 1.8s ease-in-out infinite;
+}
+
+@keyframes access-heartbeat {
+  0%, 100% { transform: scale(1); }
+  15%      { transform: scale(1.18); }
+  30%      { transform: scale(1); }
+  45%      { transform: scale(1.1); }
+  60%      { transform: scale(1); }
+}
+
+.animate-access-heartbeat {
+  animation: access-heartbeat 1.6s ease-in-out infinite;
+  will-change: transform;
+  transform-origin: center;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .animate-access-focus,
+  .animate-access-heartbeat {
     animation: none;
   }
 }

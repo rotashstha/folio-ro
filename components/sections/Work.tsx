@@ -1,6 +1,5 @@
 import { FadeReveal } from "@/components/ui/FadeReveal";
 import { ProjectCard } from "@/components/ui/ProjectCard";
-import { WordReveal } from "@/components/ui/WordReveal";
 import type { ProjectFrontmatter } from "@/types/project";
 
 export interface WorkProps {
@@ -37,18 +36,6 @@ export function Work({ projects, heading = "Folio" }: WorkProps) {
               </FadeReveal>
             </li>
           ))}
-          {/* Sits in the empty grid cell next to the last card on md+; stacks below on mobile. */}
-          <li className="flex items-center md:pl-16 lg:pl-24">
-            <p className="font-body max-w-[520px] text-[24px] font-medium leading-[1.3] text-paper md:text-[36px] md:leading-[1.2]">
-              <WordReveal>
-                I blend product thinking, design craft, vibe coding speed, and
-                AI workflows to{" "}
-                <span className="text-accent-magenta">
-                  ship better work, faster.
-                </span>
-              </WordReveal>
-            </p>
-          </li>
         </ul>
       </div>
 

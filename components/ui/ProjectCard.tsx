@@ -17,11 +17,11 @@ const PILL_LIGHT = "bg-gradient-to-b from-white/55 to-white/25 text-[#0a0a0a] sh
 const PILL_DARK = "border border-white/30 bg-white/15 text-white";
 
 export function ProjectCard({ project, priority = false }: ProjectCardProps) {
-  const { slug, title, client, label, cover, devices, palette, footerLogo, tags, coverTone, tagTones } = project;
+  const { slug, title, client, label, cover, devices, palette, footerLogo, tags, coverTone, coverBg, tagTones } = project;
 
   const hasDevices = devices && devices.length > 0;
   const defaultTone = coverTone ?? "dark";
-  const visibleTags = (tags ?? []).slice(0, 4).map((label) => ({
+  const visibleTags = (tags ?? []).slice(0, 5).map((label) => ({
     label,
     tone: tagTones?.[label] ?? defaultTone,
   }));
@@ -45,6 +45,7 @@ export function ProjectCard({ project, priority = false }: ProjectCardProps) {
     >
       <figure
         className={`work-card__figure relative aspect-[761/748] w-full overflow-hidden ${hasDevices ? paletteClasses[palette] : ""}`}
+        style={!hasDevices && coverBg ? { backgroundColor: coverBg } : undefined}
       >
         {hasDevices ? (
           <>

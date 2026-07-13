@@ -19,6 +19,7 @@ export interface ProjectFrontmatter {
   accent: Accent;
   palette: ProjectPalette;
   coverTone?: "light" | "dark";
+  coverBg?: string;
   devices?: DeviceMockup[];
   tags: string[];
   tagTones?: Record<string, "light" | "dark">;

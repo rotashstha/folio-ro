@@ -10,11 +10,11 @@ const STATS: { value: number; suffix?: string; caption: string }[] = [
 
 export function WoolworthsStatsRow() {
   return (
-    <div className="grid grid-cols-1 gap-10 border-t border-black/10 pt-12 sm:grid-cols-3">
+    <div className="grid grid-cols-1 gap-10 border-t border-paper/12 pt-12 sm:grid-cols-3">
       {STATS.map((s) => (
         <div key={s.caption}>
-          <StatCounter value={s.value} suffix={s.suffix} className="font-body text-[64px] font-bold leading-none tracking-[-0.02em] text-black md:text-[88px]" />
-          <p className="font-body mt-4 text-[15px] leading-[1.5] text-black/55 md:text-[16px]">{s.caption}</p>
+          <StatCounter value={s.value} suffix={s.suffix} className="font-body text-[64px] font-bold leading-none tracking-[-0.02em] text-paper md:text-[88px]" />
+          <p className="font-body mt-4 text-[15px] leading-[1.5] text-paper/55 md:text-[16px]">{s.caption}</p>
         </div>
       ))}
     </div>
