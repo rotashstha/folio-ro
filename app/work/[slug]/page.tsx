@@ -13,6 +13,7 @@ import { AWS } from "@/components/case-study/projects/AWS";
 import { BP } from "@/components/case-study/projects/BP";
 import { Carell } from "@/components/case-study/projects/Carell";
 import { Woolworths } from "@/components/case-study/projects/Woolworths";
+import { Healthdirect } from "@/components/case-study/projects/Healthdirect";
 
 interface PageProps {
   params: Promise<{ slug: string }>;
@@ -62,6 +63,9 @@ export default async function WorkSlugPage({ params }: PageProps) {
   }
   if (slug === "woolworths") {
     return <Woolworths />;
+  }
+  if (slug === "healthdirect") {
+    return <Healthdirect />;
   }
 
   const study = getCaseStudy(slug);

@@ -7,10 +7,11 @@ import { FadeReveal } from "@/components/ui/FadeReveal";
 import { TagPills } from "@/components/ui/TagPills";
 import { NextProjectReveal } from "@/components/case-study/NextProjectReveal";
 import { HeroGrid } from "@/components/case-study/HeroGrid";
+import { AtAGlance, DecisionCallout } from "@/components/case-study/Highlights";
 import { placeholderProjects } from "@/lib/projects";
 
 /**
- * Atlas Carbon — pixel-faithful rebuild of the Figma reference
+ * Atlas Carbon: pixel-faithful rebuild of the Figma reference
  * (rv3fAJdzRW0Wwc7BVtsIKv, node 45:5308).
  *
  * Theme: DARK page (bg-black) with white headings + #8e8e93 body gray.
@@ -21,11 +22,11 @@ import { placeholderProjects } from "@/lib/projects";
  * container with a clamped gutter so the page reflows below 1728px.
  *
  * Body color tokens used:
- *   - text-paper            (#ffffff)  — display, headings, meta values, link text
- *   - text-paper/60        (#8e8e93)  — meta labels, body paragraphs
- *   - bg-black              (#000000)  — page surface
- *   - bg-card-teal          (#d6f3f7)  — hero / map / utility cards
- *   - bg-[#0f0f0f]                     — placeholder dark cards (Discovery, Challenge grid…)
+ *   - text-paper            (#ffffff)  display, headings, meta values, link text
+ *   - text-paper/60        (#8e8e93)  meta labels, body paragraphs
+ *   - bg-black              (#000000)  page surface
+ *   - bg-card-teal          (#d6f3f7)  hero / map / utility cards
+ *   - bg-[#0f0f0f]                     placeholder dark cards (Discovery, Challenge grid…)
  */
 
 const ATLAS_BRAND_RAMP = [
@@ -91,7 +92,7 @@ function BodyParagraph({
   );
 }
 
-/** Meta column label — gray. */
+/** Meta column label (gray). */
 function MetaLabel({ children }: { children: React.ReactNode }) {
   return (
     <h3 className="font-body text-[20px] leading-tight font-normal text-paper/60 md:text-[24px]">
@@ -100,7 +101,7 @@ function MetaLabel({ children }: { children: React.ReactNode }) {
   );
 }
 
-/** Meta column value — bold white. */
+/** Meta column value (bold white). */
 function MetaValue({
   children,
   className = "",
@@ -167,7 +168,7 @@ export function AtlasCarbon() {
           </div>
         </Container>
 
-        {/* Wordmark + mint hero card — wordmark sits in front, right-aligned, bleeding off the right edge */}
+        {/* Wordmark + mint hero card. Wordmark sits in front, right-aligned, bleeding off the right edge */}
         <div className="relative mt-[80px] md:mt-[120px]">
           <Container className="relative z-0">
             <FadeReveal y={32} delay={0.1}>
@@ -179,7 +180,7 @@ export function AtlasCarbon() {
                   >
                     <Image
                       src="/images/work/atlas-carbon/hero.webp"
-                      alt="Maia farming app — two iPhone 16 Pro mockups showing the redesigned grazing dashboard and overview"
+                      alt="Maia farming app, two iPhone 16 Pro mockups showing the redesigned grazing dashboard and overview"
                       fill
                       priority
                       sizes="(min-width: 1280px) 1561px, 100vw"
@@ -203,7 +204,7 @@ export function AtlasCarbon() {
       </section>
 
       {/* ================================================================ */}
-      {/* PROJECT META — 4 columns: Role / Team / My contribution / Timeline */}
+      {/* PROJECT META: 4 columns: Role / Team / My contribution / Timeline */}
       {/* ================================================================ */}
       <section
         data-section="meta"
@@ -246,14 +247,34 @@ export function AtlasCarbon() {
       </section>
 
       {/* ================================================================ */}
-      {/* OVERVIEW — left column has Overview/Challenge/Solution stack,     */}
+      {/* AT A GLANCE: skimmable problem / role / outcome summary          */}
+      {/* ================================================================ */}
+      <AtAGlance
+        items={[
+          {
+            label: "The problem",
+            body: "Maia had product-market fit, but complexity was capping adoption. New users felt overwhelmed, veterans built workarounds, and paddock decisions took too long.",
+          },
+          {
+            label: "My role",
+            body: "Lead Product Designer. I led the 0→1 redesign end to end: discovery, product strategy, information architecture, interaction design and the design system.",
+          },
+          {
+            label: "The outcome",
+            body: "A pilot-ready MVP that collapses calendars, mobs, paddocks and tasks into one decision surface, validated with strong engagement from rotational-grazing farmers.",
+          },
+        ]}
+      />
+
+      {/* ================================================================ */}
+      {/* OVERVIEW: left column has Overview/Challenge/Solution stack,     */}
       {/* right column has the offline-mode photo card.                      */}
       {/* ================================================================ */}
       <section className="pt-[140px] pb-[60px]">
         <Container>
           <div className="grid grid-cols-1 gap-12 md:grid-cols-12 md:gap-12">
-            {/* Left: 3 labelled paragraphs stacked */}
-            <div className="md:col-span-7">
+            {/* Left: Overview */}
+            <div className="flex flex-col justify-center md:col-span-7">
               <FadeReveal y={20}>
                 <SectionHeading>Overview</SectionHeading>
                 <BodyParagraph className="mt-5 max-w-[662px]">
@@ -268,48 +289,13 @@ export function AtlasCarbon() {
                   <p>
                     The work focused on validating which moments truly
                     mattered to farmers in the field, and reshaping the
-                    product around those signals.
+                    product around those signals. I stayed hands-on
+                    throughout, designing the core grazing flows, the
+                    paddock-map planner and the tokenised UI kit in Figma
+                    myself, then shipping polished UI and micro-animations
+                    straight to production in Xcode.
                   </p>
                 </BodyParagraph>
-              </FadeReveal>
-
-              <FadeReveal y={20} delay={0.06}>
-                <div className="mt-[100px]">
-                  <SectionHeading>Challenge</SectionHeading>
-                  <BodyParagraph className="mt-5 max-w-[662px]">
-                    <p className="mb-4">
-                      Maia struggled with adoption despite strong
-                      product-market fit. New users found the depth of
-                      capability overwhelming; long-term customers had built
-                      workarounds for inconsistent UI; and decisions in the
-                      paddock took longer than they should.
-                    </p>
-                    <p>
-                      The core question we needed to answer was whether
-                      simplifying the surface without removing power, could
-                      materially shift activation and trust.
-                    </p>
-                  </BodyParagraph>
-                </div>
-              </FadeReveal>
-
-              <FadeReveal y={20} delay={0.12}>
-                <div className="mt-[100px]">
-                  <SectionHeading>Solution</SectionHeading>
-                  <BodyParagraph className="mt-5 max-w-[662px]">
-                    <p className="mb-4">
-                      A tokenised system, opinionated information
-                      architecture, and a single decision surface that
-                      collapses calendars, mobs, paddocks, and tasks.
-                    </p>
-                    <p>
-                      Guidance for new users sits next to power tools for
-                      experienced ones, with no re-onboarding required. The
-                      result is a product that earns trust quickly and grows
-                      with the operator.
-                    </p>
-                  </BodyParagraph>
-                </div>
               </FadeReveal>
             </div>
 
@@ -335,6 +321,102 @@ export function AtlasCarbon() {
               </FadeReveal>
             </div>
           </div>
+        </Container>
+      </section>
+
+      {/* ================================================================ */}
+      {/* CHALLENGE: single, upfront problem statement                      */}
+      {/* ================================================================ */}
+      <section className="pt-[140px]">
+        <Container>
+          <FadeReveal y={20}>
+            <SectionHeading>Challenge</SectionHeading>
+            <BodyParagraph className="mt-5 max-w-[914px]">
+              <p className="mb-4">
+                Maia had strong product-market fit but stalling adoption. New
+                users found the depth overwhelming, long-term customers had
+                built workarounds for inconsistent UI, and decisions in the
+                paddock took longer than they should. This was clear friction
+                that directly impacted growth:
+              </p>
+              <ul className="ml-6 list-disc space-y-2">
+                <li>Steep learning curves for new and aspirational users</li>
+                <li>
+                  Inconsistent UI making grazing decisions feel harder than
+                  they should
+                </li>
+                <li>Legacy design debt across devices and modules</li>
+                <li>
+                  Feature-rich but visually fragmented workflows, reducing
+                  confidence and slowing onboarding
+                </li>
+              </ul>
+            </BodyParagraph>
+
+            <p className="font-body mt-12 max-w-[699px] text-[15px] leading-snug font-normal text-paper/60 italic md:text-[16px]">
+              The goal went beyond modernising the interface. I wanted to
+              test whether unifying decision-making could improve activation
+              and trust for new users, while still supporting expert farmers.
+            </p>
+          </FadeReveal>
+        </Container>
+
+        {/* 3 portrait image cards: Planning Overview / Grazing Stats / Mob Activity */}
+        <Container className="mt-[80px]">
+          <div className="grid grid-cols-1 gap-6 md:grid-cols-3 md:gap-8">
+            {[
+              {
+                label: "Planning Overview",
+                src: "/images/work/atlas-carbon/planning-overview.webp",
+                delay: 0,
+              },
+              {
+                label: "Grazing Stats",
+                src: "/images/work/atlas-carbon/grazing-stats.webp",
+                delay: 0.08,
+              },
+              {
+                label: "Grazing / Mob Activity",
+                src: "/images/work/atlas-carbon/grazing-mob-activity.webp",
+                delay: 0.16,
+              },
+            ].map((card) => (
+              <FadeReveal key={card.label} y={24} delay={card.delay}>
+                <MaskReveal duration={0.9} delay={card.delay}>
+                  <div
+                    className="relative w-full overflow-hidden rounded-[24px] bg-[#0f0f0f]"
+                    style={{ aspectRatio: "503 / 668" }}
+                  >
+                    <Image
+                      src={card.src}
+                      alt={`${card.label} screen, Maia mobile app`}
+                      fill
+                      sizes="(min-width: 1280px) 503px, 50vw"
+                      className="object-cover"
+                    />
+                  </div>
+                </MaskReveal>
+                <ImageCaption>{card.label}</ImageCaption>
+              </FadeReveal>
+            ))}
+          </div>
+        </Container>
+      </section>
+
+      {/* ================================================================ */}
+      {/* DECISION: progression over a stripped-back beginner mode          */}
+      {/* ================================================================ */}
+      <section className="pt-[80px]">
+        <Container>
+          <DecisionCallout
+            label="The tradeoff"
+            decision="One surface that grows with the operator, rather than a separate 'beginner mode'."
+          >
+            The easy fix was a stripped-back mode for new users. I chose a single
+            decision surface where guidance sits next to the power tools veterans
+            rely on, with no re-onboarding, so simplifying never meant taking
+            capability away.
+          </DecisionCallout>
         </Container>
       </section>
 
@@ -386,7 +468,7 @@ export function AtlasCarbon() {
           </FadeReveal>
         </Container>
 
-        {/* Discovery imagery card — full image with embedded callouts */}
+        {/* Discovery imagery card: full image with embedded callouts */}
         <Container className="mt-[80px]">
           <FadeReveal y={32} delay={0.1}>
             <MaskReveal duration={1} delay={0.1}>
@@ -408,83 +490,7 @@ export function AtlasCarbon() {
       </section>
 
       {/* ================================================================ */}
-      {/* CHALLENGE — heading + bullets + 3 image callout cards              */}
-      {/* ================================================================ */}
-      <section className="pt-[140px]">
-        <Container>
-          <FadeReveal y={20}>
-            <SectionHeading>Challenge</SectionHeading>
-            <BodyParagraph className="mt-5 max-w-[914px]">
-              <p className="mb-4">
-                Despite strong product-market fit, Maia showed clear signs of
-                friction that directly impacted growth:
-              </p>
-              <ul className="ml-6 list-disc space-y-2">
-                <li>Steep learning curves for new and aspirational users</li>
-                <li>
-                  Inconsistent UI making grazing decisions feel harder than
-                  they should
-                </li>
-                <li>Legacy design debt across devices and modules</li>
-                <li>
-                  Feature-rich but visually fragmented workflows, reducing
-                  confidence and slowing onboarding
-                </li>
-              </ul>
-            </BodyParagraph>
-
-            <p className="font-body mt-12 max-w-[699px] text-[15px] leading-snug font-normal text-paper/60 italic md:text-[16px]">
-              The goal wasn&apos;t just to modernise the interface, it was to
-              test whether unifying decision-making could improve activation
-              and trust for new users, while still supporting expert farmers.
-            </p>
-          </FadeReveal>
-        </Container>
-
-        {/* 3 portrait image cards — Planning Overview / Grazing Stats / Mob Activity */}
-        <Container className="mt-[80px]">
-          <div className="grid grid-cols-1 gap-6 md:grid-cols-3 md:gap-8">
-            {[
-              {
-                label: "Planning Overview",
-                src: "/images/work/atlas-carbon/planning-overview.webp",
-                delay: 0,
-              },
-              {
-                label: "Grazing Stats",
-                src: "/images/work/atlas-carbon/grazing-stats.webp",
-                delay: 0.08,
-              },
-              {
-                label: "Grazing / Mob Activity",
-                src: "/images/work/atlas-carbon/grazing-mob-activity.webp",
-                delay: 0.16,
-              },
-            ].map((card) => (
-              <FadeReveal key={card.label} y={24} delay={card.delay}>
-                <MaskReveal duration={0.9} delay={card.delay}>
-                  <div
-                    className="relative w-full overflow-hidden rounded-[24px] bg-[#0f0f0f]"
-                    style={{ aspectRatio: "503 / 668" }}
-                  >
-                    <Image
-                      src={card.src}
-                      alt={`${card.label} screen — Maia mobile app`}
-                      fill
-                      sizes="(min-width: 1280px) 503px, 50vw"
-                      className="object-cover"
-                    />
-                  </div>
-                </MaskReveal>
-                <ImageCaption>{card.label}</ImageCaption>
-              </FadeReveal>
-            ))}
-          </div>
-        </Container>
-      </section>
-
-      {/* ================================================================ */}
-      {/* PLANNING OVERVIEW DESKTOP VIEW — full-width map dashboard          */}
+      {/* PLANNING OVERVIEW DESKTOP VIEW: full-width map dashboard          */}
       {/* ================================================================ */}
       <section className="pt-[100px]">
         <Container>
@@ -497,7 +503,7 @@ export function AtlasCarbon() {
                 >
                   <Image
                     src="/images/work/atlas-carbon/planning-overview-desktop.webp"
-                    alt="Maia desktop dashboard — Cloverton Fields paddock map with mob chips overlaid on satellite imagery"
+                    alt="Maia desktop dashboard, Cloverton Fields paddock map with mob chips overlaid on satellite imagery"
                     fill
                     sizes="(min-width: 1280px) 1556px, 100vw"
                     className="object-cover"
@@ -507,6 +513,23 @@ export function AtlasCarbon() {
             </MaskReveal>
             <ImageCaption>Planning Overview Desktop View</ImageCaption>
           </FadeReveal>
+        </Container>
+      </section>
+
+      {/* ================================================================ */}
+      {/* DECISION: system-first bet under a six-month MVP timeline          */}
+      {/* ================================================================ */}
+      <section className="pt-[80px]">
+        <Container>
+          <DecisionCallout
+            label="The bet"
+            decision="Build the tokenised UI kit first, before designing screens."
+          >
+            Designing screens in isolation would have shown results sooner.
+            Betting on a system-led approach early tested whether tokens could
+            hold speed and flexibility under a six-month MVP timeline, and it is
+            what let the team ship consistently rather than just quickly.
+          </DecisionCallout>
         </Container>
       </section>
 
@@ -539,7 +562,7 @@ export function AtlasCarbon() {
                   <div className="relative h-full w-full">
                     <Image
                       src="/images/work/atlas-carbon/design-system-1.webp"
-                      alt="Atlas Carbon design system — components, typography, and color tokens"
+                      alt="Atlas Carbon design system: components, typography, and color tokens"
                       fill
                       sizes="(min-width: 1280px) 700px, 45vw"
                       className="object-contain"
@@ -557,7 +580,7 @@ export function AtlasCarbon() {
                   <div className="relative h-full w-full">
                     <Image
                       src="/images/work/atlas-carbon/design-system-2.webp"
-                      alt="Atlas Carbon design system — variables and component states"
+                      alt="Atlas Carbon design system: variables and component states"
                       fill
                       sizes="(min-width: 1280px) 700px, 45vw"
                       className="object-contain"
@@ -569,7 +592,7 @@ export function AtlasCarbon() {
           </div>
         </Container>
 
-        {/* Brand color ramp — 11 swatches, edge-to-edge */}
+        {/* Brand color ramp: 11 swatches, edge-to-edge */}
         <Container className="mt-12">
           <FadeReveal y={16} delay={0.1}>
             <div className="overflow-x-auto pb-1 md:overflow-visible md:pb-0">
@@ -588,7 +611,7 @@ export function AtlasCarbon() {
       </section>
 
       {/* ================================================================ */}
-      {/* REMEDIES — flow diagram                                            */}
+      {/* REMEDIES: flow diagram                                            */}
       {/* ================================================================ */}
       <section className="pt-[140px]">
         <Container>
@@ -596,9 +619,9 @@ export function AtlasCarbon() {
             <SectionHeading>Remedies</SectionHeading>
             <BodyParagraph className="mt-5 max-w-[914px]">
               With the core task flow validated with farmers and the team, I
-              mapped the full range of edge cases — incomplete rotations,
+              mapped the full range of edge cases: incomplete rotations,
               missed grazing windows, invalid inputs, modal confirmations, and
-              notification states — every scenario accounted for before
+              notification states. Every scenario was accounted for before
               handoff.
             </BodyParagraph>
           </FadeReveal>
@@ -614,7 +637,7 @@ export function AtlasCarbon() {
                 >
                   <Image
                     src={remediesImg}
-                    alt="Tasks scenario flow map — phone screen on the left connected to a network of yellow and green annotated steps covering Add new, New task, User Input, Edit, Modal confirmation, and Notifications"
+                    alt="Tasks scenario flow map, phone screen on the left connected to a network of yellow and green annotated steps covering Add new, New task, User Input, Edit, Modal confirmation, and Notifications"
                     fill
                     sizes="(min-width: 1280px) 1556px, 100vw"
                     className="object-cover"
@@ -687,7 +710,7 @@ export function AtlasCarbon() {
               >
                 <Image
                   src="/images/work/atlas-carbon/leveraging-ai-2.jpg"
-                  alt="Leveraging AI — Cursor and Xcode 26 prototyping workflow alongside ChatGPT exploration"
+                  alt="Leveraging AI: Cursor and Xcode 26 prototyping workflow alongside ChatGPT exploration"
                   fill
                   sizes="(min-width: 1280px) 1726px, 100vw"
                   className="object-cover"
@@ -729,7 +752,18 @@ export function AtlasCarbon() {
                   better cross-team alignment.
                 </li>
               </ul>
-              <p className="mt-4">
+              <div className="mt-8">
+                <p className="font-bold text-paper">In the details</p>
+                <p className="mt-3">
+                  Because decisions happen in the paddock on patchy signal, I
+                  gave the in-field states as much care as the happy path. That
+                  meant an always-visible offline indicator, tap targets sized
+                  for a gloved hand in a moving vehicle, and a sync model that
+                  quietly reconciles when coverage returns, so a grazier never
+                  loses a mob movement mid-entry.
+                </p>
+              </div>
+              <p className="mt-8">
                 <span className="font-bold text-paper">Early signals:</span>{" "}
                 The MVP was pilot-ready with strong engagement from rotational
                 grazing farmers, validating the core hypothesis around
@@ -749,7 +783,7 @@ export function AtlasCarbon() {
               >
                 <Image
                   src="/images/work/atlas-carbon/solution.webp"
-                  alt="Final MVP screens — 2x2 grid showing Forecasting analytics, Import livestock table, paddock boundary configuration on the map, and the Graze planner timeline"
+                  alt="Final MVP screens, 2x2 grid showing Forecasting analytics, Import livestock table, paddock boundary configuration on the map, and the Graze planner timeline"
                   fill
                   sizes="(min-width: 1280px) 1727px, 100vw"
                   className="object-cover"
@@ -761,7 +795,7 @@ export function AtlasCarbon() {
       </section>
 
       {/* ================================================================ */}
-      {/* NEXT PROJECT — scroll-driven panel rises and takes over          */}
+      {/* NEXT PROJECT: scroll-driven panel rises and takes over          */}
       {/* ================================================================ */}
       <NextProjectReveal nextSlug="iag-design-system" />
 

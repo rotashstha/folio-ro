@@ -80,7 +80,7 @@ function BlockCopy({ children }: { children: React.ReactNode }) {
 function LibrariesBlock() {
   return (
     <>
-      <SectionHeading>Two libraries, one system — web &amp; mobile</SectionHeading>
+      <SectionHeading>Two libraries, one system across web &amp; mobile</SectionHeading>
       <div className="mt-10 grid grid-cols-1 gap-4 sm:grid-cols-2">
         <div className="rounded-[20px] border border-paper/12 bg-paper/[0.03] p-6">
           <p className="font-body text-[16px] font-bold text-paper">Web (React) Library</p>
@@ -121,7 +121,7 @@ function GuidelinesBlock() {
       <BlockCopy>
         <p>
           The Woolworths Design System serves designers, engineers and product managers every day. Clear documentation is
-          what turns a component library into a system people actually reach for — so every pattern
+          what turns a component library into a system people actually reach for, so every pattern
           ships with guidance on when to use it, how it behaves, and where its edges are.
         </p>
         <p>
@@ -222,7 +222,7 @@ function AccessibilityBlock() {
       <BlockCopy>
         <p>
           Woolworths reaches millions of customers, so the system has to work for all of them.
-          Accessibility isn&apos;t a review step at the end — it&apos;s built into every component,
+          Accessibility isn&apos;t a review step at the end. It&apos;s built into every component,
           checked against WCAG, and documented so teams inherit it for free.
         </p>
         <p>
@@ -276,7 +276,7 @@ function ContributionBlock() {
           consistency, and the best work becomes part of the shared library.
         </p>
         <p>
-          A documented flow and a component checklist keep the bar high — governance without becoming
+          A documented flow and a component checklist keep the bar high: governance without becoming
           a bottleneck.
         </p>
       </BlockCopy>

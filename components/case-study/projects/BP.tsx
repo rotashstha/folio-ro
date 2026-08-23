@@ -16,9 +16,10 @@ import { WordReveal } from "@/components/ui/WordReveal";
 import { FadeReveal } from "@/components/ui/FadeReveal";
 import { TagPills } from "@/components/ui/TagPills";
 import { placeholderProjects } from "@/lib/projects";
+import { AtAGlance, DecisionCallout } from "@/components/case-study/Highlights";
 
 /**
- * bp — Fuel Supply Planning Platform.
+ * bp Fuel Supply Planning Platform.
  * Pixel-faithful rebuild of the Figma reference
  * (rv3fAJdzRW0Wwc7BVtsIKv, node 83:713 "Case 4").
  *
@@ -27,10 +28,10 @@ import { placeholderProjects } from "@/lib/projects";
  *   #8e8e93 body, Sofia Sans body, Gallient display.
  *
  * Section order matches Figma top-to-bottom:
- *   Hero → Project meta → Overview / Challenge / Solution / Brand utilisation
- *   stack + side image → full-bleed brand image → Research → Challenge (detail)
- *   → Design System (two full-bleed images) → Solution (three stacked images)
- *   → Next Project.
+ *   Hero, Project meta, Overview / Challenge / Solution / Brand utilisation
+ *   stack + side image, full-bleed brand image, Research, Challenge (detail),
+ *   Design System (two full-bleed images), Solution (three stacked images),
+ *   Next Project.
  */
 
 function Container({
@@ -141,7 +142,7 @@ export function BP() {
               <TagPills tags={bpTags} className="mt-4" />
             </div>
 
-            {/* Giant editorial "bp" — Gallient, right-aligned, drops over the hero card. */}
+            {/* Giant editorial "bp" (Gallient, right-aligned, drops over the hero card). */}
             <p
               aria-hidden
               className="font-display pointer-events-none select-none text-right text-[clamp(6rem,16vw,18rem)] leading-[0.85] tracking-[-0.02em] text-paper"
@@ -153,7 +154,7 @@ export function BP() {
           </div>
         </Container>
 
-        {/* Hero card — pulled up so the "bp" wordmark above overlaps its top-right corner. */}
+        {/* Hero card, pulled up so the "bp" wordmark above overlaps its top-right corner. */}
         <Container className="relative z-0 mt-6 md:-mt-[90px]">
           <FadeReveal y={32} delay={0.1}>
             <MaskReveal duration={1.1} delay={0.1}>
@@ -164,7 +165,7 @@ export function BP() {
                 >
                   <Image
                     src={heroImg}
-                    alt="bp Midstream SPT — fuel supply planning dashboard with tank data, inventory grid, and nomination action modal"
+                    alt="bp Midstream SPT fuel supply planning dashboard with tank data, inventory grid, and nomination action modal"
                     fill
                     priority
                     sizes="(min-width: 1280px) 1555px, 100vw"
@@ -178,7 +179,7 @@ export function BP() {
       </section>
 
       {/* ================================================================ */}
-      {/* PROJECT META — Role / Team / Contribution / Timeline              */}
+      {/* PROJECT META: Role / Team / Contribution / Timeline               */}
       {/* ================================================================ */}
       <section
         data-section="meta"
@@ -216,6 +217,25 @@ export function BP() {
         </Container>
       </section>
 
+      {/* AT A GLANCE: skimmable problem / role / outcome summary */}
+      <AtAGlance
+        className="pt-[100px] md:pt-[120px]"
+        items={[
+          {
+            label: "The problem",
+            body: "Fuel supply planners made time-critical decisions across legacy tools, spreadsheets and disconnected dashboards, each with its own logic, all adding cognitive load and operational risk.",
+          },
+          {
+            label: "My role",
+            body: "Experience Designer. I led experience strategy and end-to-end design: 12 user interviews, 2 rounds of co-design, and a systems-led framework across the planning ecosystem.",
+          },
+          {
+            label: "The outcome",
+            body: "One unified planning surface with a scalable design system foundation: sharper information hierarchy, simplified workflows, and a base future products can plug into.",
+          },
+        ]}
+      />
+
       {/* ================================================================ */}
       {/* OVERVIEW STACK                                                    */}
       {/* Left col: Overview / Challenge / Solution / Brand utilisation.    */}
@@ -244,40 +264,7 @@ export function BP() {
                 </BodyParagraph>
               </FadeReveal>
 
-              <FadeReveal y={20} delay={0.06}>
-                <div className="mt-[100px]">
-                  <SectionHeading>Challenge</SectionHeading>
-                  <BodyParagraph className="mt-5 max-w-[662px]">
-                    <p>
-                      Planning was spread across legacy tools, spreadsheets,
-                      and disconnected interfaces. Every system had its own
-                      logic and its own visual language, so planners were
-                      making time-critical decisions inside tools that lacked
-                      consistency, transparency, and basic usability. The
-                      cognitive load was heavy. The operational risk grew with
-                      it.
-                    </p>
-                  </BodyParagraph>
-                </div>
-              </FadeReveal>
-
               <FadeReveal y={20} delay={0.12}>
-                <div className="mt-[100px]">
-                  <SectionHeading>Solution</SectionHeading>
-                  <BodyParagraph className="mt-5 max-w-[662px]">
-                    <p>
-                      I led the experience strategy and a unified interaction
-                      framework that pulled operational workflows into one
-                      cohesive planning experience. Service design, systems
-                      thinking, and UX strategy worked together to cut
-                      complexity, sharpen efficiency, and create a foundation
-                      that future products in the ecosystem could plug into.
-                    </p>
-                  </BodyParagraph>
-                </div>
-              </FadeReveal>
-
-              <FadeReveal y={20} delay={0.18}>
                 <div className="mt-[100px]">
                   <SectionHeading>Brand utilisation</SectionHeading>
                   <BodyParagraph className="mt-5 max-w-[662px]">
@@ -304,7 +291,7 @@ export function BP() {
               </FadeReveal>
             </div>
 
-            {/* Right column — cargo ship card with "Care for others" */}
+            {/* Right column: cargo ship card with "Care for others" */}
             <div className="md:col-span-5">
               <FadeReveal y={32} delay={0.05}>
                 <MaskReveal duration={1} delay={0.1}>
@@ -330,7 +317,7 @@ export function BP() {
       </section>
 
       {/* ================================================================ */}
-      {/* BRAND UTILISATION — full-bleed bp Energy Experts image            */}
+      {/* BRAND UTILISATION: full-bleed bp Energy Experts image             */}
       {/* ================================================================ */}
       <section className="pt-[100px]">
         <FadeReveal y={32} delay={0.05}>
@@ -341,7 +328,7 @@ export function BP() {
             >
               <Image
                 src={brandUtilisationImg}
-                alt="bp brand utilisation reference — BP Energy Experts campaign layout pairing facility, retail, and offshore imagery with brand statements"
+                alt="bp brand utilisation reference: BP Energy Experts campaign layout pairing facility, retail, and offshore imagery with brand statements"
                 fill
                 sizes="100vw"
                 className="object-cover"
@@ -352,80 +339,7 @@ export function BP() {
       </section>
 
       {/* ================================================================ */}
-      {/* RESEARCH                                                          */}
-      {/* ================================================================ */}
-      <section className="pt-[140px]">
-        <Container>
-          <FadeReveal y={20}>
-            <SectionHeading>Research</SectionHeading>
-            <BodyParagraph className="mt-5 max-w-[914px]">
-              <p className="mb-4">
-                I led discovery to understand fuel supply planning as
-                it&apos;s actually practised, not as it&apos;s documented.
-                Across{" "}
-                <span className="font-bold text-paper">12 user interviews</span>{" "}
-                and{" "}
-                <span className="font-bold text-paper">
-                  2 rounds of co-design sessions
-                </span>{" "}
-                with planners, operations stakeholders, business analysts, and
-                technical teams, we mapped the real workflows and the
-                workarounds that had quietly become load-bearing.
-              </p>
-              <p className="mt-6 mb-3 font-bold text-paper">What we learned</p>
-              <ul className="ml-6 list-disc space-y-3">
-                <li>
-                  Critical information lived across disconnected platforms.
-                  Planners stitched it together from memory and habit.
-                </li>
-                <li>
-                  Spreadsheets had become an unofficial source of truth.
-                  Fragile, duplicative, and high risk.
-                </li>
-                <li>
-                  Workflows varied meaningfully between teams, but the
-                  interfaces treated them as identical.
-                </li>
-                <li>
-                  Under time pressure, dense screens and inconsistent patterns
-                  added cognitive load instead of signal.
-                </li>
-                <li>
-                  Planners wanted confidence in forecasting decisions. Not more
-                  features.
-                </li>
-              </ul>
-              <p className="mt-6">
-                The work brought business and technical stakeholders around a
-                shared view of operational complexity, and made the case for
-                where experience improvements would do the most good.
-              </p>
-            </BodyParagraph>
-          </FadeReveal>
-        </Container>
-
-        <Container className="mt-[80px]">
-          <FadeReveal y={32} delay={0.1}>
-            <MaskReveal duration={1} delay={0.05}>
-              <div
-                className="relative w-full overflow-hidden rounded-[24px] bg-black"
-                style={{ aspectRatio: "1555 / 975" }}
-              >
-                <Image
-                  src={researchImg}
-                  alt="User research summary — 12 user interviews and 2 co-design sessions, with quotes from Supply Operators and Co-ordinators on data trust, spreadsheet duplication, and the need for a single source of truth"
-                  fill
-                  sizes="(min-width: 1280px) 1555px, 100vw"
-                  className="object-cover"
-                />
-              </div>
-            </MaskReveal>
-          </FadeReveal>
-        </Container>
-      </section>
-
-      {/* ================================================================ */}
-      {/* CHALLENGE (detailed)                                              */}
+      {/* CHALLENGE: single, upfront problem statement                      */}
       {/* ================================================================ */}
       <section className="pt-[140px]">
         <Container>
@@ -484,6 +398,19 @@ export function BP() {
                 together inside one product.
               </p>
             </BodyParagraph>
+
+            <DecisionCallout
+              className="mt-12"
+              label="The reframe"
+              decision="Treat this as an experience strategy, not a screen redesign."
+            >
+              Reskinning the worst screens would have shown progress fastest, and
+              it was the expected ask. But discovery showed the pain wasn&apos;t
+              any single screen. It was the seams between disconnected tools. So
+              I argued for a systems-led approach: one interaction framework the
+              whole ecosystem plugs into, so the product gets simpler as it grows
+              rather than more fragmented.
+            </DecisionCallout>
           </FadeReveal>
         </Container>
 
@@ -496,7 +423,81 @@ export function BP() {
               >
                 <Image
                   src={challengeImg}
-                  alt="Snapshot of the legacy planning surface — Comments thread, Tank Data and ULP chart, New contact modal, Move Vessel action, and a calendar picker spread across disconnected views"
+                  alt="Snapshot of the legacy planning surface: Comments thread, Tank Data and ULP chart, New contact modal, Move Vessel action, and a calendar picker spread across disconnected views"
+                  fill
+                  sizes="(min-width: 1280px) 1555px, 100vw"
+                  className="object-cover"
+                />
+              </div>
+            </MaskReveal>
+          </FadeReveal>
+        </Container>
+      </section>
+
+      {/* ================================================================ */}
+      {/* RESEARCH                                                          */}
+      {/* ================================================================ */}
+      <section className="pt-[140px]">
+        <Container>
+          <FadeReveal y={20}>
+            <SectionHeading>Research</SectionHeading>
+            <BodyParagraph className="mt-5 max-w-[914px]">
+              <p className="mb-4">
+                I led discovery to understand fuel supply planning as
+                it&apos;s actually practised, not as it&apos;s documented,
+                testing an early assumption that the core problem was trust in
+                the data, not missing capability. Across{" "}
+                <span className="font-bold text-paper">12 user interviews</span>{" "}
+                and{" "}
+                <span className="font-bold text-paper">
+                  2 rounds of co-design sessions
+                </span>{" "}
+                with planners, operations stakeholders, business analysts, and
+                technical teams, we mapped the real workflows and the
+                workarounds that had quietly become load-bearing.
+              </p>
+              <p className="mt-6 mb-3 font-bold text-paper">What we learned</p>
+              <ul className="ml-6 list-disc space-y-3">
+                <li>
+                  Critical information lived across disconnected platforms.
+                  Planners stitched it together from memory and habit.
+                </li>
+                <li>
+                  Spreadsheets had become an unofficial source of truth.
+                  Fragile, duplicative, and high risk.
+                </li>
+                <li>
+                  Workflows varied meaningfully between teams, but the
+                  interfaces treated them as identical.
+                </li>
+                <li>
+                  Under time pressure, dense screens and inconsistent patterns
+                  added cognitive load instead of signal.
+                </li>
+                <li>
+                  Planners wanted confidence in forecasting decisions. Not more
+                  features.
+                </li>
+              </ul>
+              <p className="mt-6">
+                The work brought business and technical stakeholders around a
+                shared view of operational complexity, and made the case for
+                where experience improvements would do the most good.
+              </p>
+            </BodyParagraph>
+          </FadeReveal>
+        </Container>
+
+        <Container className="mt-[80px]">
+          <FadeReveal y={32} delay={0.1}>
+            <MaskReveal duration={1} delay={0.05}>
+              <div
+                className="relative w-full overflow-hidden rounded-[24px] bg-black"
+                style={{ aspectRatio: "1555 / 975" }}
+              >
+                <Image
+                  src={researchImg}
+                  alt="User research summary: 12 user interviews and 2 co-design sessions, with quotes from Supply Operators and Co-ordinators on data trust, spreadsheet duplication, and the need for a single source of truth"
                   fill
                   sizes="(min-width: 1280px) 1555px, 100vw"
                   className="object-cover"
@@ -568,6 +569,19 @@ export function BP() {
                 it made them faster to ship.
               </p>
             </BodyParagraph>
+
+            <DecisionCallout
+              className="mt-12"
+              label="The principle"
+              decision="Data-first: clarity and hierarchy before decoration, every time."
+            >
+              A more branded, visually rich interface would have demoed better
+              to stakeholders. But these planners make high-stakes calls under
+              time pressure, so I held the line on reducing cognitive load over
+              adding polish. Standardised behaviours and readable hierarchy keep
+              attention on the decision. The interface earns trust by getting
+              out of the way.
+            </DecisionCallout>
           </FadeReveal>
         </Container>
 
@@ -580,7 +594,7 @@ export function BP() {
               >
                 <Image
                   src={designSystem1Img}
-                  alt="bp brand colour ramp — eleven greens from G 900 to WHT alongside a brand poster reading Energizing the future of transportation with the words Energy, Drive, Ambition"
+                  alt="bp brand colour ramp: eleven greens from G 900 to WHT alongside a brand poster reading Energizing the future of transportation with the words Energy, Drive, Ambition"
                   fill
                   sizes="100vw"
                   className="object-cover"
@@ -597,7 +611,7 @@ export function BP() {
               >
                 <Image
                   src={designSystem2Img}
-                  alt="Typography reference — Helvetica Now used across optical sizes for display and text, with a large E2 specimen"
+                  alt="Typography reference: Helvetica Now used across optical sizes for display and text, with a large E2 specimen"
                   fill
                   sizes="100vw"
                   className="object-cover"
@@ -619,10 +633,12 @@ export function BP() {
             <BodyParagraph className="mt-5 max-w-[914px]">
               <p className="mb-4">
                 I led the end-to-end experience design that turned operational
-                complexity into a single, unified planning surface. Clearer
-                workflow structure, better data visibility, and more intuitive
-                interaction patterns supported faster, more confident
-                decisions.
+                complexity into a single, unified planning surface. I designed
+                the terminal overview, the tank-data and daily inventory grid,
+                and the what-if scenario view in Figma, pairing with
+                engineering through the build. Clearer workflow structure,
+                better data visibility, and more intuitive interaction patterns
+                supported faster, more confident decisions.
               </p>
               <p className="mt-6 mb-3 font-bold text-paper">What changed</p>
               <ul className="ml-6 list-disc space-y-3">
@@ -661,18 +677,37 @@ export function BP() {
                   operational teams.
                 </li>
               </ul>
-              <p className="mt-6 mb-3 font-bold text-paper">The outcome</p>
+              <p className="mt-6 mb-3 font-bold text-paper">
+                The intended outcome
+              </p>
               <ul className="ml-6 list-disc space-y-2">
-                <li>Less friction across the operational day.</li>
                 <li>
-                  Greater confidence in planning and forecasting activities.
+                  Fewer costly planning errors, by making the state of the
+                  network legible at a glance instead of reconstructed across
+                  tools.
                 </li>
-                <li>Stronger alignment between teams and systems.</li>
                 <li>
-                  A scalable UX and design system foundation for what comes
-                  next.
+                  Faster, more confident dispatch and forecasting calls under
+                  time pressure.
+                </li>
+                <li>
+                  Less reconciliation risk as teams move off ad-hoc
+                  spreadsheets onto one shared source of truth.
+                </li>
+                <li>
+                  A scalable UX and design system foundation that makes the
+                  next products cheaper to ship.
                 </li>
               </ul>
+              <p className="mt-6 mb-3 font-bold text-paper">In the details</p>
+              <p>
+                The daily inventory grid carried the most decision weight, so
+                it got the most attention. I froze the tank and product columns
+                so planners never lose context scrolling weeks out, surfaced
+                tracking deltas inline, and embedded compact capacity charts
+                beside the numbers, so the state of a terminal reads at a
+                glance instead of being reconstructed cell by cell.
+              </p>
               <p className="mt-6">
                 The work showed how UX strategy, systems design, and a real
                 grasp of operations can turn complex enterprise workflows into
@@ -691,7 +726,7 @@ export function BP() {
               >
                 <Image
                   src={solution1Img}
-                  alt="Midstream SPT terminal overview — welcome banner, terminal search, and an All terminals list sorted by last updated"
+                  alt="Midstream SPT terminal overview: welcome banner, terminal search, and an All terminals list sorted by last updated"
                   fill
                   sizes="(min-width: 1280px) 1555px, 100vw"
                   className="object-cover"
@@ -708,7 +743,7 @@ export function BP() {
               >
                 <Image
                   src={solution2Img}
-                  alt="Port Douglas planning view — Tank Data and Truck Lifting Average summary above a daily inventory and demand grid with embedded charts"
+                  alt="Port Douglas planning view: Tank Data and Truck Lifting Average summary above a daily inventory and demand grid with embedded charts"
                   fill
                   sizes="(min-width: 1280px) 1555px, 100vw"
                   className="object-cover"
@@ -725,7 +760,7 @@ export function BP() {
               >
                 <Image
                   src={solution3Img}
-                  alt="What-if scenario view — inventory grid alongside an open Charts panel with ULP and PULP capacity charts and tracking deltas highlighted"
+                  alt="What-if scenario view: inventory grid alongside an open Charts panel with ULP and PULP capacity charts and tracking deltas highlighted"
                   fill
                   sizes="(min-width: 1280px) 1555px, 100vw"
                   className="object-cover"
@@ -737,7 +772,7 @@ export function BP() {
       </section>
 
       {/* ================================================================ */}
-      {/* NEXT PROJECT — scroll-driven panel rises and takes over          */}
+      {/* NEXT PROJECT: scroll-driven panel rises and takes over           */}
       {/* ================================================================ */}
       <NextProjectReveal nextSlug="carell" />
     </article>

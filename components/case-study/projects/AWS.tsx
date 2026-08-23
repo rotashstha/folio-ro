@@ -5,10 +5,11 @@ import { FadeReveal } from "@/components/ui/FadeReveal";
 import { TagPills } from "@/components/ui/TagPills";
 import { NextProjectReveal } from "@/components/case-study/NextProjectReveal";
 import { HeroGrid } from "@/components/case-study/HeroGrid";
+import { AtAGlance, DecisionCallout } from "@/components/case-study/Highlights";
 import { placeholderProjects } from "@/lib/projects";
 
 /**
- * AWS — pixel-faithful rebuild of the Figma reference
+ * AWS: pixel-faithful rebuild of the Figma reference
  * (rv3fAJdzRW0Wwc7BVtsIKv, node 73:1113, "Case 3").
  *
  * Mirrors the AtlasCarbon / IAG page system (dark theme, Sofia Sans body,
@@ -152,7 +153,7 @@ export function AWS() {
                   >
                     <Image
                       src="/images/work/aws/hero.png"
-                      alt="AWS chatbot redesign — two iPhone mockups showing the conversational support entry and an active triage flow"
+                      alt="AWS chatbot redesign: two iPhone mockups showing the conversational support entry and an active triage flow"
                       fill
                       priority
                       sizes="(min-width: 1280px) 1561px, 100vw"
@@ -176,7 +177,7 @@ export function AWS() {
       </section>
 
       {/* ================================================================ */}
-      {/* PROJECT META — 4 columns: Role / Team / My contribution / Timeline */}
+      {/* PROJECT META: 4 columns: Role / Team / My contribution / Timeline */}
       {/* ================================================================ */}
       <section
         data-section="meta"
@@ -213,50 +214,47 @@ export function AWS() {
         </Container>
       </section>
 
+      {/* AT A GLANCE: skimmable problem / role / outcome summary */}
+      <AtAGlance
+        className="pt-[100px] md:pt-[120px]"
+        items={[
+          {
+            label: "The problem",
+            body: "AWS support was a sprawling, fragmented surface. Routing was unreliable, there was no customer context, and no scalable path to a human when stakes spiked. The bot looked smart but rarely closed the loop.",
+          },
+          {
+            label: "My role",
+            body: "Experience Designer. I co-led the redesign with the AWS PM, covering research, conversational design sprints and end-to-end delivery across chat, email and voice.",
+          },
+          {
+            label: "The outcome",
+            body: "A multi-modal triage system that cuts handling time ~20% and unifies chat, email and callbacks under one context-rich agent desk.",
+          },
+        ]}
+      />
+
       {/* ================================================================ */}
-      {/* OVERVIEW — left column stack (Overview/Challenge/Solution) +      */}
-      {/* right column photo card                                            */}
+      {/* OVERVIEW: context intro + photo card. Problem framing lives in     */}
+      {/* the single Challenge section below; outcome lives in At a glance.  */}
       {/* ================================================================ */}
       <section className="pt-[140px] pb-[60px]">
         <Container>
           <div className="grid grid-cols-1 gap-12 md:grid-cols-12 md:gap-12">
-            <div className="md:col-span-7">
+            <div className="flex flex-col justify-center md:col-span-7">
               <FadeReveal y={20}>
                 <SectionHeading>Overview</SectionHeading>
                 <BodyParagraph className="mt-5 max-w-[662px]">
                   I co-led the redesign of the AWS chatbot with the AWS
                   Product Manager, driving research, conversational design
-                  sprints, and end-to-end delivery. Together, we built a
-                  multi-modal support system that reduces customer
-                  frustration, surfaces real-time context for agents, cuts
-                  handling time by ~20%, and unifies customer journeys
-                  across chat, email, and callbacks.
+                  sprints, and end-to-end delivery. I stayed hands-on
+                  throughout, designing the conversation flows, the
+                  quick-triage actions and the agent dashboard in Figma, and
+                  prototyping the escalation hand-off myself. Together, we
+                  built a multi-modal support system that reduces customer
+                  frustration, surfaces real-time context for agents, and
+                  unifies customer journeys across chat, email, and
+                  callbacks, cutting average handling time by ~20%.
                 </BodyParagraph>
-              </FadeReveal>
-
-              <FadeReveal y={20} delay={0.06}>
-                <div className="mt-[100px]">
-                  <SectionHeading>Challenge</SectionHeading>
-                  <BodyParagraph className="mt-5 max-w-[662px]">
-                    Customers hit a sprawling, fragmented support surface.
-                    Routing was unreliable, context was missing, and there
-                    was no scalable path to a real human when stakes
-                    spiked. The chatbot looked smart but rarely closed the
-                    loop.
-                  </BodyParagraph>
-                </div>
-              </FadeReveal>
-
-              <FadeReveal y={20} delay={0.12}>
-                <div className="mt-[100px]">
-                  <SectionHeading>Solution</SectionHeading>
-                  <BodyParagraph className="mt-5 max-w-[662px]">
-                    A multi-modal support layer with a context-rich agent
-                    desk, ML-driven routing, and a unified entry point
-                    across chat, email, and voice callbacks; the chatbot
-                    becomes a triage surface, not a dead end.
-                  </BodyParagraph>
-                </div>
               </FadeReveal>
             </div>
 
@@ -266,7 +264,7 @@ export function AWS() {
                   className="relative flex w-full items-center gap-4 md:gap-6"
                   style={{ aspectRatio: "736 / 700" }}
                 >
-                  {/* AWS palette — floats OUTSIDE the photo on the left.
+                  {/* AWS palette: floats OUTSIDE the photo on the left.
                       Each swatch has its own staggered float loop so they
                       drift independently. */}
                   <div className="flex h-full w-[14%] shrink-0 flex-col justify-center gap-3 md:gap-4">
@@ -289,7 +287,7 @@ export function AWS() {
                     ))}
                   </div>
 
-                  {/* Photo card — fills the remaining width on the right */}
+                  {/* Photo card: fills the remaining width on the right */}
                   <MaskReveal
                     duration={1}
                     delay={0.1}
@@ -298,7 +296,7 @@ export function AWS() {
                   >
                     <Image
                       src="/images/work/aws/overview-right.png"
-                      alt="AWS support persona portrait — a customer at sunrise next to the AWS chatbot triage screen"
+                      alt="AWS support persona portrait: a customer at sunrise next to the AWS chatbot triage screen"
                       fill
                       sizes="(min-width: 1280px) 600px, 80vw"
                       className="object-cover"
@@ -312,71 +310,18 @@ export function AWS() {
       </section>
 
       {/* ================================================================ */}
-      {/* RESEARCH                                                           */}
-      {/* ================================================================ */}
-      <section className="pt-[140px]">
-        <Container>
-          <FadeReveal y={20}>
-            <SectionHeading>Research</SectionHeading>
-            <BodyParagraph className="mt-5 max-w-[914px]">
-              <p className="mb-4">
-                Our starting point was to understand who we were designing
-                for, and what pressure they were under when they reached
-                for help.
-              </p>
-
-              <div className="mt-8">
-                <SubHead>Key questions guiding discovery</SubHead>
-                <ul className="mt-3 ml-6 list-disc space-y-2">
-                  <li>
-                    Who is using the system, and what pressures are they
-                    under?
-                  </li>
-                  <li>What slows them down today?</li>
-                  <li>
-                    What do they need to act confidently and quickly in
-                    high-stakes moments?
-                  </li>
-                </ul>
-              </div>
-            </BodyParagraph>
-
-            <PullQuote>
-              This clarity shaped every design decision and ensured the
-              chatbot directly addressed real customer pain points
-              instead of guesses.
-            </PullQuote>
-          </FadeReveal>
-        </Container>
-
-        <Container className="mt-[80px]">
-          <FadeReveal y={32} delay={0.1}>
-            <MaskReveal duration={1} delay={0.05}>
-              <div
-                className="relative w-full overflow-hidden rounded-[24px] bg-[#0f0f0f]"
-                style={{ aspectRatio: "1556 / 886" }}
-              >
-                <Image
-                  src="/images/work/aws/research.png"
-                  alt="Research artefacts — Quick triage, Personality, Onboarding flow and Speaking style breakdown for the AWS support assistant"
-                  fill
-                  sizes="(min-width: 1280px) 1556px, 100vw"
-                  className="object-cover"
-                />
-              </div>
-            </MaskReveal>
-          </FadeReveal>
-        </Container>
-      </section>
-
-      {/* ================================================================ */}
-      {/* CHALLENGE                                                          */}
+      {/* CHALLENGE: single, upfront problem statement                      */}
       {/* ================================================================ */}
       <section className="pt-[140px]">
         <Container>
           <FadeReveal y={20}>
             <SectionHeading>Challenge</SectionHeading>
             <BodyParagraph className="mt-5 max-w-[914px]">
+              <p className="mb-6">
+                Customers hit a sprawling, fragmented support surface. The
+                chatbot looked smart but rarely closed the loop, and when
+                stakes spiked, there was no scalable path to a real human.
+              </p>
               <SubHead>Where the experience was breaking down</SubHead>
               <ul className="mt-3 ml-6 list-disc space-y-2">
                 <li>
@@ -406,7 +351,81 @@ export function AWS() {
               >
                 <Image
                   src="/images/work/aws/challenge.png"
-                  alt="Conversational journey audit — current-state map of the AWS chatbot routing, fallbacks and escalation gaps"
+                  alt="Conversational journey audit: current-state map of the AWS chatbot routing, fallbacks and escalation gaps"
+                  fill
+                  sizes="(min-width: 1280px) 1556px, 100vw"
+                  className="object-cover"
+                />
+              </div>
+            </MaskReveal>
+          </FadeReveal>
+        </Container>
+      </section>
+
+      {/* ================================================================ */}
+      {/* RESEARCH                                                           */}
+      {/* ================================================================ */}
+      <section className="pt-[140px]">
+        <Container>
+          <FadeReveal y={20}>
+            <SectionHeading>Research</SectionHeading>
+            <BodyParagraph className="mt-5 max-w-[914px]">
+              <p className="mb-4">
+                Our starting point was to understand who we were designing
+                for, and what pressure they were under when they reached
+                for help. The core assumption I set out to test: that
+                customers didn&apos;t want a smarter bot. They wanted a
+                faster, more certain route to resolution, human or not.
+              </p>
+
+              <div className="mt-8">
+                <SubHead>Key questions guiding discovery</SubHead>
+                <ul className="mt-3 ml-6 list-disc space-y-2">
+                  <li>
+                    Who is using the system, and what pressures are they
+                    under?
+                  </li>
+                  <li>What slows them down today?</li>
+                  <li>
+                    What do they need to act confidently and quickly in
+                    high-stakes moments?
+                  </li>
+                </ul>
+              </div>
+            </BodyParagraph>
+
+            <PullQuote>
+              This clarity shaped every design decision and ensured the
+              chatbot directly addressed real customer pain points
+              instead of guesses.
+            </PullQuote>
+
+            <DecisionCallout
+              className="mt-12"
+              label="The reframe"
+              decision="Make the chatbot a triage surface, not the thing that has to answer everything."
+            >
+              We considered pushing the bot toward fuller automation, with more
+              proactive suggestions and more self-resolution. Research pointed the
+              other way: user trust collapsed the moment people felt trapped in
+              a bot loop with no way out. So we scaled automation back and bet on
+              a seamless hand-off that reads intent, carries context, and reaches a real
+              human the moment stakes rise. Rebuilding trust mattered more than
+              maximising deflection.
+            </DecisionCallout>
+          </FadeReveal>
+        </Container>
+
+        <Container className="mt-[80px]">
+          <FadeReveal y={32} delay={0.1}>
+            <MaskReveal duration={1} delay={0.05}>
+              <div
+                className="relative w-full overflow-hidden rounded-[24px] bg-[#0f0f0f]"
+                style={{ aspectRatio: "1556 / 886" }}
+              >
+                <Image
+                  src="/images/work/aws/research.png"
+                  alt="Research artefacts: Quick triage, Personality, Onboarding flow and Speaking style breakdown for the AWS support assistant"
                   fill
                   sizes="(min-width: 1280px) 1556px, 100vw"
                   className="object-cover"
@@ -473,7 +492,30 @@ export function AWS() {
                   live handling.
                 </p>
               </div>
+
+              <div className="mt-8">
+                <SubHead>In the details</SubHead>
+                <p className="mt-3">
+                  The distress states got the most attention. For an identity
+                  lockout I cut onboarding to the fewest possible steps, kept
+                  the &ldquo;talk to a human&rdquo; affordance visible from the
+                  first message rather than buried behind failed bot replies,
+                  and designed the empty, error and mid-callback states so no
+                  one ever hit a dead end.
+                </p>
+              </div>
             </BodyParagraph>
+
+            <DecisionCallout
+              className="mt-12"
+              label="The bet"
+              decision="Route on intent, not keywords, even though it was the harder build."
+            >
+              Keyword routing was quicker to ship but kept misreading what
+              people actually needed. We tuned ML routing to real user intent so
+              queries reached the right place the first time. That is the difference
+              between a bot that guesses and one that understands.
+            </DecisionCallout>
           </FadeReveal>
         </Container>
 
@@ -486,7 +528,7 @@ export function AWS() {
               >
                 <Image
                   src="/images/work/aws/wireframes-1.png"
-                  alt="Customer-facing chatbot wireframes — onboarding, quick triage, and voice callback handoff screens on mobile"
+                  alt="Customer-facing chatbot wireframes: onboarding, quick triage, and voice callback handoff screens on mobile"
                   fill
                   sizes="(min-width: 1280px) 1556px, 100vw"
                   className="object-cover"
@@ -505,7 +547,7 @@ export function AWS() {
               >
                 <Image
                   src="/images/work/aws/wireframes-2.png"
-                  alt="Agent dashboard wireframes — Salesforce-integrated case view, ML routing pane, and unified support timeline"
+                  alt="Agent dashboard wireframes: Salesforce-integrated case view, ML routing pane, and unified support timeline"
                   fill
                   sizes="(min-width: 1280px) 1556px, 100vw"
                   className="object-cover"
@@ -561,6 +603,18 @@ export function AWS() {
                   channels, backed by a robust voice callback system.
                 </p>
               </div>
+
+              <div className="mt-8">
+                <SubHead>What drove the ~20%</SubHead>
+                <p className="mt-3">
+                  The context-rich agent dashboard did most of the work.
+                  Surfacing recent errors, pages viewed and past chats the
+                  instant a conversation reached an agent removed the
+                  back-and-forth of re-establishing context. That was the single
+                  biggest contributor to the ~20% cut in average handling
+                  time.
+                </p>
+              </div>
             </BodyParagraph>
           </FadeReveal>
         </Container>
@@ -574,7 +628,7 @@ export function AWS() {
               >
                 <Image
                   src="/images/work/aws/solution.png"
-                  alt="Final AWS support flow — four iPhone mockups showing entry triage, voice callback handoff, agent context panel, and resolution summary"
+                  alt="Final AWS support flow: four iPhone mockups showing entry triage, voice callback handoff, agent context panel, and resolution summary"
                   fill
                   sizes="(min-width: 1280px) 1557px, 100vw"
                   className="object-cover"
@@ -586,7 +640,7 @@ export function AWS() {
       </section>
 
       {/* ================================================================ */}
-      {/* NEXT PROJECT — scroll-driven panel rises and takes over          */}
+      {/* NEXT PROJECT: scroll-driven panel rises and takes over           */}
       {/* ================================================================ */}
       <NextProjectReveal nextSlug="bp" />
     </article>

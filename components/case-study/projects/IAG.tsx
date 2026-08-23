@@ -6,10 +6,11 @@ import { TagPills } from "@/components/ui/TagPills";
 import { BrandStrip } from "@/components/case-study/projects/iag/BrandStrip";
 import { NextProjectReveal } from "@/components/case-study/NextProjectReveal";
 import { HeroGrid } from "@/components/case-study/HeroGrid";
+import { AtAGlance, DecisionCallout } from "@/components/case-study/Highlights";
 import { placeholderProjects } from "@/lib/projects";
 
 /**
- * IAG — pixel-faithful rebuild of the Figma reference
+ * IAG: pixel-faithful rebuild of the Figma reference
  * (rv3fAJdzRW0Wwc7BVtsIKv, node 61:474, "Case 2").
  *
  * Mirrors the AtlasCarbon page system (dark theme, Sofia Sans body,
@@ -154,7 +155,7 @@ export function IAG() {
                   >
                     <Image
                       src="/images/work/iag/hero.png"
-                      alt="IAG / NRMA acquisition redesign — desktop and mobile mockups for car and home insurance journeys"
+                      alt="IAG / NRMA acquisition redesign: desktop and mobile mockups for car and home insurance journeys"
                       fill
                       priority
                       sizes="(min-width: 1280px) 1561px, 100vw"
@@ -176,7 +177,7 @@ export function IAG() {
           </p>
         </div>
 
-        {/* Floating multi-brand logo strip — see BrandStrip.tsx. The inline
+        {/* Floating multi-brand logo strip (see BrandStrip.tsx). The inline
             copy renders here; once it scrolls past, a fixed dock pins to
             the viewport bottom until the Next Project section comes into
             view. Hover behaviour mirrors mariavareva.com's .framer-W0dUx. */}
@@ -186,7 +187,7 @@ export function IAG() {
       </section>
 
       {/* ================================================================ */}
-      {/* PROJECT META — 4 columns                                          */}
+      {/* PROJECT META: 4 columns                                           */}
       {/* ================================================================ */}
       <section
         data-section="meta"
@@ -234,7 +235,27 @@ export function IAG() {
       </section>
 
       {/* ================================================================ */}
-      {/* OVERVIEW — 2x2 grid: Overview / Challenge / Solution / My Role     */}
+      {/* AT A GLANCE: skimmable problem / role / outcome summary           */}
+      {/* ================================================================ */}
+      <AtAGlance
+        items={[
+          {
+            label: "The problem",
+            body: "Twelve brands meant twelve flavours of every component, and a quote journey that lost customer confidence at every step. Each brand rebuilt the same flow from scratch.",
+          },
+          {
+            label: "My role",
+            body: "Lead UX/UI Designer & Design Systems SME. I owned token architecture, multi-brand pattern semantics and the governance model, and led the flagship NRMA, CGU, AMI and State NZ rebrands.",
+          },
+          {
+            label: "The outcome",
+            body: "50%+ design efficiency across brands and ~99% design-to-code parity, proven on the NRMA acquisition redesign, with a 21.9% conversion uplift.",
+          },
+        ]}
+      />
+
+      {/* ================================================================ */}
+      {/* OVERVIEW: 2x2 grid, Overview / Challenge / Solution / My Role      */}
       {/* ================================================================ */}
       <section className="pt-[120px] pb-[60px]">
         <Container>
@@ -269,11 +290,12 @@ export function IAG() {
             <FadeReveal y={20} delay={0.15}>
               <SectionHeading>My Role</SectionHeading>
               <BodyParagraph className="mt-6 max-w-[662px]">
-                As Design Systems SME I owned token architecture, multi-brand
-                pattern semantics, and the governance ritual that kept the
-                system honest. I led the design pod through the flagship
-                NRMA, CGU, AMI and State NZ rebrands and worked shoulder to
-                shoulder with engineering to land ~99% design-to-code parity.
+                As Design Systems SME I built the token architecture and
+                multi-brand pattern semantics, and hand-crafted the flagship
+                NRMA, CGU, AMI and State NZ acquisition screens against them.
+                I led the design pod through those rebrands, paired closely
+                with engineering to land ~99% design-to-code parity, and set
+                up the governance ritual that kept the system honest.
               </BodyParagraph>
             </FadeReveal>
           </div>
@@ -347,7 +369,7 @@ export function IAG() {
               >
                 <Image
                   src="/images/work/iag/discovery.png"
-                  alt="Discovery artefacts — NRMA Acquisition Journey strategy workshop board and a stakeholder interview clustering exercise"
+                  alt="Discovery artefacts: NRMA Acquisition Journey strategy workshop board and a stakeholder interview clustering exercise"
                   fill
                   sizes="(min-width: 1280px) 1556px, 100vw"
                   className="object-cover"
@@ -405,7 +427,7 @@ export function IAG() {
               >
                 <Image
                   src="/images/work/iag/challenge.png"
-                  alt="NRMA car insurance quote journey — desktop, tablet, and mobile screens showing the legacy acquisition flow"
+                  alt="NRMA car insurance quote journey: desktop, tablet, and mobile screens showing the legacy acquisition flow"
                   fill
                   sizes="(min-width: 1280px) 1556px, 100vw"
                   className="object-cover"
@@ -417,7 +439,7 @@ export function IAG() {
       </section>
 
       {/* ================================================================ */}
-      {/* DESIGN SYSTEM — STRATEGY & IMPLEMENTATION                          */}
+      {/* DESIGN SYSTEM: STRATEGY & IMPLEMENTATION                           */}
       {/* ================================================================ */}
       <section className="pt-[140px]">
         <Container>
@@ -498,7 +520,7 @@ export function IAG() {
               >
                 <Image
                   src="/images/work/iag/design-system-main.png"
-                  alt="AEM brand-library architecture — Chroma theme tokens feeding the AEM Base Component Library and outwards to 11 IAG brand websites"
+                  alt="AEM brand-library architecture: Chroma theme tokens feeding the AEM Base Component Library and outwards to 11 IAG brand websites"
                   fill
                   sizes="(min-width: 1280px) 1556px, 100vw"
                   className="object-contain p-6 md:p-10"
@@ -518,7 +540,7 @@ export function IAG() {
                 >
                   <Image
                     src="/images/work/iag/design-system-1.png"
-                    alt="Design tokens — typography, colour and spacing scale documentation"
+                    alt="Design tokens: typography, colour and spacing scale documentation"
                     fill
                     sizes="(min-width: 1280px) 700px, 45vw"
                     className="object-contain p-4 md:p-6"
@@ -534,7 +556,7 @@ export function IAG() {
                 >
                   <Image
                     src="/images/work/iag/design-system-2.png"
-                    alt="Component library — interaction states, semantic variants and theming hooks"
+                    alt="Component library: interaction states, semantic variants and theming hooks"
                     fill
                     sizes="(min-width: 1280px) 700px, 45vw"
                     className="object-contain p-4 md:p-6"
@@ -599,6 +621,18 @@ export function IAG() {
               This governance model made design system decisions transparent,
               predictable and inclusive instead of ad-hoc.
             </PullQuote>
+
+            <DecisionCallout
+              className="mt-12"
+              label="The tradeoff"
+              decision="A hybrid governance model that was neither fully centralised nor a free-for-all."
+            >
+              Locking every change behind the systems team would throttle 12
+              brands; letting each team fork freely would fragment the system
+              again. The hybrid model gave brands clear decision pathways plus
+              open contribution with guardrails, so they kept moving without
+              lowering the quality bar.
+            </DecisionCallout>
           </FadeReveal>
         </Container>
 
@@ -611,7 +645,7 @@ export function IAG() {
               >
                 <Image
                   src="/images/work/iag/governance-1.png"
-                  alt="Governance change pathway — Coach, Advise, Manage/Govern/Improve, and Production swimlanes mapping how a design change moves to production"
+                  alt="Governance change pathway: Coach, Advise, Manage/Govern/Improve, and Production swimlanes mapping how a design change moves to production"
                   fill
                   sizes="(min-width: 1280px) 1556px, 100vw"
                   className="object-cover"
@@ -630,7 +664,7 @@ export function IAG() {
               >
                 <Image
                   src="/images/work/iag/governance-2.jpg"
-                  alt="Governance artefacts — design system governance models, token change process, breakpoint annotations, design change map and token structure"
+                  alt="Governance artefacts: design system governance models, token change process, breakpoint annotations, design change map and token structure"
                   fill
                   sizes="(min-width: 1280px) 1556px, 100vw"
                   className="object-cover"
@@ -682,12 +716,35 @@ export function IAG() {
                   <li>Proven reusable across brands and products</li>
                 </ul>
               </div>
+
+              <div className="mt-8">
+                <SubHead>In the details</SubHead>
+                <p className="mt-3">
+                  Coverage selection was where customers hesitated most, so it
+                  got the most craft. I designed the &ldquo;Help me
+                  choose&rdquo; flow to explain cover types in plain English,
+                  replaced the dense comparison table with scannable cards on
+                  mobile, and tuned the progress indicator and inline
+                  validation so no one lost their place mid-quote.
+                </p>
+              </div>
             </BodyParagraph>
 
             <PullQuote>
               This deep dive de-risked the system and gave stakeholders
               tangible proof of its value in a mission-critical journey.
             </PullQuote>
+
+            <DecisionCallout
+              className="mt-12"
+              label="Why this call"
+              decision="Prove the whole system on one flagship journey before scaling to 12 brands."
+            >
+              A big-bang rollout across every brand would have multiplied risk.
+              Making NRMA acquisition the flagship validation journey meant each
+              following brand inherited a derisked, production-proven path
+              rather than a promise.
+            </DecisionCallout>
           </FadeReveal>
         </Container>
 
@@ -700,7 +757,7 @@ export function IAG() {
               >
                 <Image
                   src="/images/work/iag/solution.png"
-                  alt="Multi-brand solution composite — CGU, IAG, AMI, State and NRMA acquisition pages assembled on the same component foundation"
+                  alt="Multi-brand solution composite: CGU, IAG, AMI, State and NRMA acquisition pages assembled on the same component foundation"
                   fill
                   sizes="(min-width: 1280px) 1727px, 100vw"
                   className="object-cover"
@@ -712,7 +769,7 @@ export function IAG() {
       </section>
 
       {/* ================================================================ */}
-      {/* MULTI-BRAND AT SCALE — text left / Team poster right              */}
+      {/* MULTI-BRAND AT SCALE: text left / Team poster right               */}
       {/* ================================================================ */}
       <section className="pt-[140px]">
         <Container>
@@ -792,7 +849,7 @@ export function IAG() {
                     >
                       <Image
                         src="/images/work/iag/team.png"
-                        alt="Thunderbolts Strike Again — a playful Marvel-style poster of the Slalom × IAG design pod"
+                        alt="Thunderbolts Strike Again: a playful Marvel-style poster of the Slalom × IAG design pod"
                         fill
                         sizes="(min-width: 1280px) 642px, 100vw"
                         className="object-cover"
@@ -819,8 +876,8 @@ export function IAG() {
                   Design Systems as a Business Accelerator.
                 </span>{" "}
                 The investment in a scalable system paid off in measurable
-                user and operational metrics. We didn&apos;t just make it
-                look better; we made it perform.
+                user and operational metrics. Beyond the look and feel, it
+                measurably performed.
               </p>
             </BodyParagraph>
           </FadeReveal>
@@ -835,7 +892,7 @@ export function IAG() {
               >
                 <Image
                   src="/images/work/iag/impact-result.png"
-                  alt="Impact results — User Impact 21.9% conversion uplift, Operational Impact 36% faster form completion, and a Cultural Impact card on collaborative system thinking"
+                  alt="Impact results: User Impact 21.9% conversion uplift, Operational Impact 36% faster form completion, and a Cultural Impact card on collaborative system thinking"
                   fill
                   sizes="(min-width: 1280px) 1556px, 100vw"
                   className="object-cover"
@@ -847,7 +904,7 @@ export function IAG() {
       </section>
 
       {/* ================================================================ */}
-      {/* NEXT PROJECT — scroll-driven panel rises and takes over          */}
+      {/* NEXT PROJECT: scroll-driven panel rises and takes over           */}
       {/* ================================================================ */}
       <NextProjectReveal nextSlug="aws-chatbot" />
     </article>

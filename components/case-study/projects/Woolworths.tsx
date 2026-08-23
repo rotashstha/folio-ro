@@ -5,6 +5,7 @@ import { WordReveal } from "@/components/ui/WordReveal";
 import { TagPills } from "@/components/ui/TagPills";
 import { HeroGrid } from "@/components/case-study/HeroGrid";
 import { NextProjectReveal } from "@/components/case-study/NextProjectReveal";
+import { AtAGlance, DecisionCallout } from "@/components/case-study/Highlights";
 import { placeholderProjects } from "@/lib/projects";
 import { BehindTheScenes } from "./woolworths/BehindTheScenes";
 
@@ -51,7 +52,7 @@ export function Woolworths() {
               <MaskReveal duration={1.1} delay={0.1}>
                 <div className="relative w-full overflow-hidden rounded-[24px] bg-[#e7ffb4]">
                   <div className="relative w-full" style={{ aspectRatio: "1561 / 1080" }}>
-                    <Image src={`${IMG}/hero.png`} alt="Woolworths Design System — token reference and component showcase in Figma" fill priority sizes="(min-width: 1280px) 1561px, 100vw" className="object-cover" />
+                    <Image src={`${IMG}/hero.png`} alt="Woolworths Design System token reference and component showcase in Figma" fill priority sizes="(min-width: 1280px) 1561px, 100vw" className="object-cover" />
                   </div>
                 </div>
               </MaskReveal>
@@ -75,7 +76,7 @@ export function Woolworths() {
           <FadeReveal y={20}>
             <Eyebrow>(brief)</Eyebrow>
             <Body className="mt-6 max-w-[820px] text-[22px] md:text-[30px] !leading-[1.4] !text-paper/80">
-              <p>The Woolworths Design System is the shared foundation our teams build on — a library of accessible, consistent, production-ready components that lets designers and engineers ship trusted retail experiences faster, together.</p>
+              <p>The Woolworths Design System is the shared foundation our teams build on: a library of accessible, consistent, production-ready components that lets designers and engineers ship trusted retail experiences faster, together.</p>
             </Body>
           </FadeReveal>
           <FadeReveal y={20} delay={0.06}>
@@ -90,6 +91,25 @@ export function Woolworths() {
           </FadeReveal>
         </Container>
       </section>
+
+      {/* AT A GLANCE: skimmable problem / role / outcome summary */}
+      <AtAGlance
+        className="pt-[100px] md:pt-[120px]"
+        items={[
+          {
+            label: "The problem",
+            body: "120+ teams were quietly forking their own components. There was no shared, accessible foundation across Woolworths' brands and platforms.",
+          },
+          {
+            label: "My role",
+            body: "Senior Design System Designer. I owned tokens, component build and governance across web and mobile, and led a fresh library for the retail web revamp.",
+          },
+          {
+            label: "The outcome",
+            body: "One accessible system 120+ teams now build on, with a token structure that reskins across brands without touching component logic.",
+          },
+        ]}
+      />
 
       {/* MY ROLE */}
       <section className="pt-[120px] md:pt-[160px]">
@@ -117,8 +137,24 @@ export function Woolworths() {
         </Container>
       </section>
 
-      {/* BEHIND THE SCENES — pinned pillars + libraries */}
+      {/* BEHIND THE SCENES: pinned pillars + libraries */}
       <BehindTheScenes />
+
+      {/* DECISION: tokens-first bet */}
+      <section className="pt-[100px] md:pt-[120px]">
+        <Container>
+          <DecisionCallout
+            label="The bet"
+            decision="Adopt Figma variables as the system's native token layer, early."
+          >
+            The safe path was to keep styling components by hand and wait for
+            variables to mature. But Woolworths spans multiple brands and
+            themes, so I bet on a robust token structure up front. It cost us
+            slower initial setup, and it is exactly what lets any team reskin a
+            component across brands without touching its logic.
+          </DecisionCallout>
+        </Container>
+      </section>
 
       {/* KEY PROJECTS */}
       <section className="pt-[120px] md:pt-[160px]">
@@ -130,14 +166,14 @@ export function Woolworths() {
                 <Eyebrow>(1)</Eyebrow>
                 <h3 className="font-body mt-4 max-w-[720px] text-[24px] font-bold text-paper md:text-[32px]">Design tokens for effortless theming</h3>
                 <Body className="mt-5 max-w-[820px]">
-                  <p>With Figma variables, tokens finally live natively in design. The system was the ideal place to adopt them — Woolworths spans several brands and themes, so a robust token structure lets us switch themes effortlessly and speeds component work across the board.</p>
+                  <p>With Figma variables, tokens finally live natively in design. The system was the ideal place to adopt them. Woolworths spans several brands and themes, so a robust token structure lets us switch themes effortlessly and speeds component work across the board.</p>
                 </Body>
               </FadeReveal>
               <FadeReveal y={20} delay={0.05}>
                 <Eyebrow>(2)</Eyebrow>
                 <h3 className="font-body mt-4 max-w-[720px] text-[24px] font-bold text-paper md:text-[32px]">A new library for the web revamp</h3>
                 <Body className="mt-5 max-w-[820px]">
-                  <p>As we began revamping the retail web platform, I led a fresh library to hold the new standards on the latest framework — building foundation, components and tokens from the ground up, and restructuring the Figma files so designers can move cleanly between the core and new libraries.</p>
+                  <p>As we began revamping the retail web platform, I led a fresh library to hold the new standards on the latest framework. I built foundation, components and tokens from the ground up, and restructured the Figma files so designers can move cleanly between the core and new libraries.</p>
                 </Body>
               </FadeReveal>
             </div>
@@ -158,16 +194,31 @@ export function Woolworths() {
         <Container className="mt-[64px]">
           <FadeReveal y={28}>
             <MaskReveal duration={1}>
-              <Image src={`${IMG}/cooking-flow.png`} alt="Woolworths guided Cooking Mode — step-by-step mobile flow with a built-in assistant" width={4668} height={2658} sizes="(min-width: 1728px) 1558px, 100vw" className="w-full rounded-[20px]" />
+              <Image src={`${IMG}/cooking-flow.png`} alt="Woolworths guided Cooking Mode, a step-by-step mobile flow with a built-in assistant" width={4668} height={2658} sizes="(min-width: 1728px) 1558px, 100vw" className="w-full rounded-[20px]" />
             </MaskReveal>
           </FadeReveal>
         </Container>
         <Container className="mt-6 md:mt-8">
           <FadeReveal y={28}>
             <MaskReveal duration={1}>
-              <Image src={`${IMG}/solution.png`} alt="Woolworths recipes experience — meal ideas and guided cooking on woolworths.com.au" width={4671} height={2637} sizes="(min-width: 1728px) 1558px, 100vw" className="w-full rounded-[20px]" />
+              <Image src={`${IMG}/solution.png`} alt="Woolworths recipes experience with meal ideas and guided cooking on woolworths.com.au" width={4671} height={2637} sizes="(min-width: 1728px) 1558px, 100vw" className="w-full rounded-[20px]" />
             </MaskReveal>
           </FadeReveal>
+        </Container>
+      </section>
+
+      {/* DECISION: rebuild fresh vs extend the legacy library */}
+      <section className="pt-[100px] md:pt-[120px]">
+        <Container>
+          <DecisionCallout
+            label="The fork in the road"
+            decision="Build a fresh library on the new framework instead of stretching the old one."
+          >
+            Extending the legacy library would have been faster short-term. I
+            chose a clean rebuild so the new web standards had a home that
+            wouldn&apos;t inherit old debt, then restructured the Figma files so
+            designers move cleanly between the core and new libraries.
+          </DecisionCallout>
         </Container>
       </section>
 
@@ -181,19 +232,19 @@ export function Woolworths() {
           <div className="mt-[56px] grid grid-cols-1 gap-10 md:grid-cols-2 md:gap-14">
             <FadeReveal y={20}>
               <Body className="max-w-[560px]">
-                <p>The components were never the hard part. The real work was earning enough trust that teams would build on a shared system instead of quietly forking their own. That trust came from showing up — office hours, fast reviews, and unblocking people before they gave up and rolled their own version.</p>
+                <p>The components were never the hard part. The real work was earning enough trust that teams would build on a shared system instead of quietly forking their own. That trust came from showing up: office hours, fast reviews, and unblocking people before they gave up and rolled their own version.</p>
               </Body>
             </FadeReveal>
             <FadeReveal y={20} delay={0.06}>
               <Body className="max-w-[560px]">
-                <p>If I started over, I&apos;d open contribution up much sooner. For too long the systems team was the bottleneck; the library only began to scale once other designers and engineers could add to it safely, with guardrails that kept the quality bar high. A system this size is never really finished — it&apos;s something you keep tending.</p>
+                <p>If I started over, I&apos;d open contribution up much sooner. For too long the systems team was the bottleneck; the library only began to scale once other designers and engineers could add to it safely, with guardrails that kept the quality bar high. A system this size is never really finished. It&apos;s something you keep tending.</p>
               </Body>
             </FadeReveal>
           </div>
         </Container>
       </section>
 
-      {/* NEXT PROJECT — scroll-driven panel rises and takes over */}
+      {/* NEXT PROJECT: scroll-driven panel rises and takes over */}
       <NextProjectReveal nextSlug="atlas-carbon" />
     </article>
   );

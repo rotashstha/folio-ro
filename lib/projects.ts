@@ -2,6 +2,24 @@ import type { ProjectFrontmatter } from "@/types/project";
 
 export const placeholderProjects: ProjectFrontmatter[] = [
   {
+    title: "Medicare-grade health advice, inside ChatGPT",
+    label: "Healthdirect | Medicare-grade health advice, inside ChatGPT",
+    slug: "healthdirect",
+    client: "Healthdirect",
+    role: "Design Lead",
+    year: 2026,
+    summary:
+      "Put Healthdirect's clinical triage, symptom checking and nurse escalation inside everyday ChatGPT — brief to consumer pilot in ~10 weeks.",
+    cover: "/images/work/healthdirect/cover.png",
+    thumbnail: "/images/work/healthdirect/cover.png",
+    accent: "orange",
+    palette: "navy",
+    coverTone: "dark",
+    tags: ["Healthcare", "Conversational AI", "0 to 1", "ChatGPT"],
+    status: "published",
+    order: 1,
+  },
+  {
     title: "From messy paddocks to a working MVP",
     label: "Atlas Carbon | From messy paddocks to a working MVP",
     slug: "atlas-carbon",
@@ -17,7 +35,7 @@ export const placeholderProjects: ProjectFrontmatter[] = [
     coverTone: "light",
     tags: ["AgTech", "0 to 1", "iOS App", "Web App", "Design System"],
     status: "published",
-    order: 1,
+    order: 2,
   },
   {
     title: "50%+ design efficiency across IAG's brands",
@@ -35,7 +53,7 @@ export const placeholderProjects: ProjectFrontmatter[] = [
     coverTone: "light",
     tags: ["Insurance", "Design System", "Website Redesign", "AEM"],
     status: "published",
-    order: 2,
+    order: 3,
   },
   {
     title: "An AI assistant users actually trust",
@@ -52,7 +70,7 @@ export const placeholderProjects: ProjectFrontmatter[] = [
     palette: "navy",
     tags: ["Enterprise", "Conversational AI", "Chatbot"],
     status: "published",
-    order: 3,
+    order: 4,
   },
   {
     title: "Fragmented fuel ops, unified",
@@ -71,7 +89,7 @@ export const placeholderProjects: ProjectFrontmatter[] = [
     tags: ["Energy", "ERP Dashboard"],
     tagTones: { Energy: "dark", "ERP Dashboard": "dark" },
     status: "published",
-    order: 5,
+    order: 6,
   },
   {
     title: "+21.9% conversion in joinery ops",
@@ -88,7 +106,7 @@ export const placeholderProjects: ProjectFrontmatter[] = [
     palette: "navy",
     tags: ["Construction", "Mobile App"],
     status: "published",
-    order: 6,
+    order: 7,
   },
   {
     title: "A design system 120+ teams build on",
@@ -107,6 +125,6 @@ export const placeholderProjects: ProjectFrontmatter[] = [
     coverBg: "#e7ffb4",
     tags: ["Retail", "Design System", "Accessibility", "Figma"],
     status: "published",
-    order: 4,
+    order: 5,
   },
 ];

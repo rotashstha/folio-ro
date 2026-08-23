@@ -12,9 +12,10 @@ import { FadeReveal } from "@/components/ui/FadeReveal";
 import { TagPills } from "@/components/ui/TagPills";
 import { placeholderProjects } from "@/lib/projects";
 import { CarellStatsGrid } from "@/components/case-study/projects/carell/StatsGrid";
+import { AtAGlance, DecisionCallout } from "@/components/case-study/Highlights";
 
 /**
- * Carell — Designing Movement with Meaning.
+ * Carell. Designing Movement with Meaning.
  * Pixel-faithful rebuild of the Figma reference
  * (rv3fAJdzRW0Wwc7BVtsIKv, node 90:726 "Case 5").
  *
@@ -136,7 +137,7 @@ export function Carell() {
           </div>
         </Container>
 
-        {/* Wordmark + hero card — wordmark sits in front, right-aligned,
+        {/* Wordmark + hero card. Wordmark sits in front, right-aligned,
             bleeding off the right edge with its lower portion overlapping
             the top of the dark stone hero card. */}
         <div className="relative mt-[80px] md:mt-[120px]">
@@ -150,7 +151,7 @@ export function Carell() {
                   >
                     <Image
                       src={heroImg}
-                      alt="Carell mobile app — Projects screen showing Apartment Place, Marine's Apartment Complex, and Gallery Apartment on iPhone, set against a stone slab background"
+                      alt="Carell mobile app Projects screen showing Apartment Place, Marine's Apartment Complex, and Gallery Apartment on iPhone, set against a stone slab background"
                       fill
                       priority
                       sizes="(min-width: 1280px) 1561px, 100vw"
@@ -174,7 +175,7 @@ export function Carell() {
       </section>
 
       {/* ================================================================ */}
-      {/* PROJECT META — Role / Team / Contribution / Timeline              */}
+      {/* PROJECT META: Role / Team / Contribution / Timeline               */}
       {/* ================================================================ */}
       <section
         data-section="meta"
@@ -216,6 +217,25 @@ export function Carell() {
         </Container>
       </section>
 
+      {/* AT A GLANCE: skimmable problem / role / outcome summary */}
+      <AtAGlance
+        className="pt-[100px] md:pt-[120px]"
+        items={[
+          {
+            label: "The problem",
+            body: "Joinery production, site teams and office managers ran on spreadsheets, phone calls and paper job sheets. That meant three versions of reality and a day spent chasing updates instead of moving work.",
+          },
+          {
+            label: "My role",
+            body: "Lead UX/UI Designer. I owned the design end to end, from on-site research, IA, visual design, prototyping and user testing through to a validated, engineering-ready prototype.",
+          },
+          {
+            label: "The outcome",
+            body: "One mobile source of truth across production, shipping and installation, tested with the teams it was built for, with a 21.9% conversion lift in joinery ops.",
+          },
+        ]}
+      />
+
       {/* ================================================================ */}
       {/* OVERVIEW STACK                                                    */}
       {/* Left col: Overview / Challenge / Solution (one-liners).           */}
@@ -224,7 +244,7 @@ export function Carell() {
       <section className="pt-[140px] pb-[60px]">
         <Container>
           <div className="grid grid-cols-1 gap-12 md:grid-cols-12 md:gap-12">
-            <div className="md:col-span-7">
+            <div className="flex flex-col justify-center md:col-span-7">
               <FadeReveal y={20}>
                 <SectionHeading>Overview</SectionHeading>
                 <BodyParagraph className="mt-5 max-w-[662px]">
@@ -236,43 +256,17 @@ export function Carell() {
                     hand to engineering. The brief was to take a coordination
                     problem stitched together by spreadsheets, phone calls, and
                     paper job sheets, and turn it into a single, calm surface
-                    that works one-handed on a noisy site.
+                    that works one-handed on a noisy site. I prototyped the full
+                    flow in Figma and tested it on real devices with production
+                    and site teams. I pressure-tested one assumption: that a
+                    single shared surface could replace the spreadsheets, calls
+                    and paper without anyone slipping back to the old way.
                   </p>
                 </BodyParagraph>
               </FadeReveal>
-
-              <FadeReveal y={20} delay={0.06}>
-                <div className="mt-[100px]">
-                  <SectionHeading>Challenge</SectionHeading>
-                  <BodyParagraph className="mt-5 max-w-[662px]">
-                    <p>
-                      Production floors, site teams, and office managers were
-                      operating in three different versions of reality. Status
-                      lived across different tools, dependencies were unclear,
-                      and the day was spent chasing updates instead of moving
-                      work.
-                    </p>
-                  </BodyParagraph>
-                </div>
-              </FadeReveal>
-
-              <FadeReveal y={20} delay={0.12}>
-                <div className="mt-[100px]">
-                  <SectionHeading>Solution</SectionHeading>
-                  <BodyParagraph className="mt-5 max-w-[662px]">
-                    <p>
-                      A unified mobile platform that connects production,
-                      shipping, and installation under one source of truth.
-                      Designed for the conditions the work actually happens in:
-                      dusty workshops, noisy sites, gloves on, and sun on the
-                      screen.
-                    </p>
-                  </BodyParagraph>
-                </div>
-              </FadeReveal>
             </div>
 
-            {/* Right column — portrait side image */}
+            {/* Right column: portrait side image */}
             <div className="md:col-span-5">
               <FadeReveal y={32} delay={0.05}>
                 <MaskReveal duration={1} delay={0.1}>
@@ -283,7 +277,7 @@ export function Carell() {
                     >
                       <Image
                         src={overviewSideImg}
-                        alt="High-rise residential tower against a city skyline at dusk — context image for Carell's joinery and installation projects"
+                        alt="High-rise residential tower against a city skyline at dusk, context image for Carell's joinery and installation projects"
                         fill
                         sizes="(min-width: 1280px) 736px, 100vw"
                         className="object-cover"
@@ -294,6 +288,65 @@ export function Carell() {
               </FadeReveal>
             </div>
           </div>
+        </Container>
+      </section>
+
+      {/* ================================================================ */}
+      {/* CHALLENGE: single, upfront problem statement                      */}
+      {/* ================================================================ */}
+      <section className="pt-[140px]">
+        <Container>
+          <FadeReveal y={20}>
+            <SectionHeading>Challenge</SectionHeading>
+            <BodyParagraph className="mt-5 max-w-[914px]">
+              <p className="mb-4">
+                Production floors, site teams, and office managers were
+                operating in three different versions of reality. Before Carell,
+                they coordinated by spreadsheets, phone calls, and paper job
+                sheets, which meant:
+              </p>
+              <ul className="ml-6 list-disc space-y-2">
+                <li>
+                  No real-time visibility of production or installation status.
+                </li>
+                <li>
+                  Frequent delays from missing information and unclear
+                  dependencies.
+                </li>
+                <li>
+                  High operational waste, from miscommunication to rework.
+                </li>
+                <li>
+                  Teams constantly &ldquo;chasing updates&rdquo; instead of
+                  doing meaningful work.
+                </li>
+              </ul>
+              <p className="mt-6">
+                The opportunity was clear: create a single, intuitive interface
+                that brings production floors, site teams, and managers into one
+                shared source of truth.
+              </p>
+            </BodyParagraph>
+          </FadeReveal>
+        </Container>
+
+        <Container className="mt-[80px]">
+          <FadeReveal y={32} delay={0.1}>
+            <MaskReveal duration={1} delay={0.05}>
+              <div
+                className="relative w-full overflow-hidden rounded-[24px] bg-black"
+                style={{ aspectRatio: "1556 / 886" }}
+              >
+                <Image
+                  src={challengeImg}
+                  alt="Legacy state: Stage list with kitchen bench, vanity cabinets, doors and jams, laundry installation alongside a Kitchen Bench detail view with item code, quantity, colour, and checklist"
+                  fill
+                  sizes="(min-width: 1280px) 1556px, 100vw"
+                  className="object-contain"
+                />
+              </div>
+            </MaskReveal>
+          </FadeReveal>
         </Container>
       </section>
 
@@ -340,6 +393,17 @@ export function Carell() {
                 sites, and teams always on the move.
               </p>
             </BodyParagraph>
+
+            <DecisionCallout
+              className="mt-12"
+              label="The bet"
+              decision="Design for gloves-on, sun-on-the-screen reality, not a boardroom demo."
+            >
+              A dense dashboard would have looked more impressive in a pitch. I
+              chose big touch targets, progressive disclosure and offline
+              resilience instead, because the app only earns its place if it
+              works one-handed on a noisy site.
+            </DecisionCallout>
           </FadeReveal>
         </Container>
 
@@ -349,68 +413,10 @@ export function Carell() {
               <div className="relative w-full overflow-hidden rounded-[24px]">
                 <Image
                   src={researchImg}
-                  alt="Research artefacts — joinery production plans, item schedules, and on-site checklist references mapped across the workflow"
+                  alt="Research artefacts: joinery production plans, item schedules, and on-site checklist references mapped across the workflow"
                   sizes="(min-width: 1280px) 1556px, 100vw"
                   className="h-auto w-full"
                   placeholder="empty"
-                />
-              </div>
-            </MaskReveal>
-          </FadeReveal>
-        </Container>
-      </section>
-
-      {/* ================================================================ */}
-      {/* CHALLENGE (detail)                                                */}
-      {/* ================================================================ */}
-      <section className="pt-[140px]">
-        <Container>
-          <FadeReveal y={20}>
-            <SectionHeading>Challenge</SectionHeading>
-            <BodyParagraph className="mt-5 max-w-[914px]">
-              <p className="mb-4">
-                Before Carell, manufacturers and installers relied on
-                spreadsheets, phone calls, and paper job sheets to coordinate
-                work. This meant:
-              </p>
-              <ul className="ml-6 list-disc space-y-2">
-                <li>
-                  No real-time visibility of production or installation status.
-                </li>
-                <li>
-                  Frequent delays from missing information and unclear
-                  dependencies.
-                </li>
-                <li>
-                  High operational waste, from miscommunication to rework.
-                </li>
-                <li>
-                  Teams constantly &ldquo;chasing updates&rdquo; instead of
-                  doing meaningful work.
-                </li>
-              </ul>
-              <p className="mt-6">
-                The opportunity was clear: create a single, intuitive interface
-                that brings production floors, site teams, and managers into one
-                shared source of truth.
-              </p>
-            </BodyParagraph>
-          </FadeReveal>
-        </Container>
-
-        <Container className="mt-[80px]">
-          <FadeReveal y={32} delay={0.1}>
-            <MaskReveal duration={1} delay={0.05}>
-              <div
-                className="relative w-full overflow-hidden rounded-[24px] bg-black"
-                style={{ aspectRatio: "1556 / 886" }}
-              >
-                <Image
-                  src={challengeImg}
-                  alt="Legacy state — Stage list with kitchen bench, vanity cabinets, doors and jams, laundry installation alongside a Kitchen Bench detail view with item code, quantity, colour, and checklist"
-                  fill
-                  sizes="(min-width: 1280px) 1556px, 100vw"
-                  className="object-contain"
                 />
               </div>
             </MaskReveal>
@@ -450,11 +456,33 @@ export function Carell() {
                   Real-time sync so office teams and installers stay aligned.
                 </li>
               </ul>
+              <div className="mt-8">
+                <p className="font-bold text-paper">In the details</p>
+                <p className="mt-3">
+                  The on-site logging screens got the most craft. I sized tap
+                  targets for a gloved hand, kept the primary action reachable
+                  with one thumb, tuned a dark-mode palette that survives direct
+                  sun, and made photo-and-defect capture work offline, so a
+                  fresh slab of concrete or a dead signal never blocks an
+                  update. It queues and syncs the moment the phone reconnects.
+                </p>
+              </div>
             </BodyParagraph>
+
+            <DecisionCallout
+              className="mt-12"
+              label="The call"
+              decision="One shared source of truth, not another tool bolted onto the stack."
+            >
+              The three teams were already drowning in tools. Rather than add a
+              fourth, I collapsed production, shipping and installation into a
+              single surface so status lives in one place and no one has to
+              reconcile three versions of the day.
+            </DecisionCallout>
           </FadeReveal>
         </Container>
 
-        {/* Annotated solution mockups — full-bleed image; annotations are baked
+        {/* Annotated solution mockups: full-bleed image; annotations are baked
             into the asset (Track and Label / Builders and Contractors / Receive
             Live data / Actions and Defects) to match the Figma exactly. */}
         <Container className="mt-[80px]">
@@ -466,7 +494,7 @@ export function Carell() {
               >
                 <Image
                   src={solutionImg}
-                  alt="Five Carell app screens fanned across a dark canvas with hand-drawn annotations — Track and Label production, shipping, and installations; Builders and Contractors can easily collaborate; Receive live data on workflows, site progress, and installations; Actions and Defects notifications"
+                  alt="Five Carell app screens fanned across a dark canvas with hand-drawn annotations: Track and Label production, shipping, and installations; Builders and Contractors can easily collaborate; Receive live data on workflows, site progress, and installations; Actions and Defects notifications"
                   fill
                   sizes="(min-width: 1280px) 1557px, 100vw"
                   className="object-contain"
@@ -478,7 +506,7 @@ export function Carell() {
       </section>
 
       {/* ================================================================ */}
-      {/* IMPACT / RESULTS — interactive stats grid                         */}
+      {/* IMPACT / RESULTS: interactive stats grid                          */}
       {/* ================================================================ */}
       <section className="pt-[140px]">
         <Container>
@@ -504,7 +532,7 @@ export function Carell() {
       </section>
 
       {/* ================================================================ */}
-      {/* NEXT PROJECT — scroll-driven panel rises and takes over          */}
+      {/* NEXT PROJECT: scroll-driven panel rises and takes over           */}
       {/* ================================================================ */}
       <NextProjectReveal nextSlug="atlas-carbon" />
     </article>

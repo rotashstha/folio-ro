@@ -2,7 +2,7 @@
 
 import { useEffect, useRef } from "react";
 import { useReducedMotion } from "@/hooks/useReducedMotion";
-import { HeroCursorTrail } from "@/components/ui/HeroCursorTrail";
+// import { HeroCursorTrail } from "@/components/ui/HeroCursorTrail";
 import { WordReveal } from "@/components/ui/WordReveal";
 import { DraggableFigmaObject } from "@/components/ui/DraggableFigmaObject";
 import { HERO_GLYPHS } from "@/components/ui/heroSvgPaths";
@@ -18,7 +18,7 @@ export interface HeroProps {
 export function Hero({
   name = "Rotash Shrestha",
   emphasis = "Lead, Design & Strategy at DEPT® Agency.",
-  intro = "12+\u00A0Years shipping B2C Websites, ERPs, DXR projects as Design Lead. I help teams find the sharpest problem, then ship the cleanest solution.",
+  intro = "12+\u00A0Years shipping B2C Websites, ERPs, DXR projects as Design Lead. I specialise in untangling complex operational workflows — from energy logistics to AI-powered support — finding the sharpest problem, then shipping the cleanest solution.",
 }: HeroProps) {
   const sectionRef = useRef<HTMLElement>(null);
   const typeRef = useRef<HTMLDivElement>(null);
@@ -85,8 +85,8 @@ export function Hero({
       <p className="sr-only">
         The hero words Strategy, Design, and Interaction are draggable. Tab to focus a word, then use arrow keys to nudge (Shift+arrow for larger steps), Escape to reset its position. With a pointer, click and drag to move; the word stays where you drop it.
       </p>
-      {/* Image cursor trail — appears on mouse move */}
-      <HeroCursorTrail />
+      {/* Image cursor trail — appears on mouse move. Temporarily disabled. */}
+      {/* <HeroCursorTrail /> */}
 
       {/* Crosshatch grid backdrop */}
       <div className="hero-grid pointer-events-none absolute inset-0" aria-hidden="true" />
