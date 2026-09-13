@@ -1,4 +1,5 @@
 import { FadeReveal } from "@/components/ui/FadeReveal";
+import { WordReveal } from "@/components/ui/WordReveal";
 import { ProjectCard } from "@/components/ui/ProjectCard";
 import type { ProjectFrontmatter } from "@/types/project";
 
@@ -36,6 +37,21 @@ export function Work({ projects, heading = "Folio" }: WorkProps) {
               </FadeReveal>
             </li>
           ))}
+
+          <li className="flex items-center justify-center py-10 md:py-0">
+            <WordReveal
+              className="font-body block max-w-[520px] px-1 text-left text-[26px] leading-[1.3] text-paper/55 md:px-8 md:text-[34px] lg:text-[40px]"
+              staggerMs={45}
+              durationMs={650}
+            >
+              I blend product thinking, design craft, vibe coding speed, and{" "}
+              <span className="font-bold text-accent-magenta">AI workflows</span>{" "}
+              to{" "}
+              <span className="font-bold text-accent-magenta">
+                ship better work, faster.
+              </span>
+            </WordReveal>
+          </li>
         </ul>
       </div>
 

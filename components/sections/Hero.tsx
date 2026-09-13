@@ -18,7 +18,7 @@ export interface HeroProps {
 export function Hero({
   name = "Rotash Shrestha",
   emphasis = "Lead, Design & Strategy at DEPT® Agency.",
-  intro = "12+\u00A0Years shipping B2C Websites, ERPs, DXR projects as Design Lead. I specialise in untangling complex operational workflows — from energy logistics to AI-powered support — finding the sharpest problem, then shipping the cleanest solution.",
+  intro = "12+\u00A0years shipping B2C websites, ERPs and DXR projects. I untangle complex operational workflows, find the sharpest problem, then ship the cleanest solution.",
 }: HeroProps) {
   const sectionRef = useRef<HTMLElement>(null);
   const typeRef = useRef<HTMLDivElement>(null);
