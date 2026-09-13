@@ -848,7 +848,7 @@ export function IAG() {
                       style={{ aspectRatio: "642 / 908" }}
                     >
                       <Image
-                        src="/images/work/iag/team.png"
+                        src="/images/work/iag/team.jpg"
                         alt="Thunderbolts Strike Again: a playful Marvel-style poster of the Slalom × IAG design pod"
                         fill
                         sizes="(min-width: 1280px) 642px, 100vw"
