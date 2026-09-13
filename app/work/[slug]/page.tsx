@@ -14,6 +14,7 @@ import { BP } from "@/components/case-study/projects/BP";
 import { Carell } from "@/components/case-study/projects/Carell";
 import { Woolworths } from "@/components/case-study/projects/Woolworths";
 import { Healthdirect } from "@/components/case-study/projects/Healthdirect";
+import { PasswordGate } from "@/components/case-study/PasswordGate";
 
 interface PageProps {
   params: Promise<{ slug: string }>;
@@ -50,7 +51,11 @@ export default async function WorkSlugPage({ params }: PageProps) {
     return <AtlasCarbon />;
   }
   if (slug === "iag-design-system") {
-    return <IAG />;
+    return (
+      <PasswordGate password="3136" projectName="IAG">
+        <IAG />
+      </PasswordGate>
+    );
   }
   if (slug === "aws-chatbot") {
     return <AWS />;
@@ -65,7 +70,11 @@ export default async function WorkSlugPage({ params }: PageProps) {
     return <Woolworths />;
   }
   if (slug === "healthdirect") {
-    return <Healthdirect />;
+    return (
+      <PasswordGate password="3136" projectName="Healthdirect">
+        <Healthdirect />
+      </PasswordGate>
+    );
   }
 
   const study = getCaseStudy(slug);
