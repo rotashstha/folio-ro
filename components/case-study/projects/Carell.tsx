@@ -534,7 +534,7 @@ export function Carell() {
       {/* ================================================================ */}
       {/* NEXT PROJECT: scroll-driven panel rises and takes over           */}
       {/* ================================================================ */}
-      <NextProjectReveal nextSlug="atlas-carbon" />
+      <NextProjectReveal currentSlug="carell" />
     </article>
   );
 }

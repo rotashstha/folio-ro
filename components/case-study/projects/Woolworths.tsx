@@ -245,7 +245,7 @@ export function Woolworths() {
       </section>
 
       {/* NEXT PROJECT: scroll-driven panel rises and takes over */}
-      <NextProjectReveal nextSlug="atlas-carbon" />
+      <NextProjectReveal currentSlug="woolworths" />
     </article>
   );
 }

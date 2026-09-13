@@ -774,7 +774,7 @@ export function BP() {
       {/* ================================================================ */}
       {/* NEXT PROJECT: scroll-driven panel rises and takes over           */}
       {/* ================================================================ */}
-      <NextProjectReveal nextSlug="carell" />
+      <NextProjectReveal currentSlug="bp" />
     </article>
   );
 }

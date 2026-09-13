@@ -642,7 +642,7 @@ export function AWS() {
       {/* ================================================================ */}
       {/* NEXT PROJECT: scroll-driven panel rises and takes over           */}
       {/* ================================================================ */}
-      <NextProjectReveal nextSlug="bp" />
+      <NextProjectReveal currentSlug="aws-chatbot" />
     </article>
   );
 }

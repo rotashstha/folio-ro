@@ -797,7 +797,7 @@ export function AtlasCarbon() {
       {/* ================================================================ */}
       {/* NEXT PROJECT: scroll-driven panel rises and takes over          */}
       {/* ================================================================ */}
-      <NextProjectReveal nextSlug="iag-design-system" />
+      <NextProjectReveal currentSlug="atlas-carbon" />
 
     </article>
   );

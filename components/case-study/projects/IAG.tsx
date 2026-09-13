@@ -906,7 +906,7 @@ export function IAG() {
       {/* ================================================================ */}
       {/* NEXT PROJECT: scroll-driven panel rises and takes over           */}
       {/* ================================================================ */}
-      <NextProjectReveal nextSlug="aws-chatbot" />
+      <NextProjectReveal currentSlug="iag-design-system" />
     </article>
   );
 }

@@ -10,8 +10,8 @@ export const placeholderProjects: ProjectFrontmatter[] = [
     year: 2026,
     summary:
       "Put Healthdirect's clinical triage, symptom checking and nurse escalation inside everyday ChatGPT — brief to consumer pilot in ~10 weeks.",
-    cover: "/images/work/healthdirect/cover.png",
-    thumbnail: "/images/work/healthdirect/cover.png",
+    cover: "/images/work/healthdirect/cover.jpg",
+    thumbnail: "/images/work/healthdirect/cover.jpg",
     accent: "orange",
     palette: "navy",
     coverTone: "dark",
@@ -35,7 +35,7 @@ export const placeholderProjects: ProjectFrontmatter[] = [
     coverTone: "light",
     tags: ["AgTech", "0 to 1", "iOS App", "Web App", "Design System"],
     status: "published",
-    order: 2,
+    order: 3,
   },
   {
     title: "50%+ design efficiency across IAG's brands",
@@ -53,7 +53,7 @@ export const placeholderProjects: ProjectFrontmatter[] = [
     coverTone: "light",
     tags: ["Insurance", "Design System", "Website Redesign", "AEM"],
     status: "published",
-    order: 3,
+    order: 2,
   },
   {
     title: "An AI assistant users actually trust",
@@ -128,3 +128,19 @@ export const placeholderProjects: ProjectFrontmatter[] = [
     order: 5,
   },
 ];
+
+/**
+ * The published project that follows `currentSlug` in folio order, wrapping
+ * back to the first after the last. Order in `placeholderProjects` is the
+ * single source of truth, so the end-of-case-study "next" chain never drifts.
+ */
+export function getNextProject(
+  currentSlug: string,
+): ProjectFrontmatter | undefined {
+  const ordered = placeholderProjects
+    .filter((p) => p.status === "published")
+    .sort((a, b) => a.order - b.order);
+  if (ordered.length === 0) return undefined;
+  const idx = ordered.findIndex((p) => p.slug === currentSlug);
+  return ordered[(idx + 1) % ordered.length];
+}

@@ -4,13 +4,13 @@ import Link from "next/link";
 import { useRouter } from "next/navigation";
 import { useEffect, useRef } from "react";
 import { useReducedMotion } from "@/hooks/useReducedMotion";
-import { placeholderProjects } from "@/lib/projects";
+import { getNextProject } from "@/lib/projects";
 import type { ProjectFrontmatter } from "@/types/project";
 
 interface NextProjectRevealProps {
-  /** Slug of the next case study. */
-  nextSlug: string;
-  /** Optional override — defaults to lookup in `placeholderProjects`. */
+  /** Slug of the current case study; the next one is derived from folio order. */
+  currentSlug: string;
+  /** Optional override — defaults to the next project in folio order. */
   next?: ProjectFrontmatter;
   className?: string;
 }
@@ -28,12 +28,11 @@ interface NextProjectRevealProps {
  * Reduced-motion users get a plain link; no scrub, no auto-navigation.
  */
 export function NextProjectReveal({
-  nextSlug,
+  currentSlug,
   next: nextOverride,
   className,
 }: NextProjectRevealProps) {
-  const next =
-    nextOverride ?? placeholderProjects.find((p) => p.slug === nextSlug);
+  const next = nextOverride ?? getNextProject(currentSlug);
   const router = useRouter();
   const reduced = useReducedMotion();
   const sectionRef = useRef<HTMLElement | null>(null);

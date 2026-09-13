@@ -92,7 +92,7 @@ export default async function WorkSlugPage({ params }: PageProps) {
       <CaseStudyMetaSection meta={study.meta} />
       <BlockRenderer blocks={study.blocks} />
       {nextProject && (
-        <NextProjectReveal nextSlug={nextProject.slug} next={nextProject} />
+        <NextProjectReveal currentSlug={slug} next={nextProject} />
       )}
     </article>
   );

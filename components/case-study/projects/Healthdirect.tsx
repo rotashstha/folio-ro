@@ -107,6 +107,28 @@ function ImageCaption({ children }: { children: React.ReactNode }) {
   );
 }
 
+/** Rounded, fixed-aspect media frame wrapping a fill Image or video. */
+function MediaFrame({
+  aspect,
+  bordered = false,
+  children,
+}: {
+  aspect: string;
+  bordered?: boolean;
+  children: React.ReactNode;
+}) {
+  return (
+    <div
+      className={`relative w-full overflow-hidden rounded-[24px] bg-[#0f0f0f]${
+        bordered ? " border border-paper/10" : ""
+      }`}
+      style={{ aspectRatio: aspect }}
+    >
+      {children}
+    </div>
+  );
+}
+
 const CAPABILITIES: { title: string; body: string }[] = [
   {
     title: "Symptom Triage",
@@ -156,20 +178,20 @@ const VISION_STEPS: string[] = [
 const DEMOS: { title: string; body: string; img: string; alt: string }[] = [
   {
     title: "Knowledge graph",
-    img: `${IMG}/demo-knowledge-graph.png`,
-    alt: "1800MEDICARE symptom capture inside ChatGPT, showing a recorded list of red-flag symptoms, each marked present or not",
+    img: `${IMG}/demo-knowledge-graph.jpg`,
+    alt: "1800MEDICARE health-topic card inside ChatGPT, showing a Whooping cough explainer with key facts and a start-a-symptom-check action",
     body: "The knowledge graph is the data layer underneath the app. It connects Healthdirect's existing content and APIs into a structured, relationship-based model, so the app pulls accurate, contextually linked health information rather than letting the model infer connections on its own.",
   },
   {
     title: "Nurse escalation",
-    img: `${IMG}/demo-nurse-escalation.png`,
-    alt: "Nurse escalation screen with a reference number, call steps, and a securely shared chat summary handed to the 1800MEDICARE team",
+    img: `${IMG}/demo-nurse-escalation.jpg`,
+    alt: "Nurse escalation screen inside ChatGPT with a reference number, step-by-step call instructions, and a note that the chat summary was securely shared with the 1800MEDICARE team",
     body: "Nurse escalation is the pathway that hands a user off from the AI to a real registered nurse. It triggers when symptoms point to a level of urgency or complexity the automated tools shouldn't resolve on their own. The chat summary travels with them, so nobody repeats themselves.",
   },
   {
     title: "Symptom checker",
-    img: `${IMG}/demo-symptom-checker.png`,
-    alt: "Symptom checker result showing a map of nearby bulk-billing medical services with distance and opening hours",
+    img: `${IMG}/demo-symptom-checker.jpg`,
+    alt: "Symptom-check result inside ChatGPT advising the user to see a doctor within 24 hours, with urgent care and GP options to book",
     body: "The symptom checker is a guided, question-based tool. It helps users describe what they're experiencing and directs them to the right level of care, from self-care advice through to emergency services, all grounded in clinically validated triage logic.",
   },
 ];
@@ -256,11 +278,11 @@ export function Healthdirect() {
                 <div className="relative w-full overflow-hidden rounded-[24px] bg-[#0f0f0f]">
                   <div
                     className="relative w-full"
-                    style={{ aspectRatio: "1575 / 930" }}
+                    style={{ aspectRatio: "1561 / 1080" }}
                   >
                     <Image
-                      src={`${IMG}/hero.png`}
-                      alt="1800MEDICARE in ChatGPT: abstract geometric key art in navy, red and orange"
+                      src={`${IMG}/hero-2.jpg`}
+                      alt="A person holding a phone showing the 1800MEDICARE nurse-escalation screen inside ChatGPT, with a reference number and steps to call a registered nurse"
                       fill
                       priority
                       sizes="(min-width: 1280px) 1561px, 100vw"
@@ -450,11 +472,13 @@ export function Healthdirect() {
             <SectionHeading>How I approached it</SectionHeading>
             <BodyParagraph className="mt-5 max-w-[914px]">
               <p className="mb-4">
-                I inherited an early agentic concept and owned it end to end,
-                turning a promising idea into a clinically safe product people
-                could actually talk to. With no settled playbook for health AI,
-                most of the real work happened with people, not in a design
-                file.
+                I inherited an early agentic concept and owned it end to end. The
+                design problem was unusual: no fixed screen to perfect, a medium
+                that could hand out unsafe advice if left alone, and one hard
+                moment at the centre of it all, passing a worried person from an
+                AI to a real nurse without making them start over. With no
+                settled playbook for health AI, most of the real work happened
+                with people, not in a design file.
               </p>
               <ul className="ml-6 list-disc space-y-3">
                 <li>
@@ -518,31 +542,25 @@ export function Healthdirect() {
           </FadeReveal>
         </Container>
 
-        {/* Three teams I coordinated across */}
+        {/* Workshop artefact: the flow-mapping done with the teams */}
         <Container className="mt-[80px]">
           <FadeReveal y={24} delay={0.08}>
-            <BodyParagraph className="max-w-[914px]">
-              Three organisations moving in lockstep. I sat between design,
-              engineering and clinical to keep them aligned without lowering the
-              bar.
+            <BodyParagraph className="mb-6 max-w-[914px]">
+              Mapping the Service Finder and clinical decision-support flows with
+              the engineering and CX teams, agreeing turn by turn how the agent
+              should behave before a line of the prompt was written.
             </BodyParagraph>
-            <div className="mt-6 grid grid-cols-1 gap-4 sm:grid-cols-3">
-              {["Healthdirect Australia", "DEPT®", "AWS Professional Services"].map(
-                (org, i) => (
-                  <div
-                    key={org}
-                    className="flex items-center gap-5 rounded-[24px] border border-paper/10 bg-[#0f0f0f] px-7 py-6"
-                  >
-                    <span className="font-body text-[24px] leading-none font-bold text-paper/40">
-                      0{i + 1}
-                    </span>
-                    <span className="font-body text-[18px] font-bold text-paper md:text-[20px]">
-                      {org}
-                    </span>
-                  </div>
-                ),
-              )}
-            </div>
+            <MaskReveal duration={0.9} delay={0.05}>
+              <MediaFrame aspect="2400 / 1335" bordered>
+                <Image
+                  src={`${IMG}/workshop.jpg`}
+                  alt="A collaborative whiteboard mapping the 1800MEDICARE Service Finder and clinical decision-support conversation flows, with node diagrams, screen references and sticky notes"
+                  fill
+                  sizes="(min-width: 1280px) 1560px, 100vw"
+                  className="object-cover"
+                />
+              </MediaFrame>
+            </MaskReveal>
           </FadeReveal>
         </Container>
       </section>
@@ -659,24 +677,62 @@ export function Healthdirect() {
             {DEMOS.map((demo, i) => (
               <FadeReveal key={demo.title} y={24} delay={0.08 * i}>
                 <MaskReveal duration={0.9} delay={0.05 + 0.05 * i}>
-                  <div
-                    className="relative w-full overflow-hidden rounded-[24px] bg-[#0f0f0f]"
-                    style={{ aspectRatio: "440 / 955" }}
-                  >
+                  <MediaFrame aspect="1754 / 2024">
                     <Image
                       src={demo.img}
                       alt={demo.alt}
                       fill
                       sizes="(min-width: 1280px) 503px, 50vw"
-                      className="object-contain"
+                      className="object-cover"
                     />
-                  </div>
+                  </MediaFrame>
                 </MaskReveal>
                 <ImageCaption>{demo.title}</ImageCaption>
                 <BodyParagraph className="mt-3">{demo.body}</BodyParagraph>
               </FadeReveal>
             ))}
           </div>
+        </Container>
+      </section>
+
+      {/* ================================================================ */}
+      {/* WALKTHROUGH VIDEO                                                 */}
+      {/* ================================================================ */}
+      <section className="pt-[140px]">
+        <Container>
+          <FadeReveal y={20}>
+            <SectionHeading>See it in action</SectionHeading>
+            <BodyParagraph className="mt-5 max-w-[760px]">
+              A run through the service-finder flow in the internal playground we
+              used to pressure-test the agent, stepping turn by turn from a plain
+              question to a clinically grounded answer.
+            </BodyParagraph>
+          </FadeReveal>
+        </Container>
+
+        <Container className="mt-[60px]">
+          <FadeReveal y={28} delay={0.05}>
+            <MaskReveal duration={0.9} delay={0.05}>
+              <MediaFrame aspect="1600 / 1034" bordered>
+                <video
+                  className="h-full w-full object-cover"
+                  poster={`${IMG}/walkthrough-poster.jpg`}
+                  autoPlay
+                  muted
+                  loop
+                  playsInline
+                  controls
+                  preload="metadata"
+                  aria-label="Walkthrough of the 1800MEDICARE service-finder flow inside the ChatGPT app playground"
+                >
+                  <source
+                    src="/videos/healthdirect-walkthrough.mp4"
+                    type="video/mp4"
+                  />
+                </video>
+              </MediaFrame>
+            </MaskReveal>
+          </FadeReveal>
         </Container>
       </section>
 
@@ -771,9 +827,44 @@ export function Healthdirect() {
       </section>
 
       {/* ================================================================ */}
+      {/* REFLECTION                                                        */}
+      {/* ================================================================ */}
+      <section className="pt-[140px] pb-[40px]">
+        <Container>
+          <FadeReveal y={20}>
+            <SectionHeading>What I took from it</SectionHeading>
+            <BodyParagraph className="mt-5 max-w-[820px]">
+              <p className="mb-4">
+                This project reset how I think about design. Most of the work
+                never touched a design file. It lived in how the agent behaves:
+                where it leads, where it defers to clinical logic, and the exact
+                moment it hands someone to a nurse. On an AI surface, that
+                behaviour is the design.
+              </p>
+              <p className="mb-4">
+                It also pushed me further into design technology. I built the
+                design system straight from Figma with MCP and worked in the real
+                codebase alongside engineering, shaping a working product instead
+                of a flat mockup. The distance between design and build keeps
+                shrinking, and this is the part of the craft I want to keep
+                pushing.
+              </p>
+              <p>
+                The last lesson had nothing to do with tools. Getting something
+                this sensitive from brief to pilot in ten weeks came down to
+                agreeing early on what the first release had to prove, and what
+                could wait. That clarity is what let us move fast without
+                lowering the clinical bar.
+              </p>
+            </BodyParagraph>
+          </FadeReveal>
+        </Container>
+      </section>
+
+      {/* ================================================================ */}
       {/* NEXT PROJECT                                                      */}
       {/* ================================================================ */}
-      <NextProjectReveal nextSlug="atlas-carbon" />
+      <NextProjectReveal currentSlug="healthdirect" />
     </article>
   );
 }
