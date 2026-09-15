@@ -1,0 +1,17 @@
+{
+  "detector": {
+    "ignoreRules": [],
+    "ignoreFiles": [],
+    "ignoreValues": [
+      {
+        "rule": "codex-grid-background",
+        "value": "*",
+        "files": [
+          "app/resume/resume.css"
+        ],
+        "createdAt": "2026-09-15T14:34:47.722Z",
+        "reason": "user confirmed: grid backdrop is part of the user's own Claude Design resume they asked to implement faithfully (dark sidebar/footer)"
+      }
+    ]
+  }
+}

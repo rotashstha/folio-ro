@@ -15,8 +15,7 @@ export interface HeaderProps {
   resumeHref?: string;
 }
 
-const RESUME_HREF =
-  "https://docs.google.com/document/d/1idWPbtDreI78o__aHuB_zzw1qFtZ_T2Ibk5upXFQ7bU/edit?usp=sharing";
+const RESUME_HREF = "/resume";
 
 export function Header({ resumeHref = RESUME_HREF }: HeaderProps) {
   const theme = useHeaderTheme();
@@ -27,6 +26,11 @@ export function Header({ resumeHref = RESUME_HREF }: HeaderProps) {
   const isDark = theme === "dark";
   const transition = reduced ? "none" : "color 0.4s ease, filter 0.4s ease";
   const isCaseStudy = pathname.startsWith("/work/");
+
+  // Note: the resume route hides this header via CSS (see app/resume/resume.css)
+  // rather than returning null here — a route-conditional null in this shared
+  // shell component mismatches Next's prerendered layout shell and trips
+  // hydration.
 
   const handleLogoClick = useCallback(
     (e: React.MouseEvent<HTMLAnchorElement>) => {
@@ -105,14 +109,12 @@ export function Header({ resumeHref = RESUME_HREF }: HeaderProps) {
               </Link>
             </li>
             <li>
-              <a
+              <Link
                 href={resumeHref}
-                target="_blank"
-                rel="noopener noreferrer"
                 className="font-medium transition-colors hover:text-accent-magenta"
               >
                 Resume
-              </a>
+              </Link>
             </li>
           </ul>
           <ThemeToggle isDark={isDark} />
