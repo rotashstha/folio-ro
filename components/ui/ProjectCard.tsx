@@ -1,5 +1,6 @@
 import Image from "next/image";
 import Link from "next/link";
+import { projectLinkProps } from "@/lib/projects";
 import type { ProjectFrontmatter, ProjectPalette } from "@/types/project";
 
 export interface ProjectCardProps {
@@ -17,7 +18,7 @@ const PILL_LIGHT = "bg-gradient-to-b from-white/55 to-white/25 text-[#0a0a0a] sh
 const PILL_DARK = "border border-white/30 bg-white/15 text-white";
 
 export function ProjectCard({ project, priority = false }: ProjectCardProps) {
-  const { slug, title, client, label, cover, devices, palette, footerLogo, tags, coverTone, coverBg, tagTones } = project;
+  const { title, client, label, cover, devices, palette, footerLogo, tags, coverTone, coverBg, tagTones } = project;
 
   const hasDevices = devices && devices.length > 0;
   const defaultTone = coverTone ?? "dark";
@@ -38,7 +39,7 @@ export function ProjectCard({ project, priority = false }: ProjectCardProps) {
 
   return (
     <Link
-      href={`/work/${slug}`}
+      {...projectLinkProps(project)}
       aria-label={label}
       data-cursor-trigger="View case"
       className="work-card group block focus-visible:outline-none"

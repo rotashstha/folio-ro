@@ -85,7 +85,7 @@ export function Header({ resumeHref = RESUME_HREF }: HeaderProps) {
         <Link
           href="/"
           onClick={handleLogoClick}
-          aria-label="Rotash Shrestha — homepage"
+          aria-label="Rotash Shrestha homepage"
           className="block"
         >
           <LogoMark

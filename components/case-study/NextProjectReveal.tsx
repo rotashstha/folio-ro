@@ -4,7 +4,7 @@ import Link from "next/link";
 import { useRouter } from "next/navigation";
 import { useEffect, useRef } from "react";
 import { useReducedMotion } from "@/hooks/useReducedMotion";
-import { getNextProject } from "@/lib/projects";
+import { getNextProject, projectLinkProps } from "@/lib/projects";
 import type { ProjectFrontmatter } from "@/types/project";
 
 interface NextProjectRevealProps {
@@ -41,7 +41,7 @@ export function NextProjectReveal({
   const navigatingRef = useRef(false);
 
   useEffect(() => {
-    if (!next) return;
+    if (!next || next.externalUrl) return;
     router.prefetch(`/work/${next.slug}`);
   }, [router, next]);
 
@@ -81,9 +81,11 @@ export function NextProjectReveal({
         track.setAttribute("aria-valuenow", String(Math.round(progress * 100)));
       }
 
+      // External studies open in a new tab from the link; never auto-navigate this tab away.
       if (
         progress >= 0.995 &&
         canAutoNavigate &&
+        !next.externalUrl &&
         window.location.pathname === mountedPathname
       ) {
         navigatingRef.current = true;
@@ -124,7 +126,7 @@ export function NextProjectReveal({
         <div className="mx-auto w-full max-w-[1640px] px-6 text-center md:px-14">
           <p className={baseLabelClasses}>Next Project</p>
           <Link
-            href={`/work/${next.slug}`}
+            {...projectLinkProps(next)}
             data-cursor-trigger="Next case"
             className={`${titleClasses} transition-opacity duration-500 hover:opacity-70 focus-visible:outline-none`}
           >
@@ -153,7 +155,7 @@ export function NextProjectReveal({
         <div className="work-next__meta flex flex-col items-center text-center">
           <p className={`work-next__label ${baseLabelClasses}`}>Next Project</p>
           <Link
-            href={`/work/${next.slug}`}
+            {...projectLinkProps(next)}
             data-cursor-trigger="Next case"
             className={`work-next__title ${titleClasses} transition-opacity duration-500 hover:opacity-70 focus-visible:outline-none`}
           >

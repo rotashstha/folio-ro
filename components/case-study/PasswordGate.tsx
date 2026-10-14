@@ -1,6 +1,7 @@
 "use client";
 
 import { useEffect, useState } from "react";
+import { CaseStudyNotice, NOTICE_BUTTON } from "@/components/case-study/CaseStudyNotice";
 
 const STORAGE_KEY = "cs-unlocked";
 
@@ -62,21 +63,11 @@ export function PasswordGate({
   if (unlocked) return <>{children}</>;
 
   return (
-    <main
-      data-theme="dark"
-      className="font-body flex min-h-screen flex-col items-center justify-center bg-ink px-6 text-paper"
+    <CaseStudyNotice
+      eyebrow="Protected case study"
+      title={projectName}
+      body="This case study is password protected. Enter the passcode to view it."
     >
-      <div className="w-full max-w-[360px] text-center">
-        <p className="font-sans text-[12px] tracking-[0.18em] uppercase text-paper/45">
-          Protected case study
-        </p>
-        <h1 className="font-body mt-3 text-[28px] leading-tight font-bold text-paper md:text-[34px]">
-          {projectName}
-        </h1>
-        <p className="font-body mt-3 text-[15px] leading-[1.5] text-paper/60">
-          This case study is password protected. Enter the passcode to view it.
-        </p>
-
         <form onSubmit={handleSubmit} className="mt-8 flex flex-col gap-3">
           <label htmlFor="cs-passcode" className="sr-only">
             Passcode
@@ -100,7 +91,7 @@ export function PasswordGate({
           />
           <button
             type="submit"
-            className="w-full rounded-full bg-paper px-5 py-3 text-[15px] font-bold text-ink transition-opacity hover:opacity-85"
+            className={NOTICE_BUTTON}
           >
             Unlock
           </button>
@@ -120,7 +111,6 @@ export function PasswordGate({
         >
           ← Back to work
         </a>
-      </div>
-    </main>
+    </CaseStudyNotice>
   );
 }

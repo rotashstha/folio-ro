@@ -19,7 +19,7 @@ export async function POST(req: NextRequest) {
   const apiKey = process.env.ANTHROPIC_API_KEY;
   if (!apiKey) {
     return NextResponse.json(
-      { answer: "AI isn't configured yet — check back soon." },
+      { answer: "AI isn't configured yet. Check back soon." },
       { status: 503 }
     );
   }
@@ -54,7 +54,7 @@ export async function POST(req: NextRequest) {
     return NextResponse.json({ answer });
   } catch {
     return NextResponse.json(
-      { answer: "Something went wrong on my end — try asking again!" },
+      { answer: "Something went wrong on my end. Try asking again!" },
       { status: 500 }
     );
   }

@@ -17,7 +17,10 @@ export const metadata: Metadata = {
   metadataBase: new URL(
     process.env.NEXT_PUBLIC_SITE_URL ?? "http://localhost:3000",
   ),
-  title: "Rotash Shrestha — Strategy, Design, Interaction",
+  title: {
+    default: "Rotash Shrestha | Strategy, Design, Interaction",
+    template: "%s | Rotash Shrestha",
+  },
   description:
     "Portfolio of Rotash Shrestha: product strategy, design systems, and interactive experiences.",
 };

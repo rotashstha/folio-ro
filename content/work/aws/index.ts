@@ -19,7 +19,7 @@ export const awsCaseStudy: CaseStudy = {
   heroCardTone: "navy",
   heroMedia: {
     src: "/images/work/aws/hero.png",
-    alt: "AWS chatbot redesign — two iPhone mockups showing the conversational support entry and an active triage flow",
+    alt: "AWS chatbot redesign: two iPhone mockups showing the conversational support entry and an active triage flow",
     aspect: "16/9",
   },
   meta: {

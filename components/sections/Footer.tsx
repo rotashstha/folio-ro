@@ -39,11 +39,11 @@ const defaultLinks: FooterLink[] = [
 ];
 
 const collageImages: CollageImage[] = [
-  { src: "/images/footer/photo-1.png", alt: "", width: 540, height: 558 },
-  { src: "/images/footer/photo-2.png", alt: "", width: 472, height: 516 },
-  { src: "/images/footer/photo-3.png", alt: "", width: 532, height: 554 },
-  { src: "/images/footer/photo-4.png", alt: "", width: 540, height: 558 },
-  { src: "/images/footer/wedding.png", alt: "", width: 540, height: 558 },
+  { src: "/images/footer/photo-1.webp", alt: "", width: 540, height: 558 },
+  { src: "/images/footer/photo-2.webp", alt: "", width: 472, height: 516 },
+  { src: "/images/footer/photo-3.webp", alt: "", width: 532, height: 554 },
+  { src: "/images/footer/photo-4.webp", alt: "", width: 540, height: 558 },
+  { src: "/images/footer/wedding.webp", alt: "", width: 540, height: 558 },
 ];
 
 const LINK_CLASSES =

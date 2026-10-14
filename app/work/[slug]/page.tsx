@@ -1,7 +1,11 @@
 import Link from "next/link";
 import type { Metadata } from "next";
 import { notFound } from "next/navigation";
-import { getCaseStudy, getAllCaseStudySlugs } from "@/lib/case-studies";
+import {
+  CASE_STUDY_PASSCODE,
+  getCaseStudy,
+  getAllCaseStudySlugs,
+} from "@/lib/case-studies";
 import { placeholderProjects } from "@/lib/projects";
 import { CaseStudyHero } from "@/components/case-study/Hero";
 import { CaseStudyMetaSection } from "@/components/case-study/Meta";
@@ -15,6 +19,7 @@ import { Carell } from "@/components/case-study/projects/Carell";
 import { Woolworths } from "@/components/case-study/projects/Woolworths";
 import { Healthdirect } from "@/components/case-study/projects/Healthdirect";
 import { PasswordGate } from "@/components/case-study/PasswordGate";
+import { ExternalCaseStudy } from "@/components/case-study/ExternalCaseStudy";
 
 interface PageProps {
   params: Promise<{ slug: string }>;
@@ -32,10 +37,10 @@ export async function generateMetadata({
   if (!study) return {};
   const { frontmatter } = study;
   return {
-    title: `${frontmatter.client} — ${frontmatter.title} · Rotash Shrestha`,
+    title: `${frontmatter.client} | ${frontmatter.title}`,
     description: frontmatter.summary,
     openGraph: {
-      title: `${frontmatter.client} — ${frontmatter.title}`,
+      title: `${frontmatter.client} | ${frontmatter.title}`,
       description: frontmatter.summary,
       images: [{ url: frontmatter.cover }],
     },
@@ -45,6 +50,16 @@ export async function generateMetadata({
 export default async function WorkSlugPage({ params }: PageProps) {
   const { slug } = await params;
 
+  // Studies hosted elsewhere (e.g. a Pitch deck) sit behind the gate, then forward.
+  const project = placeholderProjects.find((p) => p.slug === slug);
+  if (project?.externalUrl) {
+    return (
+      <PasswordGate password={CASE_STUDY_PASSCODE} projectName={project.client}>
+        <ExternalCaseStudy href={project.externalUrl} projectName={project.client} />
+      </PasswordGate>
+    );
+  }
+
   // Atlas Carbon ships as a bespoke, pixel-faithful page rather than via the
   // generic template. Other slugs use the template + content schema.
   if (slug === "atlas-carbon") {
@@ -52,7 +67,7 @@ export default async function WorkSlugPage({ params }: PageProps) {
   }
   if (slug === "iag-design-system") {
     return (
-      <PasswordGate password="3136" projectName="IAG">
+      <PasswordGate password={CASE_STUDY_PASSCODE} projectName="IAG">
         <IAG />
       </PasswordGate>
     );
@@ -71,7 +86,7 @@ export default async function WorkSlugPage({ params }: PageProps) {
   }
   if (slug === "healthdirect") {
     return (
-      <PasswordGate password="3136" projectName="Healthdirect">
+      <PasswordGate password={CASE_STUDY_PASSCODE} projectName="Healthdirect">
         <Healthdirect />
       </PasswordGate>
     );

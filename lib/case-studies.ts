@@ -17,6 +17,9 @@ export function getCaseStudy(slug: string): CaseStudy | null {
   return fallback;
 }
 
+/** Shared passcode for the gated case studies; unlocking once covers all of them. */
+export const CASE_STUDY_PASSCODE = "3136";
+
 export function getAllCaseStudySlugs(): string[] {
   return placeholderProjects.map((p) => p.slug);
 }

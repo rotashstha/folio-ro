@@ -9,7 +9,7 @@ export const placeholderProjects: ProjectFrontmatter[] = [
     role: "Design Lead",
     year: 2026,
     summary:
-      "Put Healthdirect's clinical triage, symptom checking and nurse escalation inside everyday ChatGPT — brief to consumer pilot in ~10 weeks.",
+      "Put Healthdirect's clinical triage, symptom checking and nurse escalation inside everyday ChatGPT, from brief to consumer pilot in ~10 weeks.",
     cover: "/images/work/healthdirect/cover.jpg",
     thumbnail: "/images/work/healthdirect/cover.jpg",
     accent: "orange",
@@ -18,6 +18,25 @@ export const placeholderProjects: ProjectFrontmatter[] = [
     tags: ["Healthcare", "Conversational AI", "0 to 1", "ChatGPT"],
     status: "published",
     order: 1,
+  },
+  {
+    title: "From product catalogue to a shopping service",
+    label: "Google Store | From product catalogue to a shopping service",
+    slug: "google-store",
+    client: "Google Store",
+    role: "Lead Product Designer, XD workstream",
+    year: 2026,
+    summary:
+      "Moved Google Store from a product catalogue toward a service that answers questions, builds community and follows shoppers from the physical store to their pocket.",
+    cover: "/images/work/google-store/cover.jpg",
+    thumbnail: "/images/work/google-store/cover.jpg",
+    accent: "neon",
+    palette: "navy",
+    coverTone: "dark",
+    tags: ["Retail", "Ecommerce", "Experience Design", "Component System"],
+    status: "published",
+    order: 2,
+    externalUrl: "https://pitch.com/v/rotash-google-store-case-study-uc5ynw",
   },
   {
     title: "From messy paddocks to a working MVP",
@@ -35,7 +54,7 @@ export const placeholderProjects: ProjectFrontmatter[] = [
     coverTone: "light",
     tags: ["AgTech", "0 to 1", "iOS App", "Web App", "Design System"],
     status: "published",
-    order: 3,
+    order: 4,
   },
   {
     title: "50%+ design efficiency across IAG's brands",
@@ -53,7 +72,7 @@ export const placeholderProjects: ProjectFrontmatter[] = [
     coverTone: "light",
     tags: ["Insurance", "Design System", "Website Redesign", "AEM"],
     status: "published",
-    order: 2,
+    order: 3,
   },
   {
     title: "An AI assistant users actually trust",
@@ -70,7 +89,7 @@ export const placeholderProjects: ProjectFrontmatter[] = [
     palette: "navy",
     tags: ["Enterprise", "Conversational AI", "Chatbot"],
     status: "published",
-    order: 4,
+    order: 5,
   },
   {
     title: "Fragmented fuel ops, unified",
@@ -89,7 +108,7 @@ export const placeholderProjects: ProjectFrontmatter[] = [
     tags: ["Energy", "ERP Dashboard"],
     tagTones: { Energy: "dark", "ERP Dashboard": "dark" },
     status: "published",
-    order: 6,
+    order: 7,
   },
   {
     title: "+21.9% conversion in joinery ops",
@@ -106,7 +125,7 @@ export const placeholderProjects: ProjectFrontmatter[] = [
     palette: "navy",
     tags: ["Construction", "Mobile App"],
     status: "published",
-    order: 7,
+    order: 8,
   },
   {
     title: "A design system 120+ teams build on",
@@ -116,7 +135,7 @@ export const placeholderProjects: ProjectFrontmatter[] = [
     role: "Senior Design System Designer",
     year: 2026,
     summary:
-      "A shared, accessible design system unifying web and mobile — tokens, components and governance that keep Woolworths retail experiences consistent.",
+      "A shared, accessible design system unifying web and mobile: tokens, components and governance that keep Woolworths retail experiences consistent.",
     cover: "/images/work/woolworths/cover-latest.png",
     thumbnail: "/images/work/woolworths/cover-latest.png",
     accent: "neon",
@@ -125,7 +144,7 @@ export const placeholderProjects: ProjectFrontmatter[] = [
     coverBg: "#e7ffb4",
     tags: ["Retail", "Design System", "Accessibility", "Figma"],
     status: "published",
-    order: 5,
+    order: 6,
   },
 ];
 
@@ -134,6 +153,20 @@ export const placeholderProjects: ProjectFrontmatter[] = [
  * back to the first after the last. Order in `placeholderProjects` is the
  * single source of truth, so the end-of-case-study "next" chain never drifts.
  */
+/**
+ * Link props for a project's case study page. Externally hosted studies open
+ * in a new tab, and there is nothing worth prefetching for them.
+ */
+export function projectLinkProps(project: ProjectFrontmatter) {
+  const external = Boolean(project.externalUrl);
+  return {
+    href: `/work/${project.slug}`,
+    target: external ? "_blank" : undefined,
+    rel: external ? "noopener noreferrer" : undefined,
+    prefetch: external ? false : undefined,
+  };
+}
+
 export function getNextProject(
   currentSlug: string,
 ): ProjectFrontmatter | undefined {

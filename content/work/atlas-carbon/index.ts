@@ -18,7 +18,7 @@ export const atlasCarbonCaseStudy: CaseStudy = {
   heroCardTone: "teal",
   heroMedia: {
     src: "/images/work/atlas-carbon/hero.webp",
-    alt: "Maia farming app — two iPhone 16 Pro mockups showing the redesigned grazing dashboard and overview",
+    alt: "Maia farming app: two iPhone 16 Pro mockups showing the redesigned grazing dashboard and overview",
     aspect: "16/9",
   },
   meta: {

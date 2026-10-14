@@ -27,7 +27,7 @@ const defaultCases: StrategyCase[] = [
     year: "Year: 2025",
     body: [
       "For Atlas Carbon, I translated messy real-world behaviour into a functional system model. Through interviews, field shadowing, and rapid prototypes, I identified the actions, rules, and data relationships farmers needed across grazing, paddock planning, and livestock management.",
-      "This functional framework became the backbone for the MVP — aligning engineering on schema, shaping the navigation model, and guiding decisions on what to automate, simplify, or completely reinvent.",
+      "This functional framework became the backbone for the MVP, aligning engineering on schema, shaping the navigation model, and guiding decisions on what to automate, simplify, or completely reinvent.",
     ],
     image: {
       src: "/images/figma/strategy-chatbot-flow.png",
@@ -42,7 +42,7 @@ const defaultCases: StrategyCase[] = [
     year: "Year: Oct – Nov 2025 (6 Weeks discovery)",
     body: [
       "At Virtus Health, I used journey mapping to make staff experience visible. I led discovery workshops and 1:1 sessions with clinicians, nurses, and admin teams to surface operational pain points that impacted both staff and patients.",
-      "By visualising the full patient and staff journey, we uncovered bottlenecks, emotional moments, and systemic breakdowns — giving the organisation a clear, human-centred foundation for redesigning their patient management tool (VPS).",
+      "By visualising the full patient and staff journey, we uncovered bottlenecks, emotional moments, and systemic breakdowns, giving the organisation a clear, human-centred foundation for redesigning their patient management tool (VPS).",
     ],
     image: {
       src: "/images/figma/strategy-journey-map.png",
@@ -83,7 +83,7 @@ function HighlightedBlock({ lines }: { lines: string[] }) {
 export function Strategy({
   heading = "Strategy",
   lead = "Design is a team sport. I help translate business strategy into product roadmaps by facilitating collaborative, in-depth conversations with cross-functional teams (XFN), as well as liaison with engineers to design a great experience.",
-  subLead = "Here is a glimpse of some of the design thinking workshops I have led to uncover answers to challenging problems and inform product vision – ranging from design sprints to co-creation workshops, customer journey mapping, and more.",
+  subLead = "Here is a glimpse of some of the design thinking workshops I have led to uncover answers to challenging problems and inform product vision, ranging from design sprints to co-creation workshops, customer journey mapping, and more.",
   cases = defaultCases,
 }: StrategyProps) {
   return (

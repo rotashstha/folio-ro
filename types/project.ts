@@ -28,6 +28,12 @@ export interface ProjectFrontmatter {
   footerLogo?: string;
   metrics?: { label: string; value: string }[];
   links?: { label: string; url: string }[];
+  /**
+   * Set when the case study lives on another site (e.g. a Pitch deck). Cards
+   * and next-project links open such studies in a new tab, and the gate page
+   * forwards to this URL once unlocked.
+   */
+  externalUrl?: string;
 }
 
 export interface Project extends ProjectFrontmatter {

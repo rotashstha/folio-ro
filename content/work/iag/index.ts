@@ -18,7 +18,7 @@ export const iagCaseStudy: CaseStudy = {
   heroCardTone: "paper",
   heroMedia: {
     src: "/images/work/iag/hero.png",
-    alt: "IAG / NRMA acquisition redesign — desktop and mobile mockups for car and home insurance journeys",
+    alt: "IAG / NRMA acquisition redesign: desktop and mobile mockups for car and home insurance journeys",
     aspect: "16/9",
   },
   meta: {

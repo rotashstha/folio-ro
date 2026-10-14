@@ -1,10 +1,11 @@
 import type { Metadata } from "next";
 import Link from "next/link";
 import { LogoMark } from "@/components/ui/LogoMark";
+import { CASE_STUDY_PASSCODE } from "@/lib/case-studies";
 import "./resume.css";
 
 export const metadata: Metadata = {
-  title: "Rotash Shrestha — Resume",
+  title: "Resume",
   description:
     "Resume of Rotash Shrestha: principal product designer and design lead. 12+ years across insurance, energy, health, and enterprise B2B.",
 };
@@ -18,7 +19,7 @@ export default function ResumePage() {
         {/* Sidebar */}
         <aside className="resume-grid sticky top-0 box-border flex h-screen flex-col justify-between gap-8 overflow-auto border-r border-[#262626] px-12 py-[clamp(32px,6vh,64px)] text-[#f4f4f4] max-[820px]:static max-[820px]:h-auto max-[820px]:min-h-0 max-[820px]:border-r-0 max-[820px]:border-b max-[820px]:p-[40px_24px]">
           <div className="flex flex-col gap-8">
-            <Link href="/" aria-label="Rotash Shrestha — homepage" className="block w-fit">
+            <Link href="/" aria-label="Rotash Shrestha homepage" className="block w-fit">
               <LogoMark className="h-11 w-11" color="white" />
             </Link>
             <h1 className="text-[clamp(34px,3.4vw,48px)] font-bold uppercase leading-[1.05] tracking-[0.02em] max-[820px]:text-[34px] max-[480px]:text-[30px]">
@@ -417,7 +418,7 @@ export default function ResumePage() {
             rel="noopener noreferrer"
             className="text-[15px] font-medium"
           >
-            Portfolio <span className="font-normal text-[#8a8a8a]">[pwd: 3136]</span>
+            Portfolio <span className="font-normal text-[#8a8a8a]">[pwd: {CASE_STUDY_PASSCODE}]</span>
           </a>
         </div>
       </footer>

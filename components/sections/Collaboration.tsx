@@ -28,7 +28,7 @@ const defaultTestimonials: Testimonial[] = [
       {
         segments: [
           {
-            text: "Rotash is also highly effective in stakeholder communication — proactively gathering feedback, clarifying requirements, and presenting design choices in a way that is clear and accessible to both technical and non-technical audiences. Overall, Rotash is a key contributor to the Atlas Carbon team, continually bridging the gap between design and development while keeping stakeholders informed and engaged throughout every stage of the process.",
+            text: "Rotash is also highly effective in stakeholder communication, proactively gathering feedback, clarifying requirements, and presenting design choices in a way that is clear and accessible to both technical and non-technical audiences. Overall, Rotash is a key contributor to the Atlas Carbon team, continually bridging the gap between design and development while keeping stakeholders informed and engaged throughout every stage of the process.",
           },
         ],
       },

@@ -18,7 +18,7 @@ export interface LeadershipProps {
 
 const defaultHighlights: LeadershipHighlight[] = [
   { label: "Lecturer (part-time) at Monash University for the UX/UI and Multimedia program" },
-  { label: "Mentor at adplist.org — a global mentorship community for design and product professionals" },
+  { label: "Mentor at adplist.org, a global mentorship community for design and product professionals" },
   { label: "Interviewed 37 candidates for design teams at Slalom (on-going)" },
   { label: "Leading the Accelerated AI Initiative at Slalom Australia to integrate AI tools into the existing workflow" },
   { label: "Provided 1:1 pro-bono mentorship to 15+ designers (on-going)" },

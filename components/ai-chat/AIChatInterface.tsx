@@ -42,7 +42,7 @@ export function AIChatInterface({
       setAnswer(data.answer);
       setDraft("");
     } catch {
-      setAnswer("Something went wrong — please try again.");
+      setAnswer("Something went wrong. Please try again.");
     } finally {
       setLoading(false);
     }
@@ -53,7 +53,7 @@ export function AIChatInterface({
       id="ai"
       data-theme="light"
       data-theme-fixed
-      aria-label="Pick my brain — AI chat"
+      aria-label="Pick my brain: AI chat"
       className="bg-paper text-ink pt-16 pb-24 md:pt-20 md:pb-[140px]"
     >
       <div className="mx-auto flex w-full max-w-[1035px] flex-col items-center gap-5 px-6 text-center">

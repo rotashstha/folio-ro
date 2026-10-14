@@ -37,7 +37,7 @@ const DRAG_MESSAGES = [
   "I'm locking this layer. (just kidding)",
 ];
 const ALIGN_MESSAGE = "Aligning to Grid...";
-const CHROME_LABEL = "Text — Drag to move";
+const CHROME_LABEL = "Text · Drag to move";
 const CHROME_TYPE_INTERVAL_MS = 32;
 
 const HANDLE_POSITIONS = [
