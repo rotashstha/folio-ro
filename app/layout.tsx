@@ -37,10 +37,12 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
   return (
     <html lang="en" data-theme="dark" suppressHydrationWarning className={fontVars}>
       <head>
-        {/* No-flash theme restore — runs before paint */}
+        {/* The theme toggle is hidden for now, so the site always starts dark and
+            ignores any previously saved preference. The no-transition guard still
+            runs before paint so token transitions don't animate on first load. */}
         <script
           dangerouslySetInnerHTML={{
-            __html: `(function(){var t=localStorage.getItem('portfolio-theme');if(t==='light'||t==='dark')document.documentElement.setAttribute('data-theme',t);document.documentElement.classList.add('no-transition');requestAnimationFrame(function(){requestAnimationFrame(function(){document.documentElement.classList.remove('no-transition')})})})()`,
+            __html: `(function(){document.documentElement.classList.add('no-transition');requestAnimationFrame(function(){requestAnimationFrame(function(){document.documentElement.classList.remove('no-transition')})})})()`,
           }}
         />
       </head>

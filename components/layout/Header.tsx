@@ -8,7 +8,6 @@ import { useReducedMotion } from "@/hooks/useReducedMotion";
 import { scrollToElement } from "@/lib/lenis-instance";
 import { gsap } from "@/lib/animation/gsap-bridge";
 import { LogoMark } from "@/components/ui/LogoMark";
-import { ThemeToggle } from "@/components/ui/ThemeToggle";
 import { BackButton } from "@/components/case-study/BackButton";
 
 export interface HeaderProps {
@@ -70,7 +69,6 @@ export function Header({ resumeHref = RESUME_HREF }: HeaderProps) {
           className="flex w-full items-center justify-between px-6 py-8 md:py-[28px] xl:py-[36px] 2xl:py-[54px]"
         >
           <BackButton />
-          <ThemeToggle isDark={isDark} />
         </nav>
       </header>
     );
@@ -117,7 +115,6 @@ export function Header({ resumeHref = RESUME_HREF }: HeaderProps) {
               </Link>
             </li>
           </ul>
-          <ThemeToggle isDark={isDark} />
         </div>
       </nav>
     </header>
